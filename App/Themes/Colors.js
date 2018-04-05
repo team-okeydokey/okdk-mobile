@@ -1,5 +1,6 @@
 const colors = {
-  background: '#1F0808',
+  // background: '#eff1f8',
+  background: 'white',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
@@ -21,7 +22,19 @@ const colors = {
   eggplant: '#251a34',
   border: '#483F53',
   banner: '#5F3E63',
-  text: '#E0D7E5'
+  text: '#E0D7E5',
+  pastelBlue: '#4d74c6',
+  pastelGreen: '#38935b',
+  textDarkPrimary: '#4b4e50',
+  textDarkSecondary: '#bdbec5',
+  textDarkEmphasis: '#42413A',
+  divider: '#E0E0E0',
+  searchBar: '#E0E0E0',
+  searchBarText: '#afafaf',
+  chartStroke: '#3b5998',
+  chartFill: '#8598F2',
+  heart: '#ff78ae',
+  tabBarInactiveTint: "darkgray",
 }
 
 export default colors
