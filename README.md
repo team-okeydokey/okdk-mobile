@@ -23,7 +23,7 @@ sudo adb start-server
 or try 
 `adb reverse tcp:8081 tcp:8081`.
 
-## :arrow_up: How to Setup
+## How to Setup
 
 **Step 1:** git clone this repo: `git clone https://github.com/team-okeydokey/okdk-mobile.git`
 
