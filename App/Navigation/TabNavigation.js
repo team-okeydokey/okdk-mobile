@@ -7,7 +7,7 @@ import MyKeyNav from './MyKeyNavigation'
 import KeyTokenNav from './KeyTokenNavigation'
 import ProfileNav from './ProfileNavigation'
 
-import { Icon } from 'Icon/react-native-vector-icons/dist/SimpleLineIcons';
+import { Icon } from 'react-native-vector-icons/SimpleLineIcons';
 
 import { Colors } from '../Themes/'
 import styles from './Styles/NavigationStyles'

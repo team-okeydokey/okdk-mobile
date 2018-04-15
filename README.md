@@ -16,7 +16,7 @@ Also in your phone, go to Settings -> Apps -> Gear -> Special access -> Draw ove
 
 2. To fix the android device insufficient permissions error, run
 ```
-sudo adb kill-server
+adb kill-server
 sudo adb start-server
 ```
 

@@ -7,8 +7,11 @@ import ReduxPersist from '../Config/ReduxPersist'
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
+  appState: require('./AppStateRedux').reducer,
   github: require('./GithubRedux').reducer,
-  search: require('./SearchRedux').reducer
+  search: require('./SearchRedux').reducer,
+  login: require('./LoginRedux').reducer,
+  banner: require('./BannerRedux').reducer
 })
 
 export default () => {
