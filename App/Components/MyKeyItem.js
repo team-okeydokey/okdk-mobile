@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native'
 import { Images } from '../Themes/'
-import styles from './Styles/DeviceListItemStyle'
+import styles from './Styles/MyKeyItemStyle'
 import { LinearGradient } from 'expo'
 
-import { SimpleLineIcons } from '@expo/vector-icons';
+// import { SimpleLineIcons } from '@expo/vector-icons';
+import { Icon } from 'react-native-elements'
 
 export default class MyKeyItem extends Component {
   static propTypes = {
@@ -62,7 +63,7 @@ export default class MyKeyItem extends Component {
 
         </View>
 
-        <SimpleLineIcons name={'arrow-right'} size={25} />
+        <Icon type={'simple-line-icon'} name={'arrow-right'} size={25} />
 
       </View>
     )

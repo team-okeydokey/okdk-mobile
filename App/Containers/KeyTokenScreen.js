@@ -5,7 +5,7 @@ import { VictoryArea, VictoryLine, VictoryChart, VictoryAxis,
   VictoryZoomContainer, VictoryTheme } from "victory-native"
 import Divider from '../Components/Divider'
 import { Images, Colors } from '../Themes/';
-import { Icon } from 'react-native-vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo'
 import RoundedButton from '../Components/RoundedButton'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -108,7 +108,7 @@ class KeyTokenScreen extends Component {
 
             <View style={styles.walletItem}> 
               <View style={styles.walletItemTitle}>
-                <Icon name={'coins'} size={30} color={Colors.snow}/>
+                <MaterialCommunityIcons name={'coins'} size={30} color={Colors.snow}/>
               </View>
 
               <View style={styles.walletItemValueContainer}>

@@ -7,7 +7,7 @@ import MyKeyNav from './MyKeyNavigation'
 import KeyTokenNav from './KeyTokenNavigation'
 import ProfileNav from './ProfileNavigation'
 
-import { Icon } from 'react-native-vector-icons/SimpleLineIcons';
+import { Icon } from 'react-native-elements'
 
 import { Colors } from '../Themes/'
 import styles from './Styles/NavigationStyles'
@@ -44,7 +44,7 @@ const TabNav = TabNavigator(
 
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons
-        return (<Icon name={iconName} size={25} color={tintColor}/>);
+        return (<Icon type={'simple-line-icon'} name={iconName} size={25} color={tintColor}/>);
       },
     }),
     tabBarOptions: {

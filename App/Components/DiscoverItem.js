@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native'
 import { Images, Colors } from '../Themes/'
 import styles from './Styles/DiscoverItemStyle'
-import { Icon } from 'react-native-vector-icons/Foundation';
+
+// import { Foundation } from '@expo/vector-icons';
+import { Icon } from 'react-native-elements'
 
 export default class DiscoverItem extends Component {
   static propTypes = {
@@ -29,7 +31,7 @@ export default class DiscoverItem extends Component {
         <Text numberOfLines={2} style={styles.description}>{this.props.description}</Text>
         <View style={styles.footer}>
           <View style={styles.heartContainer}>
-            <Icon name={'heart'} size={20} color={Colors.heart}/>
+            <Icon type={'foundation'} name={'heart'} size={20} color={Colors.heart}/>
             <Text numberOfLines={1} style={styles.heartCount}>{this.props.hearts}</Text>
           </View>
           <Text numberOfLines={1} style={styles.price}>{this.props.price}</Text>

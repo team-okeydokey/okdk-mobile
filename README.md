@@ -23,6 +23,13 @@ sudo adb start-server
 or try 
 `adb reverse tcp:8081 tcp:8081`.
 
+or kill packager and try again.
+``` 
+fuser -k 8081/tcp
+react-native start
+```
+
+
 ## How to Setup
 
 **Step 1:** git clone this repo: `git clone https://github.com/team-okeydokey/okdk-mobile.git`
