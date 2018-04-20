@@ -46,9 +46,8 @@ export default class MyKeyItem extends Component {
 
   render () {
     return (
-      <View style={styles.container}>
-
       <TouchableOpacity onPress={this.onPress}>
+      <View style={styles.container}>
 
         <View style={styles.deviceInfoContainer}>
 
@@ -71,9 +70,8 @@ export default class MyKeyItem extends Component {
 
         <Icon type={'simple-line-icon'} name={'arrow-right'} size={25} />
 
-      </TouchableOpacity>
-
       </View>
+      </TouchableOpacity>
     )
   }
 }
