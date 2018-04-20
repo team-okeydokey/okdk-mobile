@@ -24,16 +24,20 @@ class DeviceActionScreen extends Component {
         </View>
 
         <View style={styles.deviceInfoContainer}>
-          <Text style={styles.deviceInfoName}>Name</Text>
+          <Text style={styles.deviceInfoName}>{this.props.name}</Text>
 
           <View style={styles.inline}>
             <Text style={styles.deviceInfoLabel}>Address: </Text>
-            <Text style={styles.deviceInfoValue}>test test</Text>
+            <Text style={styles.deviceInfoValue}
+                  numberOfLines={1}>{this.props.address}
+            </Text>
           </View>
 
           <View style={styles.inline}>
             <Text style={styles.deviceInfoLabel}>Description: </Text>
-            <Text style={styles.deviceInfoValue}>test test</Text>
+            <Text style={styles.deviceInfoValue}
+                  numberOfLines={2}>{this.props.description}
+            </Text>
           </View>
         </View>
 
@@ -55,6 +59,9 @@ class DeviceActionScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    name: state.device.name,
+    address: state.device.address,
+    description: state.device.description,
   }
 }
 

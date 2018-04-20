@@ -11,7 +11,8 @@ export const reducers = combineReducers({
   github: require('./GithubRedux').reducer,
   search: require('./SearchRedux').reducer,
   login: require('./LoginRedux').reducer,
-  banner: require('./BannerRedux').reducer
+  banner: require('./BannerRedux').reducer,
+  device: require('./DeviceRedux').reducer
 })
 
 export default () => {

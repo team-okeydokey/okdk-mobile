@@ -3,6 +3,7 @@ import { View, ScrollView, Text, KeyboardAvoidingView,
   SectionList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
+import DeviceActions from '../Redux/DeviceRedux'
 import MyKeyItem from '../Components/MyKeyItem'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -40,7 +41,7 @@ class MyKeyScreen extends Component {
                             description={item.description}
                             address={item.address}
                             index={index}
-                            onPress={this.props.launchDeviceActionScreen}/>                        
+                            onPress={item => this.props.selectItem(item)}/>                        
 
   render () {
     return (
@@ -79,7 +80,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  launchDeviceActionScreen: () => {
+  selectItem: item => {
+    dispatch(DeviceActions.select(item));
     dispatch(NavigationActions.navigate({ routeName: 'DeviceActionScreen' }));
   }
 });

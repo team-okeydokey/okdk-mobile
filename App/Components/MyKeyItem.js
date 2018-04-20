@@ -41,7 +41,7 @@ export default class MyKeyItem extends Component {
   }
 
   onPress = () => {
-    this.props.onPress();
+    this.props.onPress(this.props);
   }
 
   render () {
