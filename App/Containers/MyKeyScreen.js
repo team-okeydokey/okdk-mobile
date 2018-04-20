@@ -80,7 +80,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   launchDeviceActionScreen: () => {
-    dispatch(NavigationActions.back());
+    dispatch(NavigationActions.navigate({ routeName: 'DeviceActionScreen' }));
   }
 });
 
