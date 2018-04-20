@@ -23,7 +23,7 @@ export default StyleSheet.create({
   	alignItems: 'flex-start',
   	padding: Metrics.baseMargin,
   	marginHorizontal: Metrics.sectionMargin,
-  	marginVertical: 30,
+  	marginVertical: 20,
   },
   inline: {
   	flexDirection: 'row',
