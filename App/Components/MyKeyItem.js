@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { Images } from '../Themes/'
 import styles from './Styles/MyKeyItemStyle'
-import { LinearGradient } from 'expo'
+import LinearGradient from 'react-native-linear-gradient'
 
-// import { SimpleLineIcons } from '@expo/vector-icons';
 import { Icon } from 'react-native-elements'
 
 export default class MyKeyItem extends Component {
@@ -13,8 +12,9 @@ export default class MyKeyItem extends Component {
     image: PropTypes.string,
     name: PropTypes.string,
     description: PropTypes.string,
-    addresss: PropTypes.string,
-    index: PropTypes.number
+    address: PropTypes.string,
+    index: PropTypes.number,
+    onPress: PropTypes.func
   }
 
   getIconName = (index) => {
@@ -40,9 +40,15 @@ export default class MyKeyItem extends Component {
     return [startHex, endHex];
   }
 
+  onPress = () => {
+    this.props.onPress();
+  }
+
   render () {
     return (
       <View style={styles.container}>
+
+      <TouchableOpacity onPress={this.onPress}>
 
         <View style={styles.deviceInfoContainer}>
 
@@ -64,6 +70,8 @@ export default class MyKeyItem extends Component {
         </View>
 
         <Icon type={'simple-line-icon'} name={'arrow-right'} size={25} />
+
+      </TouchableOpacity>
 
       </View>
     )

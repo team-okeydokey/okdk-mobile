@@ -4,7 +4,6 @@ import { View, Text, Image } from 'react-native'
 import { Images, Colors } from '../Themes/'
 import styles from './Styles/DiscoverItemStyle'
 
-// import { Foundation } from '@expo/vector-icons';
 import { Icon } from 'react-native-elements'
 
 export default class DiscoverItem extends Component {

@@ -32,12 +32,17 @@ class MyKeyScreen extends Component {
     header: () => null,
   };
 
+  onPressDevice() {
+    
+  }  
+
   renderItem = ({item, index}) => <MyKeyItem 
                             image={item.image} 
                             name={item.name} 
                             description={item.description}
                             address={item.address}
-                            index={index}/>
+                            index={index}
+                            onPress={this.onPressDevice}/>                        
 
   render () {
     return (

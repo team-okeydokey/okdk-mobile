@@ -6,7 +6,7 @@ import Banner from '../Components/Banner'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import { SearchBar } from 'react-native-elements'
-import { EvilIcons } from '@expo/vector-icons';
+import { Icon } from 'react-native-elements'
 import { Colors } from '../Themes'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -71,7 +71,7 @@ class DiscoverScreen extends Component {
               Discover
             </Text>
 
-            <EvilIcons name={'search'} size={30} color={Colors.textDarkEmphasis} style={{marginTop:25}}/>
+            <Icon type={'evilicon'} name={'search'} size={30} color={Colors.textDarkEmphasis} style={{marginTop:25}}/>
           </View>
 
           <Banner />

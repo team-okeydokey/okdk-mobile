@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native'
 import styles from './Styles/ChatListItemStyle'
-import { LinearGradient } from 'expo'
-import { SimpleLineIcons } from '@expo/vector-icons';
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class ChatListItem extends Component {
   static propTypes = {

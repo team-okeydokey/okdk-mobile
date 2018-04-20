@@ -4,31 +4,29 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  setRehydrationComplete: null
+  rotate: ['index'],
 })
 
-export const AppStateTypes = Types
+export const TemperatureTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  rehydrationComplete: false
+  bannerEntries: [{'title': 'Hello'}, 
+                  {'title': 'Yellow'}],
+  activeSlide: 0,
 })
 
 /* ------------- Reducers ------------- */
 
-// rehydration is complete
-export const setRehydrationComplete = (state: Object) =>
-  state.merge({ rehydrationComplete: true })
+export const rotateBanner = (state, { index }) => {
+  const activeSlide = index % 5
+  return state.merge({ activeSlide: activeSlide})
+}
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_REHYDRATION_COMPLETE]: setRehydrationComplete
+  [Types.ROTATE]: rotateBanner,
 })
-
-/* ------------- Selectors ------------- */
-
-// Is rehydration complete?
-export const isRehydrationComplete = (state: Object) => state.rehydrationComplete

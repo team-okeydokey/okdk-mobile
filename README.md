@@ -26,7 +26,7 @@ or try
 or kill packager and try again.
 ``` 
 fuser -k 8081/tcp
-react-native start
+react-native start --reset-cache
 ```
 
 
