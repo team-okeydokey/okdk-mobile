@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, KeyboardAvoidingView, SectionList, TouchableOpacity } from 'react-native'
+import { View, ScrollView, Text, KeyboardAvoidingView, 
+  SectionList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
 import MyKeyItem from '../Components/MyKeyItem'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -32,17 +34,13 @@ class MyKeyScreen extends Component {
     header: () => null,
   };
 
-  onPressDevice() {
-    
-  }  
-
   renderItem = ({item, index}) => <MyKeyItem 
                             image={item.image} 
                             name={item.name} 
                             description={item.description}
                             address={item.address}
                             index={index}
-                            onPress={this.onPressDevice}/>                        
+                            onPress={this.props.launchDeviceActionScreen}/>                        
 
   render () {
     return (
@@ -80,9 +78,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = (dispatch) => ({
+  launchDeviceActionScreen: () => {
+    dispatch(NavigationActions.back());
   }
-}
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyKeyScreen)
