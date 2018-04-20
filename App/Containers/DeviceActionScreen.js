@@ -3,6 +3,7 @@ import { View, Image, ScrollView, Text, KeyboardAvoidingView } from 'react-nativ
 import { connect } from 'react-redux'
 import RoundedButton from '../Components/RoundedButton'
 import { Images } from '../Themes/'
+import GethModule from '../Lib/NativeModules'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -10,6 +11,15 @@ import { Images } from '../Themes/'
 import styles from './Styles/DeviceActionScreenStyle'
 
 class DeviceActionScreen extends Component {
+
+  action1() {
+    GethModule.send('1234', '0x15151515', 'open', msg => {});
+  }
+
+  action2() {
+    GethModule.send('1234', '0x15151515', 'open', msg => {});
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -26,15 +36,15 @@ class DeviceActionScreen extends Component {
         <View style={styles.deviceInfoContainer}>
           <Text style={styles.deviceInfoName}>{this.props.name}</Text>
 
-          <View style={styles.inline}>
-            <Text style={styles.deviceInfoLabel}>Address: </Text>
+          <View style={styles.deviceInfoItem}>
+            <Text style={styles.deviceInfoLabel}>Address</Text>
             <Text style={styles.deviceInfoValue}
-                  numberOfLines={1}>{this.props.address}
+                  numberOfLines={2}>{this.props.address}
             </Text>
           </View>
 
-          <View style={styles.inline}>
-            <Text style={styles.deviceInfoLabel}>Description: </Text>
+          <View style={styles.deviceInfoItem}>
+            <Text style={styles.deviceInfoLabel}>Description</Text>
             <Text style={styles.deviceInfoValue}
                   numberOfLines={2}>{this.props.description}
             </Text>
@@ -44,11 +54,11 @@ class DeviceActionScreen extends Component {
         <View style={styles.buttonsContainer}>
           <RoundedButton
             text='Open lock'
-            onPress={() => window.alert('Rounded Button Pressed!')}
+            onPress={() => this.action1()}
           />
           <RoundedButton
             text='Close lock'
-            onPress={() => window.alert('Rounded Button Pressed!')}
+            onPress={() => this.action2()}
           />
         </View>
         </KeyboardAvoidingView>

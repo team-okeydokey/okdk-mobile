@@ -21,17 +21,19 @@ export default StyleSheet.create({
   	flex: 3,
   	justifyContent: 'center',
   	alignItems: 'flex-start',
-  	padding: Metrics.baseMargin,
+  	paddingHorizontal: Metrics.doubleBaseMargin,
   	marginHorizontal: Metrics.sectionMargin,
-  	marginVertical: 20,
+  	marginVertical: 15,
   },
-  inline: {
-  	flexDirection: 'row',
+  deviceInfoItem: {
+  	flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
   deviceInfoName: {
   	color: Colors.coal,
     fontWeight: 'bold',
-    fontSize: Fonts.size.h5,
+    fontSize: Fonts.size.h3,
     fontFamily: Fonts.type.emphasis,
     paddingHorizontal: Metrics.marginVertical,
     paddingVertical: 5,
@@ -50,10 +52,12 @@ export default StyleSheet.create({
     color: Colors.charcoal,
     fontFamily: Fonts.type.base,
     paddingHorizontal: Metrics.marginVertical,
-    marginVertical: 5,
-    marginRight: 'auto' // Override justify content.
+    paddingVertical: 5,
+    marginRight: 'auto', // Override justify content.
+    textAlign: 'left'
   },
   buttonsContainer: {
   	flex: 2,
+    marginBottom: Metrics.doubleSection
   },
 })

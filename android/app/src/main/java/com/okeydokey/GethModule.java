@@ -23,22 +23,24 @@ public class GethModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void test(Callback onMessage) {
+  public void send(String password, String topic, 
+    String payload, Callback onMessage) {
+
     try {
       Context context = new Context();
       // Fetch client.
       Node node = NodeManager.getInstance().getNode();
       WhisperClient whisperClient = node.getWhisperClient();
       // Add symkey.
-      String symkeyId = whisperClient.generateSymmetricKeyFromPassword(context, "password");
+      String symkeyId = whisperClient.generateSymmetricKeyFromPassword(context, password);
 //      whisperClient.addSymmetricKey(context, symkey);
       // Set message params.
       NewMessage newMessage = new NewMessage();
       newMessage.setSymKeyID(symkeyId);
-      newMessage.setTopic("0xdb9fb12e".getBytes());
+      newMessage.setTopic(topic.getBytes());
       newMessage.setPowTarget(3.0);
       newMessage.setPowTime(3);
-      newMessage.setPayload("Please go through~~!".getBytes());
+      newMessage.setPayload(payload.getBytes());
       // Post message.
       whisperClient.post(context, newMessage);
       onMessage.invoke("Did it go through?");
