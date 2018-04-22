@@ -13,9 +13,10 @@ import styles from './Styles/MyKeyScreenStyle'
 
 const data = [
   {data: [{image:'device1', name:'Front door', 'description':'Room 711', 'address': '0x281055Afc982d96fAB65b3a49cAc8b878184Cb16'}, 
-           {image:'device2', name:'Camera', 'description':'Room 711', 'address': '0x6f46cf5569aefa1acc1009290c8e043747172d89'},
-           {image:'device3', name:'Back door', 'description':'Room 804', 'address': '0x90e63c3d53e0ea496845b7a03ec7548b70014a91'},
-           {image:'device4', name:'Lobby door', 'description':'Apartment lobby', 'address': '0xab7c74abc0c4d48d1bdad5dcb26153fc8780f83e'}], 
+           // {image:'device2', name:'Camera', 'description':'Room 711', 'address': '0x6f46cf5569aefa1acc1009290c8e043747172d89'},
+           // {image:'device3', name:'Back door', 'description':'Room 804', 'address': '0x90e63c3d53e0ea496845b7a03ec7548b70014a91'},
+           // {image:'device4', name:'Lobby door', 'description':'Apartment lobby', 'address': '0xab7c74abc0c4d48d1bdad5dcb26153fc8780f83e'}
+           ], 
   title: "Active devices"},
 
   {data: [{image:'device1', name:'Thermometer', 'description':'Living room', 'address': '0x53d284357ec70ce289d6d64134dfac8e511c8a3d'}, 

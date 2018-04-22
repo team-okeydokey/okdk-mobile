@@ -17,7 +17,7 @@ class DeviceActionScreen extends Component {
   }
 
   action2() {
-    GethModule.send('1234', '0x15151515', 'open', msg => {});
+    GethModule.send('1234', '0x15151515', 'close', msg => {});
   }
 
   render () {

@@ -4,11 +4,16 @@ import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.ethereum.geth.Account;
+import org.ethereum.geth.Enode;
+import org.ethereum.geth.Enodes;
 import org.ethereum.geth.EthereumClient;
 import org.ethereum.geth.Geth;
 import org.ethereum.geth.KeyStore;
@@ -34,26 +39,26 @@ public class MainActivity extends ReactActivity {
             // Specify static-nodes.json.
             String staticNodesPath = getFilesDir() + Constants.GETH_PATH + "/static-nodes.json";
             storeJSON(staticNodesPath, Constants.bootNodeJSON);
+
             // Initialize node config.
-            NodeConfig nodeConfig = new NodeConfig();
+            NodeConfig nodeConfig = Geth.newNodeConfig();
             // Set additional configs.
             nodeConfig.setEthereumNetworkID(2441);
             nodeConfig.setWhisperEnabled(true);
             nodeConfig.setEthereumEnabled(true);
             nodeConfig.setEthereumGenesis(Constants.genesisJSON);
+//            Enodes bootNodes = Geth.newEnodes(1);
+//            bootNodes.set(0, Geth.newEnode(Constants.BOOTNODE));
+//            nodeConfig.setBootstrapNodes(bootNodes);
+
             // Define and start node.
             Node node = Geth.newNode(getFilesDir() + Constants.DATA_DIR, nodeConfig);
             node.start();
-            NodeInfo nodeInfo = node.getNodeInfo();
-            System.out.println(nodeInfo.getIP());
-            System.out.println(nodeInfo.getDiscoveryPort());
-            System.out.println(nodeInfo.getListenerAddress());
-            System.out.println(nodeInfo.getListenerPort());
-            System.out.println(nodeInfo.getProtocols());
-            System.out.println(node.getEthereumClient().toString());
+
             // Add node to a singleton class.
             NodeManager nodeManager = NodeManager.getInstance();
             nodeManager.setNode(node);
+
             // Account management.
             KeyStore keystore = new KeyStore(getFilesDir() + "/keystore", Geth.LightScryptN, Geth.LightScryptP);
             Account newAccount = keystore.importKey(Constants.keyfile.getBytes(), "alsohardpassword", "reallyhardpassword");

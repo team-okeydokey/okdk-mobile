@@ -38,7 +38,7 @@ public class GethModule extends ReactContextBaseJavaModule {
       NewMessage newMessage = new NewMessage();
       newMessage.setSymKeyID(symkeyId);
       newMessage.setTopic(topic.getBytes());
-      newMessage.setPowTarget(3.0);
+      newMessage.setPowTarget(0.5);
       newMessage.setPowTime(3);
       newMessage.setPayload(payload.getBytes());
       // Post message.

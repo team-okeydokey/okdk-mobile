@@ -43,6 +43,17 @@ react-native start --reset-cache
 1. cd to the repo
 2. Run Build for either OS
 
+Producing standalone Android APK:
+```
+react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug
+cd android
+./gradlew assembleDebug
+```
+
+Or simply run `npm run apk` from the project root.
+
+Path to apk is `android/app/build/outputs/apk/app-debug.apk`.
+
 ## Standard Compliant
 
 This project adheres to Standard.  Our CI enforces this, so we suggest you enable linting to keep your project compliant during development.
