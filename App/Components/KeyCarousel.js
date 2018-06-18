@@ -6,7 +6,7 @@ import styles from './Styles/KeyCarouselStyle'
 import Carousel from 'react-native-snap-carousel';
 import KeyCard from './KeyCard';
 
-entries = [{"title": "first"}, {"title": "first"}];
+entries = [{"title": "Front door"}, {"title": " Back door"}];
 
 export default class KeyCarousel extends Component {
   // Prop type warnings

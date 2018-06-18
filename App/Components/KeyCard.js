@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/KeyCardStyle'
 
 export default class KeyCard extends Component {
@@ -17,7 +17,29 @@ export default class KeyCard extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>{this.props.title}</Text>
+
+        <View style={styles.keyCardImage}>
+          
+        </View>
+        
+        <View style={styles.keyCardInfo}>
+          <Text>{this.props.title}</Text>
+        </View>
+
+        <View style={styles.keyCardButtonContainer}>
+
+          <TouchableOpacity 
+            style={styles.openButton}>
+            <Text style={styles.openText}>Open</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.closeButton}>
+            <Text style={styles.closeText}>Close</Text>
+          </TouchableOpacity>
+
+        </View>
+
       </View>
     )
   }

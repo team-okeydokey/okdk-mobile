@@ -17,7 +17,7 @@ class HomeScreen extends Component {
           <Text>HomeScreen</Text>
           <KeyCarousel
             sliderWidth={400}
-            itemWidth={200}
+            itemWidth={300}
           />
         </KeyboardAvoidingView>
       </ScrollView>

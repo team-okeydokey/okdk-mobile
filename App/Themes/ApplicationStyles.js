@@ -74,7 +74,18 @@ const ApplicationStyles = {
     borderColor: Colors.ember,
     alignItems: 'center',
     textAlign: 'center'
-  }
+  },
+  shadow: {
+    // Android
+    elevation: 5,
+
+    // iOS
+    shadowColor: 'black',
+    shadowOffset: { width: 1, height: 1},
+    shadowRadius: 5,
+    shadowOpacity: 1,    
+  },
+
 }
 
 export default ApplicationStyles
