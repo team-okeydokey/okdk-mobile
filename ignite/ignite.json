@@ -1,15 +1,15 @@
 {
-  "createdWith": "2.0.0",
+  "createdWith": "2.1.0",
   "examples": "classic",
   "navigation": "react-navigation",
-  "askToOverride": true,
+  "askToOverwrite": true,
   "generators": {
-    "component": "ignite-ir-boilerplate",
-    "container": "ignite-ir-boilerplate",
-    "listview": "ignite-ir-boilerplate",
-    "list": "ignite-ir-boilerplate",
-    "redux": "ignite-ir-boilerplate",
-    "saga": "ignite-ir-boilerplate",
-    "screen": "ignite-ir-boilerplate"
+    "component": "ignite-ir-boilerplate-andross",
+    "container": "ignite-ir-boilerplate-andross",
+    "listview": "ignite-ir-boilerplate-andross",
+    "list": "ignite-ir-boilerplate-andross",
+    "redux": "ignite-ir-boilerplate-andross",
+    "saga": "ignite-ir-boilerplate-andross",
+    "screen": "ignite-ir-boilerplate-andross"
   }
 }

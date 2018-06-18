@@ -1,16 +1,20 @@
 import { StackNavigator } from 'react-navigation'
-import DeviceActionScreen from '../Containers/DeviceActionScreen'
-import TabNav from './TabNavigation'
-import WelcomeScreen from '../Containers/WelcomeScreen'
+import HomeScreen from '../Containers/HomeScreen'
+import LaunchScreen from '../Containers/LaunchScreen'
+
+import styles from './Styles/NavigationStyles'
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
-  TabNav: { screen: TabNav },
-  WelcomeScreen: { screen: WelcomeScreen },
+  HomeScreen: { screen: HomeScreen },
+  LaunchScreen: { screen: LaunchScreen }
 }, {
   // Default config for all screens
-  mode: 'modal',
   headerMode: 'none',
+  initialRouteName: 'HomeScreen',
+  navigationOptions: {
+    headerStyle: styles.header
+  }
 })
 
 export default PrimaryNav
