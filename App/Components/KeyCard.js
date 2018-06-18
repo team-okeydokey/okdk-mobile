@@ -16,14 +16,14 @@ export default class KeyCard extends Component {
 
   render () {
     return (
-      <View style={styles.container}>
+      <View style={styles.keyCard}>
 
         <View style={styles.keyCardImage}>
           
         </View>
         
         <View style={styles.keyCardInfo}>
-          <Text>{this.props.title}</Text>
+          <Text style={styles.keyCardTitle}>{this.props.title}</Text>
         </View>
 
         <View style={styles.keyCardButtonContainer}>

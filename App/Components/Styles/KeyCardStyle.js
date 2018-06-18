@@ -6,28 +6,45 @@ export default StyleSheet.create({
     flex: 1
   }, 
 
+  keyCard: {
+    // ...ApplicationStyles.shadow,
+    backgroundColor: Colors.snow,
+  },
+
+  keyCardInfo: {
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems: 'flex-start', 
+    padding: Metrics.baseMargin
+  },
+
+  keyCardTitle: {
+    ...Fonts.style.h4,
+  },
+
   keyCardButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center', 
+    padding: Metrics.baseMargin
   },
 
   openButton: {
+    ...ApplicationStyles.shadow,
     backgroundColor: Colors.affirmative,
     borderRadius: 40,
     paddingHorizontal: Metrics.baseMargin,
     paddingVertical: Metrics.smallMargin,
     marginRight: Metrics.baseMargin,
-    ...ApplicationStyles.shadow,
   }, 
   
   closeButton: {
+    ...ApplicationStyles.shadow,
     backgroundColor: Colors.negative,
     borderRadius: 40,
     paddingHorizontal: Metrics.baseMargin,
     paddingVertical: Metrics.smallMargin,
     marginLeft: Metrics.baseMargin,
-    ...ApplicationStyles.shadow,
   },
 
   openText: {
