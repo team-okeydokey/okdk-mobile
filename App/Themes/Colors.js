@@ -24,6 +24,8 @@ const colors = {
   text: '#E0D7E5',
   affirmative: '#107738',
   negative: '#b51528',
+  sand: '#E3E1DD',
+  aliceBlue: '#F3F4F5',
 }
 
 export default colors

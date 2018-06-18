@@ -11,10 +11,16 @@ export default StyleSheet.create({
     backgroundColor: Colors.snow,
   },
 
+  keyCardImage: {
+    height: 120,
+    backgroundColor: Colors.sand
+  },
+
   keyCardInfo: {
     flexDirection:'column',
     justifyContent:'center',
     alignItems: 'flex-start', 
+    height: 70,
     padding: Metrics.baseMargin
   },
 
@@ -26,7 +32,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center', 
-    padding: Metrics.baseMargin
+    height: 50,
+    padding: Metrics.baseMargin,
+    backgroundColor: Colors.aliceBlue
   },
 
   openButton: {
