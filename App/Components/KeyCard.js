@@ -29,12 +29,15 @@ export default class KeyCard extends Component {
       let response = await fetch(
         'http://18.220.28.85:5000/api/v1/open'
       );
-      let responseJson = await response.json();
+      const text = await response.text();
+      const data = JSON.parse(text);
       this.setState(prevState => ({
-        testText: JSON.stringify(response)
+        testText: JSON.stringify(data)
       }));
     } catch (error) {
-      console.error(error);
+      this.setState(prevState => ({
+        testText: "Response contains error."
+      }));
     }
   }
 
