@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'https://api.github.com/') => {
+const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
   // ------
   // STEP 1
   // ------
@@ -37,6 +37,8 @@ const create = (baseURL = 'https://api.github.com/') => {
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
   const getUser = (username) => api.get('search/users', {q: username})
+  const open = (deviceId) => api.get('open', {deviceId: deviceId});
+  const close = (deviceId) => api.get('close', {deviceId: deviceId});
 
   // ------
   // STEP 3
@@ -54,7 +56,9 @@ const create = (baseURL = 'https://api.github.com/') => {
     // a list of the API functions from step 2
     getRoot,
     getRate,
-    getUser
+    getUser,
+    open,
+    close
   }
 }
 

@@ -14,7 +14,7 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior='position'>
-          <Text>HomeScreen</Text>
+          <Text style={styles.sectionTitle}>My Keys</Text>
           <KeyCarousel
             sliderWidth={400}
             itemWidth={300}

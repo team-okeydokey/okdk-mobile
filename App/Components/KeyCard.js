@@ -72,7 +72,7 @@ export default class KeyCard extends Component {
 
         </View>
 
-      <Text>{this.state.testText}</Text>  
+      {/* <Text>{this.state.testText}</Text>   */}
       </View>
     )
   }

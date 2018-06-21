@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles } from '../../Themes/'
+import { Fonts, Colors, Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
-  ...ApplicationStyles.screen
+  ...ApplicationStyles.screen,
+  sectionTitle: {
+    ...Fonts.style.h2,
+    margin: Metrics.doubleBaseMargin,
+    color:'black', 
+  }, 
 })

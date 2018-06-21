@@ -34,6 +34,7 @@ export default StyleSheet.create({
     alignItems: 'center', 
     height: 50,
     padding: Metrics.baseMargin,
+    paddingVertical: Metrics.doubleBaseMargin,
     backgroundColor: Colors.aliceBlue
   },
 
