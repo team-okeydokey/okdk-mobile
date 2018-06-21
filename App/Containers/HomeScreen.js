@@ -19,6 +19,8 @@ class HomeScreen extends Component {
             sliderWidth={400}
             itemWidth={300}
           />
+
+          <Text style={styles.sectionTitle}>Reservation Info</Text>
         </KeyboardAvoidingView>
       </ScrollView>
     )

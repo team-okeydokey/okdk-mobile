@@ -28,6 +28,10 @@ export default StyleSheet.create({
     ...Fonts.style.h4,
   },
 
+  keyCardDescription: {
+    ...Fonts.style.description,
+  },
+
   keyCardButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -35,7 +39,7 @@ export default StyleSheet.create({
     height: 50,
     padding: Metrics.baseMargin,
     paddingVertical: Metrics.doubleBaseMargin,
-    backgroundColor: Colors.aliceBlue
+    backgroundColor: Colors.snow
   },
 
   openButton: {

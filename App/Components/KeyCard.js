@@ -15,11 +15,13 @@ export default class KeyCard extends Component {
   // Prop type warnings
   static propTypes = {
     title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }
   
   // Defaults for props
   static defaultProps = {
     title: "",
+    description: "",
   }
 
   async _onOpen() {
@@ -55,6 +57,7 @@ export default class KeyCard extends Component {
         
         <View style={styles.keyCardInfo}>
           <Text style={styles.keyCardTitle}>{this.props.title}</Text>
+          <Text style={styles.keyCardDescription}>{this.props.description}</Text>
         </View>
 
         <View style={styles.keyCardButtonContainer}>
