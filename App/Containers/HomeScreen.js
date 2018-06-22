@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { View, ScrollView, Text, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { connect } from 'react-redux'
+import { Metrics } from '../Themes/'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -23,10 +24,12 @@ class HomeScreen extends Component {
         <KeyboardAvoidingView behavior='position'>
           <View style={styles.screenHeader}>
             <Text style={styles.sectionTitle}>My Keys</Text>
-            <Icon name="user" size={30} color="#2d2d2d" />
+            <TouchableOpacity style={styles.profileIcon}> 
+              <Icon name="user" size={40} color="#2d2d2d"/>
+            </TouchableOpacity>
           </View>
           <KeyCarousel
-            sliderWidth={400}
+            sliderWidth={Metrics.screenWidth}
             itemWidth={200}
             data={entries}
           />
