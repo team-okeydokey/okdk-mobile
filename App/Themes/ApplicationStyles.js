@@ -21,7 +21,7 @@ const ApplicationStyles = {
     container: {
       flex: 1,
       paddingTop: Metrics.baseMargin,
-      backgroundColor: Colors.transparent
+      backgroundColor: Colors.snow
     },
     section: {
       margin: Metrics.section,
@@ -77,7 +77,7 @@ const ApplicationStyles = {
   },
   shadow: {
     // Android
-    elevation: 5,
+    elevation: 2,
 
     // iOS
     shadowColor: 'black',

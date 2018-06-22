@@ -7,8 +7,9 @@ export default StyleSheet.create({
   }, 
 
   keyCard: {
-    // ...ApplicationStyles.shadow,
+    ...ApplicationStyles.shadow,
     backgroundColor: Colors.snow,
+    margin: Metrics.baseMargin
   },
 
   keyCardImageContainer: {
@@ -51,7 +52,7 @@ export default StyleSheet.create({
     borderRadius: 40,
     paddingHorizontal: Metrics.baseMargin,
     paddingVertical: Metrics.smallMargin,
-    marginRight: Metrics.baseMargin,
+    margin: Metrics.baseMargin,
   }, 
   
   closeButton: {
@@ -60,7 +61,7 @@ export default StyleSheet.create({
     borderRadius: 40,
     paddingHorizontal: Metrics.baseMargin,
     paddingVertical: Metrics.smallMargin,
-    marginLeft: Metrics.baseMargin,
+    margin: Metrics.baseMargin,
   },
 
   openText: {
