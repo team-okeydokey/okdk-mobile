@@ -73,9 +73,9 @@ export default class KeyCard extends Component {
             <Text style={styles.openText}>OPEN</Text>
           </TouchableOpacity>
 
-          <View
+          {/* <View
             style={styles.divider}
-          />
+          /> */}
 
           <TouchableOpacity
             style={styles.closeButton}>
