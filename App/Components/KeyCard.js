@@ -70,12 +70,16 @@ export default class KeyCard extends Component {
           <TouchableOpacity 
             onPress={this._onOpen}
             style={styles.openButton}>
-            <Text style={styles.openText}>Open</Text>
+            <Text style={styles.openText}>OPEN</Text>
           </TouchableOpacity>
+
+          <View
+            style={styles.divider}
+          />
 
           <TouchableOpacity
             style={styles.closeButton}>
-            <Text style={styles.closeText}>Close</Text>
+            <Text style={styles.closeText}>CLOSE</Text>
           </TouchableOpacity>
 
         </View>

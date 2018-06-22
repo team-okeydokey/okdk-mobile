@@ -43,40 +43,54 @@ export default StyleSheet.create({
 
   keyCardButtonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    // justifyContent: 'space-around',
     alignItems: 'center', 
-    height: 50,
-    padding: Metrics.baseMargin,
-    marginBottom: Metrics.doubleBaseMargin,
-    backgroundColor: Colors.snow
+    // height: 50,
+    // paddingVrBottom: Metrics.doubleBaseMargin,
+    backgroundColor: Colors.snow,
+    borderTopWidth: 1,
+    borderTopColor: Colors.cloud,
   },
 
   openButton: {
-    ...ApplicationStyles.shadow,
-    backgroundColor: Colors.affirmative,
-    borderRadius: 40,
+    // backgroundColor: Colors.affirmative,
+    // borderRadius: 40,
     paddingHorizontal: Metrics.baseMargin,
-    paddingVertical: Metrics.smallMargin,
-    margin: Metrics.baseMargin,
+    paddingVertical: Metrics.doubleBaseMargin,
+    // margin: Metrics.baseMargin,
+    width: '50%',
+    // borderTopWidth: 1,
+    // borderTopColor: Colors.cloud,
+    // borderRightWidth: 1,
+    // borderRightColor: Colors.cloud,
   }, 
   
   closeButton: {
-    ...ApplicationStyles.shadow,
-    backgroundColor: Colors.negative,
-    borderRadius: 40,
+    // backgroundColor: Colors.negative,
+    // borderRadius: 40,
     paddingHorizontal: Metrics.baseMargin,
-    paddingVertical: Metrics.smallMargin,
-    margin: Metrics.baseMargin,
+    paddingVertical: Metrics.doubleBaseMargin,
+    // margin: Metrics.baseMargin,
+    width: '50%',
+    // borderTopColor: Colors.cloud,
+  },
+
+  divider: {
+    borderWidth: 1,
+    borderColor:Colors.cloud,
+    height: '100%'
   },
 
   openText: {
     ...Fonts.style.h5,
-    color: Colors.snow
+    textAlign: 'center',
+    color: Colors.affirmative
   },
 
   closeText: {
     ...Fonts.style.h5,
-    color: Colors.snow
+    textAlign: 'center',
+    color: Colors.negative
   }
 
 })
