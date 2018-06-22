@@ -9,7 +9,7 @@ export default StyleSheet.create({
   keyCard: {
     ...ApplicationStyles.shadow,
     backgroundColor: Colors.snow,
-    margin: Metrics.baseMargin
+    margin: Metrics.baseMargin,
   },
 
   keyCardImageContainer: {

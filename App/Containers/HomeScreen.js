@@ -22,6 +22,7 @@ class HomeScreen extends Component {
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior='position'>
+          <Text style={styles.date}>Friday, June 13th</Text>
           <View style={styles.screenHeader}>
             <Text style={styles.sectionTitle}>My Keys</Text>
             <TouchableOpacity style={styles.profileIcon}> 
