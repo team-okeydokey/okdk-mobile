@@ -8,4 +8,9 @@ export default StyleSheet.create({
     margin: Metrics.doubleBaseMargin,
     color:'black', 
   }, 
+  screenHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
 })

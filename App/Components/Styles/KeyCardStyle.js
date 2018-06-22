@@ -11,9 +11,12 @@ export default StyleSheet.create({
     backgroundColor: Colors.snow,
   },
 
-  keyCardImage: {
+  keyCardImageContainer: {
     height: 120,
-    backgroundColor: Colors.sand
+    backgroundColor: Colors.snow,
+    flexDirection:'column',
+    justifyContent:'center',
+    alignItems: 'center',
   },
 
   keyCardInfo: {
@@ -38,7 +41,7 @@ export default StyleSheet.create({
     alignItems: 'center', 
     height: 50,
     padding: Metrics.baseMargin,
-    paddingVertical: Metrics.doubleBaseMargin,
+    marginVertical: Metrics.doubleBaseMargin,
     backgroundColor: Colors.snow
   },
 

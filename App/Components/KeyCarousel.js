@@ -6,19 +6,19 @@ import styles from './Styles/KeyCarouselStyle'
 import Carousel from 'react-native-snap-carousel';
 import KeyCard from './KeyCard';
 
-entries = [{"title": "Front door", "description": "Description description"}, 
-           {"title": " Back door", "description": "Description description"}];
-
 export default class KeyCarousel extends Component {
   // Prop type warnings
   static propTypes = {
     sliderWidth: PropTypes.number.isRequired,
     itemWidth: PropTypes.number.isRequired,
+    data: PropTypes.array.isRequired,
   }
   
   // Defaults for props
   static defaultProps = {
-    someSetting: false
+    // sliderWidth: 0,
+    // itemWidth: 0,
+    // entries: [],
   }
 
   _renderItem({item, index}) {
@@ -35,7 +35,7 @@ export default class KeyCarousel extends Component {
       <Carousel
         ref={(c) => { this._carousel = c; }}
         // data={this.state.entries}
-        data={entries}
+        data={this.props.data}
         renderItem={this._renderItem}
         sliderWidth={this.props.sliderWidth}
         itemWidth={this.props.itemWidth}

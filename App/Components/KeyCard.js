@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/Foundation';
 import styles from './Styles/KeyCardStyle'
 
 export default class KeyCard extends Component {
@@ -51,8 +52,8 @@ export default class KeyCard extends Component {
     return (
       <View style={styles.keyCard}>
 
-        <View style={styles.keyCardImage}>
-          
+        <View style={styles.keyCardImageContainer}>
+          <Icon name="crown" size={100} color="#2d2d2d" />
         </View>
         
         <View style={styles.keyCardInfo}>
