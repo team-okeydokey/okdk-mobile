@@ -10,6 +10,8 @@ export default StyleSheet.create({
     ...ApplicationStyles.shadow,
     backgroundColor: Colors.snow,
     margin: Metrics.baseMargin,
+    borderRadius: 10,
+    overflow: 'hidden'
   },
 
   keyCardInfoContainer: {
