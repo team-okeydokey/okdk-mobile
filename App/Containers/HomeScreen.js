@@ -12,10 +12,10 @@ import KeyCarousel from '../Components/KeyCarousel'
 import styles from './Styles/HomeScreenStyle'
 
 entries = [{"title": "Front door", "description": "Description description"}, 
-           {"title": "Back door", "description": "Description description"},
-           {"title": "Porch door", "description": "Description description"},
-           {"title": "Front window", "description": "Description description"},
-           {"title": "Garage door", "description": "Description description"}];
+           {"title": "Back door", "description": "Description description description description description"},
+           {"title": "Porch door", "description": "Description description description description description"},
+           {"title": "Front window", "description": "Description description description description"},
+           {"title": "Garage door", "description": "Description description description description description description"}];
 
 class HomeScreen extends Component {
   render () {
@@ -31,11 +31,12 @@ class HomeScreen extends Component {
           </View>
           <KeyCarousel
             sliderWidth={Metrics.screenWidth}
-            itemWidth={200}
+            itemWidth={300}
             data={entries}
           />
 
           <Text style={styles.sectionTitle}>Reservation Info</Text>
+          <Text style={styles.sectionTitle}>Room timeline</Text>
         </KeyboardAvoidingView>
       </ScrollView>
     )

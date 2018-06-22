@@ -52,13 +52,17 @@ export default class KeyCard extends Component {
     return (
       <View style={styles.keyCard}>
 
-        <View style={styles.keyCardImageContainer}>
-          <Icon name="crown" size={100} color="#2d2d2d" />
-        </View>
-        
-        <View style={styles.keyCardInfo}>
-          <Text style={styles.keyCardTitle}>{this.props.title}</Text>
-          <Text style={styles.keyCardDescription}>{this.props.description}</Text>
+        <View style={styles.keyCardInfoContainer}>
+          <View style={styles.keyCardImageContainer}>
+            <Icon name="crown" size={75} color="#2d2d2d" />
+          </View>
+          
+          <View style={styles.keyCardInfo}>
+            <Text style={styles.keyCardTitle}
+                 numberOfLines={1}>{this.props.title}</Text>
+            <Text style={styles.keyCardDescription} 
+                  numberOfLines={2}>{this.props.description}</Text>
+          </View>
         </View>
 
         <View style={styles.keyCardButtonContainer}>

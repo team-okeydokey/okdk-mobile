@@ -12,8 +12,14 @@ export default StyleSheet.create({
     margin: Metrics.baseMargin,
   },
 
+  keyCardInfoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: Metrics.doubleBaseMargin
+  },
+
   keyCardImageContainer: {
-    height: 120,
     backgroundColor: Colors.snow,
     flexDirection:'column',
     justifyContent:'center',
@@ -24,8 +30,7 @@ export default StyleSheet.create({
     flexDirection:'column',
     justifyContent:'center',
     alignItems: 'flex-start', 
-    height: 70,
-    padding: Metrics.baseMargin
+    width:150,
   },
 
   keyCardTitle: {
@@ -42,7 +47,7 @@ export default StyleSheet.create({
     alignItems: 'center', 
     height: 50,
     padding: Metrics.baseMargin,
-    marginVertical: Metrics.doubleBaseMargin,
+    marginBottom: Metrics.doubleBaseMargin,
     backgroundColor: Colors.snow
   },
 
