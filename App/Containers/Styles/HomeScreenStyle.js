@@ -9,7 +9,7 @@ export default StyleSheet.create({
     marginHorizontal: Metrics.doubleBaseMargin,
   },
   sectionTitle: {
-    ...Fonts.style.h2,
+    ...Fonts.style.h4,
     margin: Metrics.doubleBaseMargin,
     color:'black', 
   }, 

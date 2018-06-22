@@ -35,7 +35,7 @@ class HomeScreen extends Component {
             data={entries}
           />
 
-          <Text style={styles.sectionTitle}>Reservation Info</Text>
+          <Text style={styles.sectionTitle}>Reservation Details</Text>
           <Text style={styles.sectionTitle}>Room timeline</Text>
         </KeyboardAvoidingView>
       </ScrollView>
