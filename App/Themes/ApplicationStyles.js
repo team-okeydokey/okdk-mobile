@@ -21,7 +21,7 @@ const ApplicationStyles = {
     container: {
       flex: 1,
       paddingTop: Metrics.baseMargin,
-      backgroundColor: Colors.snow
+      backgroundColor: Colors.background
     },
     section: {
       margin: Metrics.section,
