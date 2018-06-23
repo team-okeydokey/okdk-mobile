@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { View, ScrollView, Text, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/EvilIcons';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux'
+import { put }  from 'redux-saga/effects';
 import { Metrics } from '../Themes/'
+import Icon from 'react-native-vector-icons/EvilIcons';
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -18,6 +20,16 @@ entries = [{"title": "Front door", "description": "Description description"},
            {"title": "Garage door", "description": "Description description description description description description"}];
 
 class HomeScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    this._launchProfilePage = this._launchProfilePage.bind(this);     
+  }
+
+  _launchProfilePage() {
+    this.props.navigation.navigate('LoginScreen')
+  }
+
   render () {
     return (
       <ScrollView style={styles.container}>
@@ -25,7 +37,7 @@ class HomeScreen extends Component {
           <Text style={styles.date}>Friday, June 13th</Text>
           <View style={styles.screenHeader}>
             <Text style={styles.sectionTitle}>My Keys</Text>
-            <TouchableOpacity style={styles.profileIcon}> 
+            <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
               <Icon name="user" size={40} color="#2d2d2d"/>
             </TouchableOpacity>
           </View>
