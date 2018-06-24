@@ -94469,7 +94469,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     negative: '#b51528',
     sand: '#E3E1DD',
     aliceBlue: '#F3F4F5',
-    pastelPink: '#FF69B4'
+    hotPink: '#FF69B4'
   };
   exports.default = colors;
 },1401,[],"App/Themes/Colors.js");
@@ -94965,7 +94965,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _reactRedux = _require(_dependencyMap[3], "react-redux");
 
-  var _LoginScreenStyle = _require(_dependencyMap[4], "./Styles/LoginScreenStyle");
+  var _Themes = _require(_dependencyMap[4], "../Themes/");
+
+  var _LoginScreenStyle = _require(_dependencyMap[5], "./Styles/LoginScreenStyle");
 
   var _LoginScreenStyle2 = _interopRequireDefault(_LoginScreenStyle);
 
@@ -95013,96 +95015,117 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           {
             style: _LoginScreenStyle2.default.imageBackground,
             resizeMode: "cover",
-            source: _require(_dependencyMap[5], '../Images/login_background.jpg'),
+            source: _require(_dependencyMap[6], '../Images/login_background.jpg'),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 15
+              lineNumber: 16
             }
           },
           _react3.default.createElement(
-            _reactNative.ScrollView,
+            _reactNative.Text,
             {
+              style: _LoginScreenStyle2.default.slogan,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 20
+                lineNumber: 21
+              }
+            },
+            "Okeee"
+          ),
+          _react3.default.createElement(
+            _reactNative.KeyboardAvoidingView,
+            {
+              style: _LoginScreenStyle2.default.keyboardAvoidingView,
+              behavior: "position",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 23
               }
             },
             _react3.default.createElement(
-              _reactNative.KeyboardAvoidingView,
+              _reactNative.View,
               {
-                behavior: "position",
+                style: _LoginScreenStyle2.default.loginForm,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 21
+                  lineNumber: 24
                 }
               },
               _react3.default.createElement(
                 _reactNative.View,
                 {
-                  style: _LoginScreenStyle2.default.loginForm,
+                  style: _LoginScreenStyle2.default.loginInput,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 23
+                    lineNumber: 26
                   }
                 },
                 _react3.default.createElement(_reactNative.TextInput, {
                   style: _LoginScreenStyle2.default.email,
-                  placeHolder: "Email",
+                  placeholder: "Email",
+                  placeholderTextColor: _Themes.Colors.steel,
+                  underlineColorAndroid: _Themes.Colors.text,
+                  numberOfLines: 1,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 24
+                    lineNumber: 27
                   }
                 }),
                 _react3.default.createElement(_reactNative.TextInput, {
                   style: _LoginScreenStyle2.default.password,
-                  placeHolder: "Password",
+                  placeholder: "Password",
+                  placeholderTextColor: _Themes.Colors.steel,
+                  underlineColorAndroid: _Themes.Colors.text,
+                  numberOfLines: 1,
+                  secureTextEntry: true,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 28
+                    lineNumber: 34
                   }
-                }),
-                _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
-                  {
-                    style: _LoginScreenStyle2.default.loginButton,
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 33
-                    }
-                  },
-                  _react3.default.createElement(
-                    _reactNative.Text,
-                    {
-                      style: _LoginScreenStyle2.default.loginButtonText,
-                      __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 34
-                      }
-                    },
-                    "Log in"
-                  )
-                )
+                })
               ),
               _react3.default.createElement(
                 _reactNative.TouchableOpacity,
                 {
+                  style: _LoginScreenStyle2.default.loginButton,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 38
+                    lineNumber: 44
                   }
                 },
                 _react3.default.createElement(
                   _reactNative.Text,
                   {
-                    style: _LoginScreenStyle2.default.signupButtonText,
+                    style: _LoginScreenStyle2.default.loginButtonText,
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 39
+                      lineNumber: 45
                     }
                   },
-                  "Sign up"
+                  "Log in"
                 )
               )
+            )
+          ),
+          _react3.default.createElement(
+            _reactNative.TouchableOpacity,
+            {
+              style: _LoginScreenStyle2.default.signupButton,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 51
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.Text,
+              {
+                style: _LoginScreenStyle2.default.signupButtonText,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 52
+                }
+              },
+              "Sign up"
             )
           )
         );
@@ -95121,7 +95144,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   };
 
   exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LoginScreen);
-},1426,[122,183,16,1300,1427,1428],"App/Containers/LoginScreen.js");
+},1426,[122,183,16,1300,1400,1427,1428],"App/Containers/LoginScreen.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -95136,29 +95159,67 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   exports.default = _reactNative.StyleSheet.create(_extends({}, _Themes.ApplicationStyles.screen, {
     imageBackground: {
       height: _Themes.Metrics.screenHeight,
-      backgroundColor: 'rgba(0,0,0,.6)',
+      backgroundColor: 'rgba(0,0,0,.2)',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: _Themes.Metrics.section,
+      paddingBottom: _Themes.Metrics.doubleSection
+    },
+    keyboardAvoidingView: {
+      width: "100%"
+    },
+    slogan: _extends({}, _Themes.Fonts.style.h1, {
+      color: _Themes.Colors.text
+    }),
+    loginForm: {
+      width: '100%',
+      backgroundColor: 'transparent',
       flexDirection: 'column',
       justifyContent: 'space-around',
       alignItems: 'center'
     },
-    loginForm: {
-      backgroundColor: 'transparent'
+    loginInput: {
+      width: '100%',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      backgroundColor: _Themes.Colors.snow,
+      borderRadius: 10,
+      paddingHorizontal: _Themes.Metrics.doubleBaseMargin,
+      paddingVertical: _Themes.Metrics.baseMargin
     },
-    email: {},
-    password: {},
+    email: _extends({
+      width: "100%"
+    }, _Themes.Fonts.style.normal, {
+      color: _Themes.Colors.charcoal
+    }),
+    password: _extends({
+      width: "100%"
+    }, _Themes.Fonts.style.normal, {
+      color: _Themes.Colors.charcoal
+    }),
     loginButton: {
       borderRadius: 10,
-      backgroundColor: _Themes.Colors.pastelPink,
+      backgroundColor: _Themes.Colors.hotPink,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
       paddingVertical: _Themes.Metrics.baseMargin,
-      paddingHorizontal: _Themes.Metrics.doubleBaseMargin
+      paddingHorizontal: _Themes.Metrics.doubleBaseMargin,
+      marginTop: _Themes.Metrics.doubleBaseMargin
     },
     loginButtonText: _extends({}, _Themes.Fonts.style.h4, {
       color: _Themes.Colors.snow
     }),
-    signupButtonText: _extends({}, _Themes.Fonts.style.h4)
+    signupButton: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    signupButtonText: _extends({}, _Themes.Fonts.style.h4, {
+      color: _Themes.Colors.snow
+    })
   }));
 },1427,[16,1400],"App/Containers/Styles/LoginScreenStyle.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
