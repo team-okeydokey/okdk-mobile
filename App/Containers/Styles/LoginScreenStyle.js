@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
+import { ApplicationStyles, Metrics, Colors, Fonts } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -7,12 +7,7 @@ export default StyleSheet.create({
     // width: Metrics.screenWidth,
     height: Metrics.screenHeight,
     // flex: 1 
-  },
-  imageBackgroundDim: {
-    width: Metrics.screenWidth,
-    height: Metrics.screenHeight,
-    backgroundColor: Colors.coal,
-    opacity: 0.1,
+    backgroundColor: 'rgba(0,0,0,.6)'
   },
   loginForm: {
     backgroundColor:'transparent'
@@ -27,9 +22,9 @@ export default StyleSheet.create({
 
   },
   loginButtonText: {
-
+    ...Fonts.style.h4,    
   },
   signupButtonText: {
-    // borderBottomWidth: 1 
+    ...Fonts.style.h4,
   }
 })

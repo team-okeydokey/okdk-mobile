@@ -16,35 +16,31 @@ class LoginScreen extends Component {
       style={styles.imageBackground}
       resizeMode='cover'
       source={require('../Images/login_background.jpg')}>
-      <View style={styles.imageBackgroundDim}> 
+    
       <ScrollView>
       <KeyboardAvoidingView behavior='position'>        
 
-            <View style={styles.loginForm}>
-              <TextInput
-                style={ styles.email }
-                placeHolder={"Email"}
-              />
-              <TextInput
-                style={ styles.password }
-                placeHolder={"Password"}
-              />
+        <View style={styles.loginForm}>
+          <TextInput
+            style={ styles.email }
+            placeHolder={"Email"}
+          />
+          <TextInput
+            style={ styles.password }
+            placeHolder={"Password"}
+          />
 
-              <TouchableOpacity style={ styles.loginButton }>
-                <Text style={ styles.loginButtonText }>Log in</Text>
-              </TouchableOpacity>
-            </View>
+          <TouchableOpacity style={ styles.loginButton }>
+            <Text style={ styles.loginButtonText }>Log in</Text>
+          </TouchableOpacity>
+        </View>
 
-            <TouchableOpacity>
-              <Text style={ styles.signupButtonText }>Sign up</Text>
-            </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={ styles.signupButtonText }>Sign up</Text>
+        </TouchableOpacity>
 
-          
-        
-     
       </KeyboardAvoidingView>
       </ScrollView>
-      </View>
       </ImageBackground>
     )
   }
