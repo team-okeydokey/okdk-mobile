@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { ScrollView, View, ImageBackground, Text, TouchableOpacity, 
+  TextInput, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -10,11 +11,39 @@ import styles from './Styles/LoginScreenStyle'
 class LoginScreen extends Component {
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text>LoginScreen</Text>
-        </KeyboardAvoidingView>
+      
+      <ImageBackground
+      style={styles.imageBackground}
+      resizeMode='cover'
+      source={require('../Images/login_background.jpg')}>
+      <ScrollView>
+      <KeyboardAvoidingView behavior='position'>        
+
+            <View style={styles.loginForm}>
+              <TextInput
+                style={ styles.email }
+                placeHolder={"Email"}
+              />
+              <TextInput
+                style={ styles.password }
+                placeHolder={"Password"}
+              />
+
+              <TouchableOpacity style={ styles.loginButton }>
+                <Text style={ styles.loginButtonText }>Log in</Text>
+              </TouchableOpacity>
+            </View>
+
+            <TouchableOpacity>
+              <Text style={ styles.signupButtonText }>Or sign up</Text>
+            </TouchableOpacity>
+
+          
+        
+     
+      </KeyboardAvoidingView>
       </ScrollView>
+      </ImageBackground>
     )
   }
 }

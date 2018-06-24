@@ -30,6 +30,6 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(LoginTypes.LOGIN, login, api)
+    // takeLatest(LoginTypes.LOGIN, login, api)
   ])
 }
