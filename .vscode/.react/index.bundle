@@ -94468,7 +94468,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     affirmative: '#107738',
     negative: '#b51528',
     sand: '#E3E1DD',
-    aliceBlue: '#F3F4F5'
+    aliceBlue: '#F3F4F5',
+    pastelPink: '#FF69B4'
   };
   exports.default = colors;
 },1401,[],"App/Themes/Colors.js");
@@ -95135,21 +95136,28 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   exports.default = _reactNative.StyleSheet.create(_extends({}, _Themes.ApplicationStyles.screen, {
     imageBackground: {
       height: _Themes.Metrics.screenHeight,
-      backgroundColor: 'rgba(0,0,0,.6)'
-    },
-    imageBackgroundDim: {
-      width: _Themes.Metrics.screenWidth,
-      height: _Themes.Metrics.screenHeight,
-      backgroundColor: _Themes.Colors.coal,
-      opacity: 0.3
+      backgroundColor: 'rgba(0,0,0,.6)',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center'
     },
     loginForm: {
       backgroundColor: 'transparent'
     },
     email: {},
     password: {},
-    loginButton: {},
-    loginButtonText: _extends({}, _Themes.Fonts.style.h4),
+    loginButton: {
+      borderRadius: 10,
+      backgroundColor: _Themes.Colors.pastelPink,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingVertical: _Themes.Metrics.baseMargin,
+      paddingHorizontal: _Themes.Metrics.doubleBaseMargin
+    },
+    loginButtonText: _extends({}, _Themes.Fonts.style.h4, {
+      color: _Themes.Colors.snow
+    }),
     signupButtonText: _extends({}, _Themes.Fonts.style.h4)
   }));
 },1427,[16,1400],"App/Containers/Styles/LoginScreenStyle.js");

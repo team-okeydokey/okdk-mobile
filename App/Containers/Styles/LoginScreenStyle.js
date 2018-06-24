@@ -7,7 +7,10 @@ export default StyleSheet.create({
     // width: Metrics.screenWidth,
     height: Metrics.screenHeight,
     // flex: 1 
-    backgroundColor: 'rgba(0,0,0,.6)'
+    backgroundColor: 'rgba(0,0,0,.6)',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
   loginForm: {
     backgroundColor:'transparent'
@@ -19,10 +22,17 @@ export default StyleSheet.create({
     // borderBottomWidth: 1 
   },
   loginButton: {
-
+    borderRadius: 10,
+    backgroundColor: Colors.hotPink,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: Metrics.baseMargin,
+    paddingHorizontal: Metrics.doubleBaseMargin,
   },
   loginButtonText: {
-    ...Fonts.style.h4,    
+    ...Fonts.style.h4, 
+    color: Colors.snow,  
   },
   signupButtonText: {
     ...Fonts.style.h4,

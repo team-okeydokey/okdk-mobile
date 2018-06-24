@@ -26,6 +26,7 @@ const colors = {
   negative: '#b51528',
   sand: '#E3E1DD',
   aliceBlue: '#F3F4F5',
+  hotPink: '#FF69B4',
 }
 
 export default colors
