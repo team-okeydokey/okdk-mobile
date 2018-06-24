@@ -2,7 +2,9 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
+
+// const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
+  const create = (baseURL = 'http://www.mocky.io/v2/') => {
   // ------
   // STEP 1
   // ------
@@ -37,6 +39,17 @@ const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
   const getUser = (username) => api.get('search/users', {q: username})
+
+  // User authentication api.
+  const login = (email, password) => 
+    // api.get('login', {email: email, password: password});
+    api.get('5b2fde3a3000005e000660dd', {email: email, password: password});
+
+  const signup = (firstname, lastname, email, password) => 
+    api.get('signup', {firstname: firstname, lastname: lastname, 
+      email: email, password: password});
+
+  // Device manipulation api.
   const open = (deviceId) => api.get('open', {deviceId: deviceId});
   const close = (deviceId) => api.get('close', {deviceId: deviceId});
 

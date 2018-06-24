@@ -1,9 +1,11 @@
 import { put, select } from 'redux-saga/effects'
-import GithubActions, { GithubSelectors } from '../Redux/GithubRedux'
+import LoggedInActions, { isLoggedIn } from '../Redux/LoginRedux'
+import { NavigationActions } from 'react-navigation'
 import { is } from 'ramda'
 
 // exported to make available for tests
 export const selectAvatar = GithubSelectors.selectAvatar
+export const selectLoggedInStatus = (state) => isLoggedIn(state)
 
 // process STARTUP actions
 export function * startup (action) {
@@ -32,9 +34,14 @@ export function * startup (action) {
       }
     })
   }
-  const avatar = yield select(selectAvatar)
-  // only get if we don't have it yet
-  if (!is(String, avatar)) {
-    yield put(GithubActions.userRequest('GantMan'))
-  }
+  
+  // Check login state.
+  const loggedIn = yield select(selectLoggedInStatus)
+  if (loggedIn) {
+    yield put(LoggedInActions.autoLogin())
+  } 
+  // else {
+  //   // Not logged in! Show welcome screen.
+  //   yield put(NavigationActions.navigate({ routeName: 'WelcomeScreen' }));
+  // }
 }
