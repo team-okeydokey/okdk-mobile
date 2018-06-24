@@ -95019,87 +95019,97 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             }
           },
           _react3.default.createElement(
-            _reactNative.ScrollView,
+            _reactNative.View,
             {
+              style: _LoginScreenStyle2.default.imageBackgroundDim,
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 19
               }
             },
             _react3.default.createElement(
-              _reactNative.KeyboardAvoidingView,
+              _reactNative.ScrollView,
               {
-                behavior: "position",
                 __source: {
                   fileName: _jsxFileName,
                   lineNumber: 20
                 }
               },
               _react3.default.createElement(
-                _reactNative.View,
+                _reactNative.KeyboardAvoidingView,
                 {
-                  style: _LoginScreenStyle2.default.loginForm,
+                  behavior: "position",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 22
+                    lineNumber: 21
                   }
                 },
-                _react3.default.createElement(_reactNative.TextInput, {
-                  style: _LoginScreenStyle2.default.email,
-                  placeHolder: "Email",
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 23
-                  }
-                }),
-                _react3.default.createElement(_reactNative.TextInput, {
-                  style: _LoginScreenStyle2.default.password,
-                  placeHolder: "Password",
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 27
-                  }
-                }),
                 _react3.default.createElement(
-                  _reactNative.TouchableOpacity,
+                  _reactNative.View,
                   {
-                    style: _LoginScreenStyle2.default.loginButton,
+                    style: _LoginScreenStyle2.default.loginForm,
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 32
+                      lineNumber: 23
                     }
                   },
+                  _react3.default.createElement(_reactNative.TextInput, {
+                    style: _LoginScreenStyle2.default.email,
+                    placeHolder: "Email",
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 24
+                    }
+                  }),
+                  _react3.default.createElement(_reactNative.TextInput, {
+                    style: _LoginScreenStyle2.default.password,
+                    placeHolder: "Password",
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 28
+                    }
+                  }),
                   _react3.default.createElement(
-                    _reactNative.Text,
+                    _reactNative.TouchableOpacity,
                     {
-                      style: _LoginScreenStyle2.default.loginButtonText,
+                      style: _LoginScreenStyle2.default.loginButton,
                       __source: {
                         fileName: _jsxFileName,
                         lineNumber: 33
                       }
                     },
-                    "Log in"
+                    _react3.default.createElement(
+                      _reactNative.Text,
+                      {
+                        style: _LoginScreenStyle2.default.loginButtonText,
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 34
+                        }
+                      },
+                      "Log in"
+                    )
                   )
-                )
-              ),
-              _react3.default.createElement(
-                _reactNative.TouchableOpacity,
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 37
-                  }
-                },
+                ),
                 _react3.default.createElement(
-                  _reactNative.Text,
+                  _reactNative.TouchableOpacity,
                   {
-                    style: _LoginScreenStyle2.default.signupButtonText,
                     __source: {
                       fileName: _jsxFileName,
                       lineNumber: 38
                     }
                   },
-                  "Or sign up"
+                  _react3.default.createElement(
+                    _reactNative.Text,
+                    {
+                      style: _LoginScreenStyle2.default.signupButtonText,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 39
+                      }
+                    },
+                    "Sign up"
+                  )
                 )
               )
             )
@@ -95136,6 +95146,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     imageBackground: {
       height: _Themes.Metrics.screenHeight
     },
+    imageBackgroundDim: {
+      width: _Themes.Metrics.screenWidth,
+      height: _Themes.Metrics.screenHeight,
+      backgroundColor: _Themes.Colors.coal,
+      opacity: 0.1
+    },
     loginForm: {
       backgroundColor: 'transparent'
     },
@@ -95150,10 +95166,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 	module.exports = _require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
 		"__packager_asset": true,
 		"httpServerLocation": "/assets/App/Images",
-		"width": 3024,
-		"height": 4032,
+		"width": 1920,
+		"height": 1328,
 		"scales": [1],
-		"hash": "db67a3a4eefb92fb2f6f77ccf8e16ee1",
+		"hash": "58d6f372ed671eec596fab0db091beb8",
 		"name": "login_background",
 		"type": "jpg"
 	});

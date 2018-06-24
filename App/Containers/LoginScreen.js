@@ -16,6 +16,7 @@ class LoginScreen extends Component {
       style={styles.imageBackground}
       resizeMode='cover'
       source={require('../Images/login_background.jpg')}>
+      <View style={styles.imageBackgroundDim}> 
       <ScrollView>
       <KeyboardAvoidingView behavior='position'>        
 
@@ -35,7 +36,7 @@ class LoginScreen extends Component {
             </View>
 
             <TouchableOpacity>
-              <Text style={ styles.signupButtonText }>Or sign up</Text>
+              <Text style={ styles.signupButtonText }>Sign up</Text>
             </TouchableOpacity>
 
           
@@ -43,6 +44,7 @@ class LoginScreen extends Component {
      
       </KeyboardAvoidingView>
       </ScrollView>
+      </View>
       </ImageBackground>
     )
   }
