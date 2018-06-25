@@ -62,12 +62,12 @@ class AuthScreen extends Component {
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
             <View style={styles.inputForm}>
 
-              <Text style={styles.status}
-                numberOfLines={1}>
-                {this.props.loginMessage};
-              </Text>  
-
               <View style={styles.inputGroup}>
+                <Text style={styles.status}
+                  numberOfLines={1}>
+                  {this.props.loginMessage}
+                </Text>  
+
                 <TextInput
                   style={ styles.textInput }
                   placeholder="Email"
@@ -104,14 +104,15 @@ class AuthScreen extends Component {
             <View style={styles.signupFiller}/>
 
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
-            <View style={styles.inputForm}>
-
-              <Text style={styles.status}
-                numberOfLines={1}>
-                {this.props.signupMessage};
-              </Text>         
+            <View style={styles.inputForm}>    
 
               <View style={styles.inputGroup}>
+
+                <Text style={styles.status}
+                  numberOfLines={1}>
+                  {this.props.signupMessage}
+                </Text>     
+
                 <TextInput
                   style={ styles.textInput }
                   placeholder="First name"

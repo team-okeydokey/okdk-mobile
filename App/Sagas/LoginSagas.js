@@ -7,7 +7,7 @@ export function * login (api, action) {
   // make the call to the api
   const response = yield call(api.login, email, password)
   
-  if (response.success) {
+  if (!response.success) {
     const token = response.token;
     // do data conversion here if needed
     yield put(LoginActions.loginSuccess(token))
