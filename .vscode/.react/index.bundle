@@ -94240,9 +94240,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _SignupScreen2 = _interopRequireDefault(_SignupScreen);
 
-  var _LoginScreen = _require(_dependencyMap[2], "../Containers/LoginScreen");
+  var _AuthScreen = _require(_dependencyMap[2], "../Containers/AuthScreen");
 
-  var _LoginScreen2 = _interopRequireDefault(_LoginScreen);
+  var _AuthScreen2 = _interopRequireDefault(_AuthScreen);
 
   var _HomeScreen = _require(_dependencyMap[3], "../Containers/HomeScreen");
 
@@ -94262,8 +94262,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     SignupScreen: {
       screen: _SignupScreen2.default
     },
-    LoginScreen: {
-      screen: _LoginScreen2.default
+    AuthScreen: {
+      screen: _AuthScreen2.default
     },
     HomeScreen: {
       screen: _HomeScreen2.default
@@ -94279,7 +94279,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     }
   });
   exports.default = PrimaryNav;
-},1397,[1319,1398,1426,1429,1504,1506],"App/Navigation/AppNavigation.js");
+},1397,[1319,1398,2039,1429,1504,1506],"App/Navigation/AppNavigation.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -95036,7 +95036,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             _reactNative.KeyboardAvoidingView,
             {
               style: _LoginScreenStyle2.default.keyboardAvoidingView,
-              behavior: "position",
+              behavior: "padding",
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 23
@@ -95332,7 +95332,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     _createClass(HomeScreen, [{
       key: "_launchProfilePage",
       value: function _launchProfilePage() {
-        this.props.navigation.navigate('LoginScreen');
+        this.props.navigation.navigate('AuthScreen');
       }
     }, {
       key: "render",
@@ -115905,6 +115905,322 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var reducer = exports.reducer = (0, _reduxsauce.createReducer)(INITIAL_STATE, (_createReducer = {}, _defineProperty(_createReducer, Types.SEARCH, performSearch), _defineProperty(_createReducer, Types.CANCEL_SEARCH, cancelSearch), _createReducer));
 },2037,[1508,14,1584,828],"App/Redux/SearchRedux.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "/home/seongmin/okdk-mobile/App/Containers/AuthScreen.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  var _reactRedux = _require(_dependencyMap[3], "react-redux");
+
+  var _Themes = _require(_dependencyMap[4], "../Themes/");
+
+  var _AuthScreenStyle = _require(_dependencyMap[5], "./Styles/AuthScreenStyle");
+
+  var _AuthScreenStyle2 = _interopRequireDefault(_AuthScreenStyle);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    AuthScreen: {
+      displayName: "AuthScreen"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "/home/seongmin/okdk-mobile/App/Containers/AuthScreen.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var AuthScreen = _wrapComponent("AuthScreen")(function (_Component) {
+    _inherits(AuthScreen, _Component);
+
+    function AuthScreen() {
+      _classCallCheck(this, AuthScreen);
+
+      return _possibleConstructorReturn(this, (AuthScreen.__proto__ || Object.getPrototypeOf(AuthScreen)).apply(this, arguments));
+    }
+
+    _createClass(AuthScreen, [{
+      key: "render",
+      value: function render() {
+        return _react3.default.createElement(
+          _reactNative.ImageBackground,
+          {
+            style: _AuthScreenStyle2.default.imageBackground,
+            resizeMode: "cover",
+            source: _require(_dependencyMap[6], '../Images/login_background.jpg'),
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 16
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              style: _AuthScreenStyle2.default.slogan,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 21
+              }
+            },
+            "Okeee"
+          ),
+          _react3.default.createElement(
+            _reactNative.View,
+            {
+              style: _AuthScreenStyle2.default.authCarousel,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 23
+              }
+            },
+            _react3.default.createElement(
+              _reactNative.View,
+              {
+                style: _AuthScreenStyle2.default.loginPanel,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 25
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.KeyboardAvoidingView,
+                {
+                  style: _AuthScreenStyle2.default.keyboardAvoidingView,
+                  behavior: "padding",
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 26
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.View,
+                  {
+                    style: _AuthScreenStyle2.default.loginForm,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 27
+                    }
+                  },
+                  _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                      style: _AuthScreenStyle2.default.loginInput,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 29
+                      }
+                    },
+                    _react3.default.createElement(_reactNative.TextInput, {
+                      style: _AuthScreenStyle2.default.email,
+                      placeholder: "Email",
+                      placeholderTextColor: _Themes.Colors.steel,
+                      underlineColorAndroid: _Themes.Colors.text,
+                      numberOfLines: 1,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 30
+                      }
+                    }),
+                    _react3.default.createElement(_reactNative.TextInput, {
+                      style: _AuthScreenStyle2.default.password,
+                      placeholder: "Password",
+                      placeholderTextColor: _Themes.Colors.steel,
+                      underlineColorAndroid: _Themes.Colors.text,
+                      numberOfLines: 1,
+                      secureTextEntry: true,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 37
+                      }
+                    })
+                  ),
+                  _react3.default.createElement(
+                    _reactNative.TouchableOpacity,
+                    {
+                      style: _AuthScreenStyle2.default.loginButton,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 47
+                      }
+                    },
+                    _react3.default.createElement(
+                      _reactNative.Text,
+                      {
+                        style: _AuthScreenStyle2.default.loginButtonText,
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 48
+                        }
+                      },
+                      "Log in"
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  style: _AuthScreenStyle2.default.signupButton,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 54
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.Text,
+                  {
+                    style: _AuthScreenStyle2.default.signupButtonText,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 55
+                    }
+                  },
+                  "Sign up"
+                )
+              )
+            )
+          )
+        );
+      }
+    }]);
+
+    return AuthScreen;
+  }(_react2.Component));
+
+  var mapStateToProps = function mapStateToProps(state) {
+    return {};
+  };
+
+  var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+  };
+
+  exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthScreen);
+},2039,[122,183,16,1300,1400,2040,1428],"App/Containers/AuthScreen.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _reactNative = _require(_dependencyMap[0], "react-native");
+
+  var _Themes = _require(_dependencyMap[1], "../../Themes/");
+
+  exports.default = _reactNative.StyleSheet.create(_extends({}, _Themes.ApplicationStyles.screen, {
+    imageBackground: {
+      height: _Themes.Metrics.screenHeight,
+      backgroundColor: 'rgba(0,0,0,.2)',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      padding: _Themes.Metrics.section,
+      paddingBottom: _Themes.Metrics.doubleSection
+    },
+    keyboardAvoidingView: {
+      width: "100%"
+    },
+    slogan: _extends({}, _Themes.Fonts.style.h1, {
+      color: _Themes.Colors.text
+    }),
+    authCarousel: {
+      flex: 1,
+      width: '200%',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      marginRight: 'auto'
+    },
+    loginPanel: {
+      width: '50%',
+      height: '100%',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    signupPanel: {
+      width: '50%'
+    },
+    loginForm: {
+      width: '100%',
+      backgroundColor: 'transparent',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center'
+    },
+    loginInput: {
+      width: '100%',
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      backgroundColor: _Themes.Colors.snow,
+      borderRadius: 10,
+      paddingHorizontal: _Themes.Metrics.doubleBaseMargin,
+      paddingVertical: _Themes.Metrics.baseMargin
+    },
+    email: _extends({
+      width: "100%"
+    }, _Themes.Fonts.style.normal, {
+      color: _Themes.Colors.charcoal
+    }),
+    password: _extends({
+      width: "100%"
+    }, _Themes.Fonts.style.normal, {
+      color: _Themes.Colors.charcoal
+    }),
+    loginButton: {
+      borderRadius: 10,
+      backgroundColor: _Themes.Colors.hotPink,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingVertical: _Themes.Metrics.baseMargin,
+      paddingHorizontal: _Themes.Metrics.doubleBaseMargin,
+      marginTop: _Themes.Metrics.doubleBaseMargin
+    },
+    loginButtonText: _extends({}, _Themes.Fonts.style.h4, {
+      color: _Themes.Colors.snow
+    }),
+    signupButton: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    signupButtonText: _extends({}, _Themes.Fonts.style.h4, {
+      color: _Themes.Colors.snow
+    })
+  }));
+},2040,[16,1400],"App/Containers/Styles/AuthScreenStyle.js");
 require(48);
 require(11);
 //# sourceMappingURL=index.map

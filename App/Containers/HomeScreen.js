@@ -27,7 +27,7 @@ class HomeScreen extends Component {
   }
 
   _launchProfilePage() {
-    this.props.navigation.navigate('LoginScreen')
+    this.props.navigation.navigate('AuthScreen')
   }
 
   render () {

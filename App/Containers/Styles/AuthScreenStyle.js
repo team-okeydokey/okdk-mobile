@@ -9,10 +9,10 @@ export default StyleSheet.create({
     // flex: 1 
     backgroundColor: 'rgba(0,0,0,.2)',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: Metrics.section,
-    paddingBottom: Metrics.doubleSection
+    paddingBottom: Metrics.doubleSection,
   },
 
   keyboardAvoidingView: {
@@ -20,11 +20,33 @@ export default StyleSheet.create({
     // flexDirection: 'column',
     // justifyContent: 'space-around',
     // alignItems: 'center',
+    
   },
 
   slogan: {
     ...Fonts.style.h1,
     color: Colors.text
+  },
+
+  authCarousel: {
+    flex: 1,
+    width: '200%',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginRight: 'auto',
+  },
+
+  loginPanel: {
+    width: '50%',
+    height: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
+  signupPanel: {
+    width: '50%'
   },
 
   loginForm: {
