@@ -35,8 +35,6 @@ class AuthScreen extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log(this.props);
-    console.log(nextProps);
     if (isLoggedIn(nextState)) {
       this.props.goBack();
     }
