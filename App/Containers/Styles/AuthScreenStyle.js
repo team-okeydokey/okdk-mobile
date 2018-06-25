@@ -94,6 +94,26 @@ export default StyleSheet.create({
     color: Colors.charcoal,
   },
 
+  codeGroup: {
+    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+
+  checkbox: {
+    borderWidth: 0,
+    backgroundColor: Colors.transparent
+  },
+
+  codeInput: {
+    flex: 1,
+    ...Fonts.style.normal,
+    color: Colors.charcoal,
+    // marginRight: 'auto',
+    // alignSelf:'stretch',
+  },
+
   authButton: {
     borderRadius: 10,
     backgroundColor: Colors.hotPink,
@@ -110,12 +130,20 @@ export default StyleSheet.create({
     color: Colors.snow,  
   },
 
-  authAlternateButton: {
+  signupButton: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  loginButton: {
+    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   authAlternateButtonText: {
     ...Fonts.style.h4,
     color: Colors.snow

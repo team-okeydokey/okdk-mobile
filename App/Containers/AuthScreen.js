@@ -15,6 +15,8 @@ class AuthScreen extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {checked: false};
+
     this._showLogin = this._showLogin.bind(this);
     this._showSignup = this._showSignup.bind(this);
   }
@@ -79,7 +81,7 @@ class AuthScreen extends Component {
             </View>
             </KeyboardAvoidingView> 
 
-            <TouchableOpacity style={ styles.authAlternateButton} onPress={this._showSignup}>
+            <TouchableOpacity style={ styles.signupButton} onPress={this._showSignup}>
                 <Text style={ styles.authAlternateButtonText }>Sign up</Text>
             </TouchableOpacity>
           </View>
@@ -123,10 +125,22 @@ class AuthScreen extends Component {
                   secureTextEntry={true}
                 />
 
-                <CheckBox
-                  title='I have a special code'
-                  // checked={this.state.checked}
-                />
+                <View style={styles.codeGroup}>
+                  <CheckBox
+                    containerStyle={styles.checkbox}
+                    title='I have a code'
+                    onPress={() => this.setState({checked: !this.state.checked})}
+                    checked={this.state.checked}
+                  />
+
+                  <TextInput
+                    style={ styles.codeInput }
+                    placeholder="Code"
+                    placeholderTextColor={ Colors.steel }
+                    underlineColorAndroid={ Colors.text }
+                    numberOfLines={1}
+                  />
+                </View>
 
               </View>
 
@@ -137,7 +151,7 @@ class AuthScreen extends Component {
             </View>
             </KeyboardAvoidingView> 
 
-            <TouchableOpacity style={ styles.authAlternateButton} onPress={this._showLogin}>
+            <TouchableOpacity style={ styles.loginButton} onPress={this._showLogin}>
                 <Text style={ styles.authAlternateButtonText }>Log in</Text>
             </TouchableOpacity>
           </View>
