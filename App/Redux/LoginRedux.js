@@ -25,7 +25,7 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 // we're attempting to login
-export const request = (state, { email, password }) => state.merge({ fetching: true })
+export const loginRequest = (state, { email, password }) => state.merge({ fetching: true })
 
 // we've successfully logged in
 export const success = (state, action) => {
@@ -48,7 +48,7 @@ export const autoLogin = (state) => state
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.LOGIN_REQUEST]: request,
+  [Types.LOGIN_REQUEST]: loginRequest,
   [Types.LOGIN_SUCCESS]: success,
   [Types.LOGIN_FAILURE]: failure,
   [Types.LOGOUT]: logout,

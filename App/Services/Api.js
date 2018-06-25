@@ -3,8 +3,7 @@ import apisauce from 'apisauce'
 
 // our "constructor"
 
-// const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
-  const create = (baseURL = 'http://www.mocky.io/v2/') => {
+const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
   // ------
   // STEP 1
   // ------
@@ -42,8 +41,7 @@ import apisauce from 'apisauce'
 
   // User authentication api.
   const login = (email, password) => 
-    // api.get('login', {email: email, password: password});
-    api.get('5b2fde3a3000005e000660dd', {email: email, password: password});
+  api.get('login', {email: email, password: password});
 
   const signup = (firstname, lastname, email, password) => 
     api.get('signup', {firstname: firstname, lastname: lastname, 
