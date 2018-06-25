@@ -95093,7 +95093,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 _reactNative.KeyboardAvoidingView,
                 {
                   style: _AuthScreenStyle2.default.keyboardAvoidingView,
-                  behavior: "padding",
+                  behavior: "position",
                   __source: {
                     fileName: _jsxFileName,
                     lineNumber: 53
