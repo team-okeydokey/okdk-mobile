@@ -6,13 +6,12 @@ import DebugConfig from '../Config/DebugConfig'
 /* ------------- Types ------------- */
 
 import { StartupTypes } from '../Redux/StartupRedux'
-import { GithubTypes } from '../Redux/GithubRedux'
 import { AuthTypes } from '../Redux/AuthRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
-import { login, signup } from './AuthSagas'
+import { login, signup, getUser } from './AuthSagas'
 import { open, close } from './DeviceActionSagas'
 
 /* ------------- API ------------- */
@@ -30,6 +29,7 @@ export default function * root () {
 
     // some sagas receive extra parameters in addition to an action
     takeLatest(AuthTypes.LOGIN_REQUEST, login, api),
-    takeLatest(AuthTypes.SIGNUP_REQUEST, signup, api)
+    takeLatest(AuthTypes.SIGNUP_REQUEST, signup, api),
+    takeLatest(AuthTypes.USER_REQUEST, getUser, api)
   ])
 }

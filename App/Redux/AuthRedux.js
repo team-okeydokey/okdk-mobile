@@ -5,13 +5,16 @@ import Immutable from 'seamless-immutable'
 
 const { Types, Creators } = createActions({
   loginRequest: ['email', 'password'],
-  loginSuccess: ['token'],
+  loginSuccess: ['user'],
   loginFailure: ['message'],
   logout: null,
   autoLogin: null,
   signupRequest: ['firstname', 'lastname', 'email', 'password', 'hasCode', 'code'],
-  signupSuccess: ['token'],
+  signupSuccess: ['user'],
   signupFailure: ['message'],
+  userRequest: ['token'],
+  userSuccess: ['user'],
+  userFailure: ['message'],
 })
 
 export const AuthTypes = Types
@@ -20,9 +23,11 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  token: null,
+  user: null,
   loginError: null,
   loginFetching: false,
+  signupError: null,
+  signupFetching: false,
   signupError: null,
   signupFetching: false,
 })
@@ -34,8 +39,8 @@ export const loginRequest = (state, { email, password }) => state.merge({ loginF
 
 // we've successfully logged in
 export const loginSuccess = (state, action) => {
-  const { token } = action;
-  return state.merge({ loginFetching: false, loginError: null, token: token });
+  const { user } = action;
+  return state.merge({ loginFetching: false, loginError: null, user: user });
 }
 
 // we've had a problem logging in
@@ -50,17 +55,31 @@ export const logout = (state) => INITIAL_STATE
 // startup saga invoked autoLogin
 export const autoLogin = (state) => state
 
+// Signup actions.
 export const signupRequest = (state, { firstname, lastname, 
   email, password, hasCode, code }) => state.merge({ signupFetching: true })
 
 export const signupSuccess = (state, action) => {
-  const { token } = action;
-  return state.merge({ signupFetching: false, signupError: null, token: token });
+  const { user } = action;
+  return state.merge({ signupFetching: false, signupError: null, user: user });
 }
 
 export const signupFailure = (state, action) => {
   const { message } = action;
   return state.merge({ signupFetching: false, signupError: message });
+}
+
+// User data actions.
+export const userRequest = (state, { token }) => state.merge({ userFetching: true })
+
+export const userSuccess = (state, action) => {
+  const { user } = action;
+  return state.merge({ userFetching: false, userError: null, user: user });
+}
+
+export const userFailure = (state, action) => {
+  const { message } = action;
+  return state.merge({ userFetching: false, userError: message });
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
@@ -74,9 +93,15 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.SIGNUP_REQUEST]: signupRequest,
   [Types.SIGNUP_SUCCESS]: signupSuccess,
   [Types.SIGNUP_FAILURE]: signupFailure,
+  [Types.USER_REQUEST]: userRequest,
+  [Types.USER_SUCCESS]: userSuccess,
+  [Types.USER_FAILURE]: userFailure,
 })
 
 /* ------------- Selectors ------------- */
 
 // Is the current user logged in?
-export const isLoggedIn = (loginState) => loginState.token !== null
+export const isLoggedIn = (authState) => authState.user !== null
+
+// Get current user.
+export const getUser = (authState) => authState.user

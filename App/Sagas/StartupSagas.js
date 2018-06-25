@@ -1,10 +1,11 @@
 import { put, select } from 'redux-saga/effects'
-import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
+import AuthActions, { isLoggedIn, getUser, AuthTypes } from '../Redux/AuthRedux'
 import { NavigationActions } from 'react-navigation'
 import { is } from 'ramda'
 
 // exported to make available for tests
-export const selectLoggedInStatus = (state) => isLoggedIn(state)
+export const selectLoggedInStatus = (state) => isLoggedIn(state.auth)
+export const selectUserInStatus = (state) => getUser(state.auth)
 
 // process STARTUP actions
 export function * startup (action) {
@@ -35,12 +36,13 @@ export function * startup (action) {
   }
   
   // Check login state.
-  const loggedIn = yield select(selectLoggedInStatus)
+  const loggedIn = yield select(selectLoggedInStatus);
+
   if (loggedIn) {
-    yield put(AuthActions.autoLogin())
+    const user = yield select(selectUserInStatus);
+    yield put(AuthActions.getUser(user.token));
+    yield take([AuthTypes.USER_SUCCESS, AuthTypes.USER_FAILURE]);
+    yield put(AuthActions.autoLogin());
   } 
-  // else {
-  //   // Not logged in! Show welcome screen.
-  //   yield put(NavigationActions.navigate({ routeName: 'WelcomeScreen' }));
-  // }
+
 }

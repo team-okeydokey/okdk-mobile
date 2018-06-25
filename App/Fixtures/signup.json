@@ -1,5 +1,10 @@
 {
   "success": true, 
   "message": "test message",
-  "token": "test token"
+  "user": {
+    "token": "Test token",
+    "firstname": "Johnson",
+    "lastname": "Ben",
+    "email": "dd@gmail.com"
+  }
 }

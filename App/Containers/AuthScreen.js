@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { CheckBox } from 'react-native-elements'
 import { Colors, Metrics } from '../Themes/'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import AuthActions from '../Redux/AuthRedux'
+import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 
 // Styles
 import styles from './Styles/AuthScreenStyle'
@@ -32,7 +32,14 @@ class AuthScreen extends Component {
 
   _onCheck() {
     this.setState({checked: !this.state.checked});
+  }
 
+  componentWillUpdate(nextProps, nextState) {
+    console.log(this.props);
+    console.log(nextProps);
+    if (isLoggedIn(nextState)) {
+      this.props.goBack();
+    }
   }
 
   render () {
@@ -187,6 +194,7 @@ class AuthScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.auth.user,
     loginMessage: state.auth.loginError,
     signupMessage: state.auth.signupError,
   }
@@ -200,6 +208,9 @@ const mapDispatchToProps = (dispatch) => {
     onSignupButtonClick: (id) => {
       dispatch(AuthActions.signupRequest('',''));
     },
+    goBack: () => {
+      dispatch({ type: 'Navigation/BACK' });
+    }
   }
 }
 
