@@ -52,14 +52,14 @@ class AuthScreen extends Component {
             
               <View style={styles.loginInput}>
                 <TextInput
-                  style={ styles.email }
+                  style={ styles.textInput }
                   placeholder="Email"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
                 />
                 <TextInput
-                  style={ styles.password }
+                  style={ styles.textInput }
                   placeholder="Password"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
@@ -87,28 +87,28 @@ class AuthScreen extends Component {
             
               <View style={styles.signupInput}>
                 <TextInput
-                  style={ styles.firstname }
+                  style={ styles.textInput }
                   placeholder="First name"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
                 />
                 <TextInput
-                  style={ styles.lastname }
+                  style={ styles.textInput }
                   placeholder="Last name"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
                 />
                 <TextInput
-                  style={ styles.email }
+                  style={ styles.textInput }
                   placeholder="Email"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
                 />
                 <TextInput
-                  style={ styles.password }
+                  style={ styles.textInput }
                   placeholder="Password"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }

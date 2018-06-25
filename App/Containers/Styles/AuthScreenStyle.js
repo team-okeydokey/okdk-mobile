@@ -86,25 +86,7 @@ export default StyleSheet.create({
     paddingVertical: Metrics.baseMargin,
   },
 
-  email: {
-    width: "100%",
-    ...Fonts.style.normal,
-    color: Colors.charcoal,
-  },
-
-  password: {
-    width: "100%",
-    ...Fonts.style.normal,
-    color: Colors.charcoal,
-  },
-
-  firstname: {
-    width: "100%",
-    ...Fonts.style.normal,
-    color: Colors.charcoal,
-  },
-
-  lastname: {
+  textInput: {
     width: "100%",
     ...Fonts.style.normal,
     color: Colors.charcoal,
