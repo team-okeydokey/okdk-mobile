@@ -11,7 +11,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: Metrics.section,
+    paddingVertical: Metrics.section,
     paddingBottom: Metrics.doubleSection,
   },
 
@@ -25,28 +25,35 @@ export default StyleSheet.create({
 
   slogan: {
     ...Fonts.style.h1,
-    color: Colors.text
+    color: Colors.text,
+    paddingHorizontal: Metrics.section,
   },
 
   authCarousel: {
     flex: 1,
-    width: '200%',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginRight: 'auto',
+    // width: '200%',
+    // flexDirection: 'row',
+    // justifyContent: 'flex-start',
+    // alignItems: 'center',
+    // marginRight: 'auto',
   },
 
   loginPanel: {
-    width: '50%',
+    width: Metrics.screenWidth,
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingHorizontal: Metrics.section,
   },
 
   signupPanel: {
-    width: '50%'
+    width: Metrics.screenWidth,
+    height: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: Metrics.section,
   },
 
   loginForm: {

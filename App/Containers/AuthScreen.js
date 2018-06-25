@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, View, ImageBackground, Text, TouchableOpacity, 
   TextInput, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
-import { Colors } from '../Themes/'
+import { Colors, Metrics } from '../Themes/'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -20,7 +20,12 @@ class AuthScreen extends Component {
       
         <Text style={ styles.slogan }>Okeee</Text>
 
-        <View style={styles.authCarousel}>
+        <ScrollView style={styles.authCarousel}
+          horizontal={true}
+          decelerationRate={0}
+          snapToInterval={Metrics.screenWidth}
+          snapToAlignment={"center"}
+          >
         
           <View style={styles.loginPanel}> 
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
@@ -56,7 +61,7 @@ class AuthScreen extends Component {
             </TouchableOpacity>
           </View>
 
-          {/* <View style={styles.signupPanel}> 
+          <View style={styles.signupPanel}> 
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
             <View style={styles.loginForm}>
             
@@ -88,10 +93,10 @@ class AuthScreen extends Component {
             <TouchableOpacity style={ styles.signupButton}>
                 <Text style={ styles.signupButtonText }>Sign up</Text>
             </TouchableOpacity>
-          </View> */}
+          </View>
 
           
-        </View>
+        </ScrollView>
 
       </ImageBackground>
     )
