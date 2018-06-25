@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, View, ImageBackground, Text, TouchableOpacity, 
   TextInput, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
+import { CheckBox } from 'react-native-elements'
 import { Colors, Metrics } from '../Themes/'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -121,6 +122,12 @@ class AuthScreen extends Component {
                   numberOfLines={1}
                   secureTextEntry={true}
                 />
+
+                <CheckBox
+                  title='I have a special code'
+                  // checked={this.state.checked}
+                />
+
               </View>
 
               <TouchableOpacity style={ styles.authButton }>

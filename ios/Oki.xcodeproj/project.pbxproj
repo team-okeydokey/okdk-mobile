@@ -61,6 +61,7 @@
 		ACEED31BB7BF48A699AF5AC1 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4675A708286546CB8A55F810 /* Lato-Light.ttf */; };
 		F0E80496CAC74D07AE212900 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6471B5DACD04462B957792C0 /* Lato-LightItalic.ttf */; };
 		788C02198E594FBE9C988C41 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E06FAAA1EE1545CA96500A3D /* Lato-Regular.ttf */; };
+		188B49A976494B1D985FF8B4 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 338F509DC3004F588ABBF3E0 /* Feather.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -393,6 +394,7 @@
 		4675A708286546CB8A55F810 /* Lato-Light.ttf */ = {isa = PBXFileReference; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6471B5DACD04462B957792C0 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; name = "Lato-LightItalic.ttf"; path = "../assets/fonts/Lato-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E06FAAA1EE1545CA96500A3D /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		338F509DC3004F588ABBF3E0 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -685,6 +687,7 @@
 				4675A708286546CB8A55F810 /* Lato-Light.ttf */,
 				6471B5DACD04462B957792C0 /* Lato-LightItalic.ttf */,
 				E06FAAA1EE1545CA96500A3D /* Lato-Regular.ttf */,
+				338F509DC3004F588ABBF3E0 /* Feather.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1156,6 +1159,7 @@
 				ACEED31BB7BF48A699AF5AC1 /* Lato-Light.ttf in Resources */,
 				F0E80496CAC74D07AE212900 /* Lato-LightItalic.ttf in Resources */,
 				788C02198E594FBE9C988C41 /* Lato-Regular.ttf in Resources */,
+				188B49A976494B1D985FF8B4 /* Feather.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,7 @@
     "react-native-elements": "^0.19.1",
     "react-native-i18n": "1.0.0",
     "react-native-snap-carousel": "^3.7.2",
-    "react-native-vector-icons": "4.3.0",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11",
     "react-navigation-redux-helpers": "^1.0.4",
     "react-redux": "^5.0.6",
