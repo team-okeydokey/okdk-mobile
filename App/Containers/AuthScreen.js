@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { CheckBox } from 'react-native-elements'
 import { Colors, Metrics } from '../Themes/'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-import LoginActions from '../Redux/LoginRedux'
+import AuthActions from '../Redux/AuthRedux'
 
 // Styles
 import styles from './Styles/AuthScreenStyle'
@@ -164,7 +164,8 @@ class AuthScreen extends Component {
 
               </View>
 
-              <TouchableOpacity style={ styles.authButton }>
+              <TouchableOpacity style={ styles.authButton }
+                onPress={ this.props.onSignupButtonClick }>
                 <Text style={ styles.authButtonText }>Sign up</Text>
               </TouchableOpacity>
               
@@ -186,15 +187,18 @@ class AuthScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    loginMessage: state.login.error,
-    signupMessage: state.login.error,
+    loginMessage: state.auth.loginError,
+    signupMessage: state.auth.signupError,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onLoginButtonClick: (id) => {
-      dispatch(LoginActions.loginRequest('',''));
+      dispatch(AuthActions.loginRequest('',''));
+    },
+    onSignupButtonClick: (id) => {
+      dispatch(AuthActions.signupRequest('',''));
     },
   }
 }

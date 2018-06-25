@@ -1,5 +1,5 @@
 import { put, select } from 'redux-saga/effects'
-import LoggedInActions, { isLoggedIn } from '../Redux/LoginRedux'
+import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 import { NavigationActions } from 'react-navigation'
 import { is } from 'ramda'
 
@@ -37,7 +37,7 @@ export function * startup (action) {
   // Check login state.
   const loggedIn = yield select(selectLoggedInStatus)
   if (loggedIn) {
-    yield put(LoggedInActions.autoLogin())
+    yield put(AuthActions.autoLogin())
   } 
   // else {
   //   // Not logged in! Show welcome screen.

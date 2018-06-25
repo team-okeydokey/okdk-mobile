@@ -1,0 +1,82 @@
+import { createReducer, createActions } from 'reduxsauce'
+import Immutable from 'seamless-immutable'
+
+/* ------------- Types and Action Creators ------------- */
+
+const { Types, Creators } = createActions({
+  loginRequest: ['email', 'password'],
+  loginSuccess: ['token'],
+  loginFailure: ['message'],
+  logout: null,
+  autoLogin: null,
+  signupRequest: ['firstname', 'lastname', 'email', 'password', 'hasCode', 'code'],
+  signupSuccess: ['token'],
+  signupFailure: ['message'],
+})
+
+export const AuthTypes = Types
+export default Creators
+
+/* ------------- Initial State ------------- */
+
+export const INITIAL_STATE = Immutable({
+  token: null,
+  loginError: null,
+  loginFetching: false,
+  signupError: null,
+  signupFetching: false,
+})
+
+/* ------------- Reducers ------------- */
+
+// we're attempting to login
+export const loginRequest = (state, { email, password }) => state.merge({ loginFetching: true })
+
+// we've successfully logged in
+export const loginSuccess = (state, action) => {
+  const { token } = action;
+  return state.merge({ loginFetching: false, loginError: null, token: token });
+}
+
+// we've had a problem logging in
+export const loginFailure = (state, action) => {
+  const { message } = action;
+  return state.merge({ loginFetching: false, loginError: message });
+}
+
+// we've logged out
+export const logout = (state) => INITIAL_STATE
+
+// startup saga invoked autoLogin
+export const autoLogin = (state) => state
+
+export const signupRequest = (state, { firstname, lastname, 
+  email, password, hasCode, code }) => state.merge({ signupFetching: true })
+
+export const signupSuccess = (state, action) => {
+  const { token } = action;
+  return state.merge({ signupFetching: false, signupError: null, token: token });
+}
+
+export const signupFailure = (state, action) => {
+  const { message } = action;
+  return state.merge({ signupFetching: false, signupError: message });
+}
+
+/* ------------- Hookup Reducers To Types ------------- */
+
+export const reducer = createReducer(INITIAL_STATE, {
+  [Types.LOGIN_REQUEST]: loginRequest,
+  [Types.LOGIN_SUCCESS]: loginSuccess,
+  [Types.LOGIN_FAILURE]: loginFailure,
+  [Types.LOGOUT]: logout,
+  [Types.AUTO_LOGIN]: autoLogin,
+  [Types.SIGNUP_REQUEST]: signupRequest,
+  [Types.SIGNUP_SUCCESS]: signupSuccess,
+  [Types.SIGNUP_FAILURE]: signupFailure,
+})
+
+/* ------------- Selectors ------------- */
+
+// Is the current user logged in?
+export const isLoggedIn = (loginState) => loginState.token !== null

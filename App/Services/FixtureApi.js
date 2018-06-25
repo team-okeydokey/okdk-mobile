@@ -24,5 +24,9 @@ export default {
   login: (email, password) => {
     const loginData = require('../Fixtures/login.json')
     return loginData;
+  },
+  signup: (firstname, lastname, email, password, hasCode, code) => {
+    const signupData = require('../Fixtures/signup.json')
+    return signupData;
   }
 }
