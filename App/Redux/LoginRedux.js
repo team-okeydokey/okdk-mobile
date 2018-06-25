@@ -30,13 +30,13 @@ export const loginRequest = (state, { email, password }) => state.merge({ fetchi
 // we've successfully logged in
 export const loginSuccess = (state, action) => {
   const { token } = action;
-  state.merge({ fetching: false, error: null, token: token });
+  return state.merge({ fetching: false, error: null, token: token });
 }
 
 // we've had a problem logging in
 export const loginFailure = (state, action) => {
   const { message } = action;
-  state.merge({ fetching: false, error: message });
+  return state.merge({ fetching: false, error: message });
 }
 
 // we've logged out

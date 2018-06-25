@@ -88,6 +88,10 @@ export default StyleSheet.create({
     paddingVertical: Metrics.baseMargin,
   },
 
+  status: {
+    ...Fonts.style.description,
+  },
+
   textInput: {
     width: "100%",
     ...Fonts.style.normal,

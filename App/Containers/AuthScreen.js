@@ -61,7 +61,12 @@ class AuthScreen extends Component {
 
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
             <View style={styles.inputForm}>
-        
+
+              <Text style={styles.status}
+                numberOfLines={1}>
+                {this.props.loginMessage};
+              </Text>  
+
               <View style={styles.inputGroup}>
                 <TextInput
                   style={ styles.textInput }
@@ -100,7 +105,12 @@ class AuthScreen extends Component {
 
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
             <View style={styles.inputForm}>
-            
+
+              <Text style={styles.status}
+                numberOfLines={1}>
+                {this.props.signupMessage};
+              </Text>         
+
               <View style={styles.inputGroup}>
                 <TextInput
                   style={ styles.textInput }
@@ -175,6 +185,8 @@ class AuthScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    loginMessage: state.login.error,
+    signupMessage: state.login.error,
   }
 }
 
