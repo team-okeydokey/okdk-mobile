@@ -22,12 +22,7 @@ export default {
     }
   },
   login: (email, password) => {
-    // This fixture only supports gantman or else returns skellock
-    const gantmanData = require('../Fixtures/gantman.json')
-    const skellockData = require('../Fixtures/skellock.json')
-    return {
-      ok: true,
-      data: email.toLowerCase() === 'gantman' ? gantmanData : skellockData
-    }
+    const loginData = require('../Fixtures/login.json')
+    return loginData;
   }
 }

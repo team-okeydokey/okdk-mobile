@@ -28,13 +28,13 @@ export const INITIAL_STATE = Immutable({
 export const loginRequest = (state, { email, password }) => state.merge({ fetching: true })
 
 // we've successfully logged in
-export const success = (state, action) => {
+export const loginSuccess = (state, action) => {
   const { token } = action;
   state.merge({ fetching: false, error: null, token: token });
 }
 
 // we've had a problem logging in
-export const failure = (state, action) => {
+export const loginFailure = (state, action) => {
   const { message } = action;
   state.merge({ fetching: false, error: message });
 }
@@ -49,8 +49,8 @@ export const autoLogin = (state) => state
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGIN_REQUEST]: loginRequest,
-  [Types.LOGIN_SUCCESS]: success,
-  [Types.LOGIN_FAILURE]: failure,
+  [Types.LOGIN_SUCCESS]: loginSuccess,
+  [Types.LOGIN_FAILURE]: loginFailure,
   [Types.LOGOUT]: logout,
   [Types.AUTO_LOGIN]: autoLogin
 })
