@@ -25,7 +25,7 @@ export default StyleSheet.create({
 
   slogan: {
     ...Fonts.style.h1,
-    color: Colors.text,
+    color: Colors.snow,
     paddingHorizontal: Metrics.section,
   },
 
@@ -75,6 +75,17 @@ export default StyleSheet.create({
     paddingVertical: Metrics.baseMargin,
   },
 
+  signupInput: {
+    width: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: Colors.snow,
+    borderRadius: 10,
+    paddingHorizontal: Metrics.doubleBaseMargin,
+    paddingVertical: Metrics.baseMargin,
+  },
+
   email: {
     width: "100%",
     ...Fonts.style.normal,
@@ -87,7 +98,19 @@ export default StyleSheet.create({
     color: Colors.charcoal,
   },
 
-  loginButton: {
+  firstname: {
+    width: "100%",
+    ...Fonts.style.normal,
+    color: Colors.charcoal,
+  },
+
+  lastname: {
+    width: "100%",
+    ...Fonts.style.normal,
+    color: Colors.charcoal,
+  },
+
+  authButton: {
     borderRadius: 10,
     backgroundColor: Colors.hotPink,
     flexDirection: 'row',
@@ -97,16 +120,18 @@ export default StyleSheet.create({
     paddingHorizontal: Metrics.doubleBaseMargin,
     marginTop: Metrics.doubleBaseMargin
   },
-  loginButtonText: {
+
+  authButtonText: {
     ...Fonts.style.h4, 
     color: Colors.snow,  
   },
-  signupButton: {
+
+  authAlternateButton: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  signupButtonText: {
+  authAlternateButtonText: {
     ...Fonts.style.h4,
     color: Colors.snow
   }
