@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { View, ScrollView, Text, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
-import { NavigationActions } from 'react-navigation';
+import { Alert, View, ScrollView, Text, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { put }  from 'redux-saga/effects';
 import { Metrics } from '../Themes/'
 import Icon from 'react-native-vector-icons/EvilIcons';
+import { NavigationActions } from 'react-navigation';
+import { isLoggedIn } from '../Redux/AuthRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -23,11 +24,25 @@ class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {user: null};
+
     this._launchProfilePage = this._launchProfilePage.bind(this);     
   }
 
   _launchProfilePage() {
-    this.props.navigation.navigate('AuthScreen')
+    if (isLoggedIn(this.state)) {
+      this.props.navigation.navigate('AuthScreen');
+    } else {
+      Alert.alert(
+        'Already logged in',
+        'Delete app data and try again',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )
+    }
   }
 
   render () {
@@ -57,6 +72,7 @@ class HomeScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.auth.user,
   }
 }
 
