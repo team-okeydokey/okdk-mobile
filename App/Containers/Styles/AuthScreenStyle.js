@@ -101,17 +101,27 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  checkbox: {
+  checkboxContainer: {
     borderWidth: 0,
     backgroundColor: Colors.transparent
+  },
+
+  checkboxText: {
+    ...Fonts.style.description
   },
 
   codeInput: {
     flex: 1,
     ...Fonts.style.normal,
     color: Colors.charcoal,
-    // marginRight: 'auto',
-    // alignSelf:'stretch',
+    opacity: 1.0
+  },
+
+  inactiveCodeInput: {
+    flex: 1,
+    ...Fonts.style.normal,
+    color: Colors.charcoal,
+    opacity: 0
   },
 
   authButton: {

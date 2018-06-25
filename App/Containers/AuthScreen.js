@@ -19,6 +19,7 @@ class AuthScreen extends Component {
 
     this._showLogin = this._showLogin.bind(this);
     this._showSignup = this._showSignup.bind(this);
+    this._onCheck = this._onCheck.bind(this);
   }
 
   _showLogin() {
@@ -27,6 +28,11 @@ class AuthScreen extends Component {
 
   _showSignup() {
     this.scrollView.scrollTo({x: Metrics.screenWidth, y: 0, animated: true})
+  }
+
+  _onCheck() {
+    this.setState({checked: !this.state.checked});
+
   }
 
   render () {
@@ -127,18 +133,20 @@ class AuthScreen extends Component {
 
                 <View style={styles.codeGroup}>
                   <CheckBox
-                    containerStyle={styles.checkbox}
+                    containerStyle={styles.checkboxContainer}
+                    textStyle={styles.checkboxText}
                     title='I have a code'
-                    onPress={() => this.setState({checked: !this.state.checked})}
+                    onPress={this._onCheck}
                     checked={this.state.checked}
                   />
 
                   <TextInput
-                    style={ styles.codeInput }
+                    style={ this.state.checked ? styles.codeInput : styles.inactiveCodeInput }
                     placeholder="Code"
                     placeholderTextColor={ Colors.steel }
                     underlineColorAndroid={ Colors.text }
                     numberOfLines={1}
+                    editable={this.state.checked}
                   />
                 </View>
 
