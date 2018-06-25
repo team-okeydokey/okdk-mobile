@@ -34,12 +34,12 @@ export const close = (state, { deviceId }) => {
 
 // Successful device action.
 export const success = (state, { deviceId }) => {
-  state.merge({ fetching: true, error: null })
+  return state.merge({ fetching: true, error: null })
 }
 
 // Failed to initiate action.
 export const failure = (state, { deviceId }) => {
-  state.merge({ fetching: false, error: true})
+  return state.merge({ fetching: false, error: true})
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
