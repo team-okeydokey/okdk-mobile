@@ -47,10 +47,13 @@ class AuthScreen extends Component {
         
           {/* login panel */}
           <View style={styles.loginPanel}> 
+
+            <View style={styles.loginFiller}/>
+
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
-            <View style={styles.loginForm}>
-            
-              <View style={styles.loginInput}>
+            <View style={styles.inputForm}>
+        
+              <View style={styles.inputGroup}>
                 <TextInput
                   style={ styles.textInput }
                   placeholder="Email"
@@ -82,10 +85,13 @@ class AuthScreen extends Component {
 
           {/* Signup panel */}
           <View style={styles.signupPanel}> 
+
+            <View style={styles.signupFiller}/>
+
             <KeyboardAvoidingView style={styles.keyboardAvoidingView} behavior='padding'>
-            <View style={styles.loginForm}>
+            <View style={styles.inputForm}>
             
-              <View style={styles.signupInput}>
+              <View style={styles.inputGroup}>
                 <TextInput
                   style={ styles.textInput }
                   placeholder="First name"

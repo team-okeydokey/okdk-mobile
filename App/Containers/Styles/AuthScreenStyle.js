@@ -17,6 +17,7 @@ export default StyleSheet.create({
 
   keyboardAvoidingView: {
     width: "100%",
+    flex: 5,
     // flexDirection: 'column',
     // justifyContent: 'space-around',
     // alignItems: 'center',
@@ -45,6 +46,8 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: Metrics.section,
+    paddingTop: Metrics.doubleSection,
+    paddingBottom: Metrics.section,
   },
 
   signupPanel: {
@@ -54,9 +57,11 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: Metrics.section,
+    paddingTop: Metrics.doubleSection,
+    paddingBottom: Metrics.section,
   },
 
-  loginForm: {
+  inputForm: {
     width: '100%',
     backgroundColor:'transparent',
     flexDirection: 'column',
@@ -64,18 +69,15 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  loginInput: {
-    width: '100%',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: Colors.snow,
-    borderRadius: 10,
-    paddingHorizontal: Metrics.doubleBaseMargin,
-    paddingVertical: Metrics.baseMargin,
+  loginFiller: {
+    flex: 2,
   },
 
-  signupInput: {
+  signupFiller: {
+    flex: 0.5,
+  },
+
+  inputGroup: {
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'space-around',
@@ -109,6 +111,7 @@ export default StyleSheet.create({
   },
 
   authAlternateButton: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
