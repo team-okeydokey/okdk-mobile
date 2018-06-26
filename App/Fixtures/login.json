@@ -6,6 +6,7 @@
     "firstName": "Johnson",
     "lastName": "Ben",
     "email": "dd@gmail.com",
+    "code": "ABCDE",
     "activeAccess": [{
       "accessBegin": 1530029788,
       "accessEnd": 1530288987,
