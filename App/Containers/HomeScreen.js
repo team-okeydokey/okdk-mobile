@@ -31,7 +31,7 @@ class HomeScreen extends Component {
   }
 
   _launchProfilePage() {
-    if (isLoggedIn(this.state)) {
+    if (!isLoggedIn(this.state)) {
       this.props.navigation.navigate('AuthScreen');
     } else {
       Alert.alert(
