@@ -3,8 +3,26 @@
   "message": "test message",
   "user": {
     "token": "Test token",
-    "firstname": "Johnson",
-    "lastname": "Ben",
-    "email": "dd@gmail.com"
+    "firstName": "Johnson",
+    "lastName": "Ben",
+    "email": "dd@gmail.com",
+    "activeAccess": [{
+      "accessBegin": 1530029788,
+      "accessEnd": 1530288987,
+      "accessName": "Bali oceanfront",
+      "keys": [{
+        "keyName": "Front door",
+        "keyCommands":["open"]
+      }]
+    }],
+    "futureAccess": [{
+      "accessBegin": 1530029788,
+      "accessEnd": 1530288987,
+      "accessName": "Hawaii Intercontinental",
+      "keys": [{
+        "keyName": "Porch door",
+        "keyCommands":["open"]
+      }]
+    }]
   }
 }

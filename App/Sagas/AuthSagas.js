@@ -18,9 +18,9 @@ export function * login (api, action) {
 }
 
 export function * signup (api, action) {
-  const { firstname, lastname, email, password, hasCode, code } = action
+  const { firstName, lastName, email, password, hasCode, code } = action
   // make the call to the api
-  const response = yield call(api.signup, firstname, lastname, 
+  const response = yield call(api.signup, firstName, lastName, 
     email, password, hasCode, code);
 
   if (response.success) {

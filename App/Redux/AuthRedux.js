@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
   loginFailure: ['message'],
   logout: null,
   autoLogin: null,
-  signupRequest: ['firstname', 'lastname', 'email', 'password', 'hasCode', 'code'],
+  signupRequest: ['firstName', 'lastName', 'email', 'password', 'hasCode', 'code'],
   signupSuccess: ['user'],
   signupFailure: ['message'],
   userRequest: ['token'],

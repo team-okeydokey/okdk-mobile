@@ -43,8 +43,8 @@ const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
   const login = (email, password) => 
   api.get('login', {email: email, password: password});
 
-  const signup = (firstname, lastname, email, password) => 
-    api.get('signup', {firstname: firstname, lastname: lastname, 
+  const signup = (firstName, lastName, email, password) => 
+    api.get('signup', {firstName: firstName, lastName: lastName, 
       email: email, password: password});
 
   // Device manipulation api.

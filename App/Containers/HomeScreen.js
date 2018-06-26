@@ -25,20 +25,18 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {user: null};
-
     this._launchProfilePage = this._launchProfilePage.bind(this);     
   }
 
   _launchProfilePage() {
-    if (!isLoggedIn(this.state)) {
+    if (!isLoggedIn(this.props)) {
       this.props.navigation.navigate('AuthScreen');
     } else {
       Alert.alert(
         'Already logged in',
         'Delete app data and try again',
         [
-          {text: 'OK', onPress: () => console.log('OK Pressed')},
+          {text: 'OK'},
         ],
         { cancelable: false }
       )

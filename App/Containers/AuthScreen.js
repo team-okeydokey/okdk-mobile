@@ -14,9 +14,9 @@ class AuthScreen extends Component {
 
   constructor(props) {
     super(props);
-
+    
     this.state = {checked: false};
-
+    
     this._showLogin = this._showLogin.bind(this);
     this._showSignup = this._showSignup.bind(this);
     this._onCheck = this._onCheck.bind(this);
@@ -35,7 +35,7 @@ class AuthScreen extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (isLoggedIn(nextState)) {
+    if (isLoggedIn(nextProps)) {
       this.props.goBack();
     }
   }
