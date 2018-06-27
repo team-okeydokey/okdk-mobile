@@ -7,23 +7,27 @@
     "lastName": "Ben",
     "email": "dd@gmail.com",
     "code": "ABCDE",
-    "activeAccess": [{
-      "accessBegin": 1530029788,
-      "accessEnd": 1530288987,
-      "accessName": "Bali oceanfront",
-      "keys": [{
-        "keyName": "Front door",
-        "keyCommands":["open"]
-      }]
-    }],
-    "futureAccess": [{
-      "accessBegin": 1530029788,
-      "accessEnd": 1530288987,
-      "accessName": "Hawaii Intercontinental",
-      "keys": [{
-        "keyName": "Porch door",
-        "keyCommands":["open"]
-      }]
-    }]
+    "access": [
+      {
+        "active": true,
+        "accessBegin": 1530029788,
+        "accessEnd": 1530288987,
+        "accessName": "Bali oceanfront",
+        "keys": [{
+          "keyName": "Front door",
+          "keyCommands":["open"]
+        }]
+      }, 
+      {
+        "active": false,
+        "accessBegin": 1530029788,
+        "accessEnd": 1530288987,
+        "accessName": "Hawaii Intercontinental",
+        "keys": [{
+          "keyName": "Porch door",
+          "keyCommands":["open"]
+        }]
+      }
+    ]
   }
 }

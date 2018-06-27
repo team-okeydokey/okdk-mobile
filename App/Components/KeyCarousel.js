@@ -25,7 +25,6 @@ export default class KeyCarousel extends Component {
     return (
       <KeyCard
         title={item.title}
-        description={item.description}
       />
     );
   }
@@ -39,8 +38,9 @@ export default class KeyCarousel extends Component {
         renderItem={this._renderItem}
         sliderWidth={this.props.sliderWidth}
         itemWidth={this.props.itemWidth}
-        containerCustomStyle={styles.slider}
-        contentContainerCustomStyle={styles.item}
+        // containerCustomStyle={styles.slider}
+        // contentContainerCustomStyle={styles.item}
+        slideStyle={styles.slide}
       />
     );
   }

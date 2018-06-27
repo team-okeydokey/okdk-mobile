@@ -25,7 +25,8 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
 
-    this._launchProfilePage = this._launchProfilePage.bind(this);     
+    this._launchProfilePage = this._launchProfilePage.bind(this); 
+    this._onOpen = this._onOpen.bind(this);    
   }
 
   _launchProfilePage() {
@@ -43,13 +44,19 @@ class HomeScreen extends Component {
     }
   }
 
+  _onOpen() {
+  }
+
+  _onClose() {
+  }
+
   render () {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <Text style={styles.date}>Friday, June 13th</Text>
+      // <ScrollView style={styles.container}>
+        // <KeyboardAvoidingView behavior='position'>
+        <View style={styles.container}>
           <View style={styles.screenHeader}>
-            <Text style={styles.sectionTitle}>My Keys</Text>
+            <Text style={styles.date}>Friday, June 13th</Text>
             <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
               <Icon name="user" size={40} color="#2d2d2d"/>
             </TouchableOpacity>
@@ -59,11 +66,26 @@ class HomeScreen extends Component {
             itemWidth={300}
             data={entries}
           />
+          <View style={styles.keyCardButtonContainer}>
 
-          <Text style={styles.sectionTitle}>Reservation Details</Text>
-          <Text style={styles.sectionTitle}>Room timeline</Text>
-        </KeyboardAvoidingView>
-      </ScrollView>
+            <TouchableOpacity 
+              onPress={this._onOpen}
+              style={styles.openButton}>
+              <Text style={styles.openText}>OPEN</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.closeButton}>
+              <Text style={styles.closeText}>CLOSE</Text>
+            </TouchableOpacity>
+
+          </View>
+
+          {/* <Text style={styles.sectionTitle}>Reservation Details</Text>
+          <Text style={styles.sectionTitle}>Room timeline</Text> */}
+        {/* </KeyboardAvoidingView>
+      </ScrollView> */}
+      </View>
     )
   }
 }
