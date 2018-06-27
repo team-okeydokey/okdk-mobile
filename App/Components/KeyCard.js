@@ -13,18 +13,14 @@ export default class KeyCard extends Component {
 
   // Prop type warnings
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
   }
   
   // Defaults for props
   static defaultProps = {
-    title: "",
+    name: "",
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return true;
-  // }
-
+  
   render () {
     return (
       <View style={styles.keyCard}>
@@ -33,8 +29,8 @@ export default class KeyCard extends Component {
               numberOfLines={1}>MY KEY</Text>
 
         <View style={styles.keyCardInfoContainer}>
-          <Text style={styles.keyCardTitle}
-                numberOfLines={2}>{this.props.title}</Text>
+          <Text style={styles.keyCardName}
+              numberOfLines={2}>{this.props.name.toUpperCase()}</Text>
         </View>
 
       </View>

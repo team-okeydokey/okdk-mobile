@@ -24,7 +24,7 @@ export default class KeyCarousel extends Component {
   _renderItem({item, index}) {
     return (
       <KeyCard
-        title={item.title}
+        name={item.name}
       />
     );
   }

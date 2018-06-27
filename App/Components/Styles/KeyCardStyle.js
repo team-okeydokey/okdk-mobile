@@ -37,7 +37,7 @@ export default StyleSheet.create({
     padding: Metrics.doubleBaseMargin,
   },
 
-  keyCardTitle: {
+  keyCardName: {
     ...Fonts.style.h5,
     color: 'black',
     textAlign: 'center',

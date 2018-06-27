@@ -14,17 +14,11 @@ import KeyCarousel from '../Components/KeyCarousel'
 // Styles
 import styles from './Styles/HomeScreenStyle'
 
-entries = [{"title": "Front door", "description": "Description description"}, 
-           {"title": "Back door", "description": "Description description description description description"},
-           {"title": "Porch door", "description": "Description description description description description"},
-           {"title": "Front window", "description": "Description description description description"},
-           {"title": "Garage door", "description": "Description description description description description description"}];
-
 class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
-
+    console.log(this.props.user)
     this._launchProfilePage = this._launchProfilePage.bind(this); 
     this._onOpen = this._onOpen.bind(this);    
   }
@@ -33,10 +27,8 @@ class HomeScreen extends Component {
     if (!isLoggedIn(this.props)) {
       this.props.navigation.navigate('AuthScreen');
     } else {
-      let context = this;
       Alert.alert(
         'Already logged in',
-        'Delete app data and try again',
         [
           {text: 'Logout', onPress: () => this.props._onLogout(), style: 'cancel'},
           {text: 'OK'},
@@ -52,41 +44,60 @@ class HomeScreen extends Component {
   _onClose() {
   }
 
-  render () {
+  _renderLoggedOutButtons() {
     return (
-      // <ScrollView style={styles.container}>
-        // <KeyboardAvoidingView behavior='position'>
-        <View style={styles.container}>
-          <View style={styles.screenHeader}>
-            <Text style={styles.date}>Friday, June 13th</Text>
-            <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
-              <Icon name="user" size={40} color="#2d2d2d"/>
-            </TouchableOpacity>
-          </View>
-          <KeyCarousel
-            sliderWidth={Metrics.screenWidth}
-            itemWidth={300}
-            data={entries}
-          />
-          <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
 
-            <TouchableOpacity 
-              onPress={this._onOpen}
-              style={styles.openButton}>
-              <Text style={styles.openText}>OPEN</Text>
-            </TouchableOpacity>
+        <TouchableOpacity 
+          onPress={this._onOpen}
+          style={styles.openButton}>
+          <Text style={styles.openText}>ENTER CODE</Text>
+        </TouchableOpacity>
 
-            <TouchableOpacity
-              style={styles.closeButton}>
-              <Text style={styles.closeText}>CLOSE</Text>
-            </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.openButton}>
+          <Text style={styles.closeText}>SCAN QR CODE</Text>
+        </TouchableOpacity>
 
-          </View>
+      </View>
+    )
+  }
 
-          {/* <Text style={styles.sectionTitle}>Reservation Details</Text>
-          <Text style={styles.sectionTitle}>Room timeline</Text> */}
-        {/* </KeyboardAvoidingView>
-      </ScrollView> */}
+  _renderLoggedInButtons() {
+    return (
+      <View style={styles.buttonContainer}>
+
+        <TouchableOpacity 
+          onPress={this._onOpen}
+          style={styles.openButton}>
+          <Text style={styles.openText}>OPEN</Text>
+        </TouchableOpacity>
+
+      </View>
+    )
+  }
+
+  render () {
+
+    let buttons = isLoggedIn(this.props) ? 
+      this._renderLoggedInButtons() : this._renderLoggedOutButtons();
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.screenHeader}>
+          <Text style={styles.date}>Friday, June 13th</Text>
+          <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
+            <Icon name="user" size={40} color="#2d2d2d"/>
+          </TouchableOpacity>
+        </View>
+        <KeyCarousel
+          sliderWidth={Metrics.screenWidth}
+          itemWidth={300}
+          // data={this.props.user.access}
+          data={[{"name": "hello"}, {"name": "world"}]}
+        />
+
+        { buttons }
       </View>
     )
   }
