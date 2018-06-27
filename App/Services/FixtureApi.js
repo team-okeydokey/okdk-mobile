@@ -21,7 +21,7 @@ export default {
     return signupData;
   }, 
   getUser: (token) => {
-    const signupData = require('../Fixtures/fetchUser.json')
-    return signupData;
+    const userData = require('../Fixtures/getUser.json')
+    return userData;
   },
 }

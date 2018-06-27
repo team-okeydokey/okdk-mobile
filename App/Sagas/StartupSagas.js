@@ -1,4 +1,4 @@
-import { put, select } from 'redux-saga/effects'
+import { put, select, take } from 'redux-saga/effects'
 import AuthActions, { isLoggedIn, getUser, AuthTypes } from '../Redux/AuthRedux'
 import { NavigationActions } from 'react-navigation'
 import { is } from 'ramda'
@@ -40,7 +40,7 @@ export function * startup (action) {
 
   if (loggedIn) {
     const user = yield select(selectUserInStatus);
-    yield put(AuthActions.getUser(user.token));
+    yield put(AuthActions.userRequest(user.token));
     yield take([AuthTypes.USER_SUCCESS, AuthTypes.USER_FAILURE]);
     yield put(AuthActions.autoLogin());
   } 
