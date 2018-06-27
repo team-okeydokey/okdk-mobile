@@ -38,7 +38,7 @@ export default class KeyCarousel extends Component {
         renderItem={this._renderItem}
         sliderWidth={this.props.sliderWidth}
         itemWidth={this.props.itemWidth}
-        // containerCustomStyle={styles.slider}
+        containerCustomStyle={styles.slider}
         // contentContainerCustomStyle={styles.item}
         slideStyle={styles.slide}
       />

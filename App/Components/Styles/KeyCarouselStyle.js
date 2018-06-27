@@ -7,7 +7,6 @@ export default StyleSheet.create({
   // },
   slider: {
     // backgroundColor: Colors.white,
-    // backgroundColor: 'blue'
   },
 
   slide: {

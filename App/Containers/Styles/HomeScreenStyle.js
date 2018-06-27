@@ -3,6 +3,13 @@ import { Fonts, Colors, Metrics, ApplicationStyles } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
+  container: {
+    paddingTop: Metrics.baseMargin,
+    backgroundColor: Colors.background,
+    flexDirection: 'column',
+    // justifyContent: 'flex-start',
+    // alignItems: 'center'
+  },
   date: {
     ...Fonts.style.description,
   },
@@ -26,7 +33,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center', 
-    paddingBottom: Metrics.doubleBaseMargin,
+    padding: Metrics.doubleBaseMargin,
     backgroundColor: Colors.snow,
     // borderTopWidth: 1,
     // borderTopColor: Colors.cloud,
