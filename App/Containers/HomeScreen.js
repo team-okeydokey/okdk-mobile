@@ -5,7 +5,7 @@ import { put }  from 'redux-saga/effects';
 import { Metrics } from '../Themes/'
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { NavigationActions } from 'react-navigation';
-import { isLoggedIn } from '../Redux/AuthRedux'
+import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -33,10 +33,12 @@ class HomeScreen extends Component {
     if (!isLoggedIn(this.props)) {
       this.props.navigation.navigate('AuthScreen');
     } else {
+      let context = this;
       Alert.alert(
         'Already logged in',
         'Delete app data and try again',
         [
+          {text: 'Logout', onPress: () => this.props._onLogout(), style: 'cancel'},
           {text: 'OK'},
         ],
         { cancelable: false }
@@ -98,6 +100,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    _onLogout: () => {
+      dispatch(AuthActions.logout());
+    },
   }
 }
 
