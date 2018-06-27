@@ -70,8 +70,8 @@ class HomeScreen extends Component {
 
         <TouchableOpacity 
           onPress={this._onOpen}
-          style={styles.openButton}>
-          <Text style={styles.openText}>OPEN</Text>
+          style={styles.actionButton}>
+          <Text style={styles.actionButtonText}>OPEN</Text>
         </TouchableOpacity>
 
       </View>
