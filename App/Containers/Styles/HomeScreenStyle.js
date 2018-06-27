@@ -13,6 +13,7 @@ export default StyleSheet.create({
   },
   date: {
     ...Fonts.style.description,
+    marginHorizontal: Metrics.doubleBaseMargin
   },
   sectionTitle: {
     ...Fonts.style.h4,
