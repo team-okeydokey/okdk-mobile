@@ -12,6 +12,8 @@ export default StyleSheet.create({
 
   slide: {
     padding: Metrics.baseMargin,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   containerStyle: {
     backgroundColor: Colors.snow,

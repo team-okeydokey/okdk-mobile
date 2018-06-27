@@ -93,6 +93,8 @@ class HomeScreen extends Component {
       active = false;
     } 
 
+    let size = Metrics.screenWidth * 0.75;
+
     return (
       <View style={styles.container}>
         <View style={styles.screenHeader}>
@@ -103,7 +105,8 @@ class HomeScreen extends Component {
         </View>
         <KeyCarousel
           sliderWidth={Metrics.screenWidth}
-          itemWidth={300}
+          itemWidth={size}
+          itemHeight={size}
           data={data}
           onSnapToItem={(index) => this.props._onSnapToItem(index) }
           active={active}
@@ -129,7 +132,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(AuthActions.logout());
     },
     _onSnapToItem: (index) => {
-      console.log("whoogo");
       dispatch(KeyCardActions.slide(index));
     }
   }

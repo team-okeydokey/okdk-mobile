@@ -7,10 +7,18 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import KeyCard from './KeyCard';
 
 export default class KeyCarousel extends Component {
+
+  constructor(props) {
+    super(props);
+    
+    this._renderItem = this._renderItem.bind(this);  
+  }
+
   // Prop type warnings
   static propTypes = {
     sliderWidth: PropTypes.number.isRequired,
     itemWidth: PropTypes.number.isRequired,
+    itemHeight: PropTypes.number.isRequired,
     data: PropTypes.array.isRequired,
     onSnapToItem: PropTypes.func.isRequired,
     active: PropTypes.bool.isRequired,
@@ -28,6 +36,8 @@ export default class KeyCarousel extends Component {
     return (
       <KeyCard
         name={item.accessName}
+        width={this.props.itemWidth}
+        height={this.props.itemHeight}
       />
     );
   }
@@ -52,7 +62,7 @@ export default class KeyCarousel extends Component {
   render() {
 
     let pagination = this._pagination();
-
+    
     return (
       <View>
         <Carousel
