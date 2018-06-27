@@ -68,7 +68,7 @@ class HomeScreen extends Component {
             itemWidth={300}
             data={entries}
           />
-          <View style={styles.keyCardButtonContainer}>
+          <View style={styles.buttonContainer}>
 
             <TouchableOpacity 
               onPress={this._onOpen}

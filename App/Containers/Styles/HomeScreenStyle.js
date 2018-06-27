@@ -34,33 +34,37 @@ export default StyleSheet.create({
 
   openButton: {
     ...ApplicationStyles.shadow,
-    backgroundColor: 'black',
-    // borderRadius: 40,
     padding: Metrics.baseMargin,
-    // margin: Metrics.baseMargin,
-    width: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+    height: 100,
+    borderWidth: 6,
+    // borderRadius: 50
   }, 
   
   closeButton: {
     ...ApplicationStyles.shadow,
-    backgroundColor: 'black',
     padding: Metrics.baseMargin,
-    // margin: Metrics.baseMargin,
-    width: '30%',
-    // borderTopColor: Colors.cloud,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+    height: 100,
+    borderWidth: 6,
+    borderRadius: 50
   },
 
   openText: {
     ...Fonts.style.h5,
     textAlign: 'center',
     // color: Colors.affirmative
-    color: Colors.snow
+    color: 'black'
   },
 
   closeText: {
     ...Fonts.style.h5,
     textAlign: 'center',
     // color: Colors.negative
-    color: Colors.snow
+    color: 'black'
   }
 })
