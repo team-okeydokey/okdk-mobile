@@ -49,7 +49,7 @@ export default StyleSheet.create({
     width: 100,
     height: 100,
     borderWidth: 6,
-    // borderRadius: 50
+    borderRadius: 50
   }, 
   
   closeButton: {

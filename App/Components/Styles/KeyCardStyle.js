@@ -9,7 +9,7 @@ export default StyleSheet.create({
   keyCard: {
     backgroundColor: Colors.snow,
     height: 280,
-    // borderRadius: 100,
+    borderRadius: 140,
     borderWidth: 6,
     overflow: 'hidden',
     flexDirection: 'column',
