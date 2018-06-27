@@ -6,6 +6,7 @@ import { Metrics } from '../Themes/'
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { NavigationActions } from 'react-navigation';
 import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
+import KeyCardActions from '../Redux/KeyCardRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -80,11 +81,17 @@ class HomeScreen extends Component {
 
   render () {
 
-    let bottomButtons = isLoggedIn(this.props) ? 
-      this._renderLoggedInButtons() : this._renderLoggedOutButtons();
+    var bottomButtons, data, active;
 
-    let data = isLoggedIn(this.props) ?
-      this.props.user.access : [{"accessName": "Not Available"}];
+    if (isLoggedIn(this.props)) {
+      bottomButtons = this._renderLoggedInButtons();
+      data = this.props.user.access;
+      active = true;
+    } else {
+      bottomButtons =  this._renderLoggedOutButtons();
+      data = [{"accessName": "Not Available"}];
+      active = false;
+    } 
 
     return (
       <View style={styles.container}>
@@ -98,6 +105,9 @@ class HomeScreen extends Component {
           sliderWidth={Metrics.screenWidth}
           itemWidth={300}
           data={data}
+          onSnapToItem={(index) => this.props._onSnapToItem(index) }
+          active={active}
+          activeSlide={this.props.activeSlide}
         />
 
         { bottomButtons }
@@ -109,6 +119,7 @@ class HomeScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.auth.user,
+    activeSlide: state.keyCard.activeSlide
   }
 }
 
@@ -117,6 +128,10 @@ const mapDispatchToProps = (dispatch) => {
     _onLogout: () => {
       dispatch(AuthActions.logout());
     },
+    _onSnapToItem: (index) => {
+      console.log("whoogo");
+      dispatch(KeyCardActions.slide(index));
+    }
   }
 }
 

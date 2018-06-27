@@ -10,7 +10,8 @@ export const reducers = combineReducers({
   github: require('./GithubRedux').reducer,
   search: require('./SearchRedux').reducer,
   deviceAction: require('./DeviceActionRedux').reducer,
-  auth: require('./AuthRedux').reducer
+  auth: require('./AuthRedux').reducer,
+  keyCard: require('./KeyCardRedux').reducer
 })
 
 export default () => {

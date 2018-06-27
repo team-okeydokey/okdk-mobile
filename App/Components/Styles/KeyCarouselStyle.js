@@ -12,5 +12,19 @@ export default StyleSheet.create({
 
   slide: {
     padding: Metrics.baseMargin,
-  }
+  },
+  containerStyle: {
+    backgroundColor: Colors.snow,
+    // padding: 0
+  },
+  dotStyle: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginHorizontal: 3,
+    backgroundColor: 'black'
+  }, 
+  inactiveDotStyle: {
+
+  },
 })
