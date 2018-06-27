@@ -41,8 +41,7 @@ export default StyleSheet.create({
     // borderTopColor: Colors.cloud,
   },
 
-  openButton: {
-    ...ApplicationStyles.shadow,
+  actionButton: {
     padding: Metrics.baseMargin,
     justifyContent: 'center',
     alignItems: 'center',
@@ -52,28 +51,17 @@ export default StyleSheet.create({
     borderRadius: 50
   }, 
   
-  closeButton: {
-    ...ApplicationStyles.shadow,
-    padding: Metrics.baseMargin,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 100,
-    height: 100,
-    borderWidth: 6,
-    borderRadius: 50
-  },
-
-  openText: {
-    ...Fonts.style.h5,
+  actionButtonText: {
+    ...Fonts.style.normal,
     textAlign: 'center',
     // color: Colors.affirmative
     color: 'black'
   },
 
-  closeText: {
-    ...Fonts.style.h5,
-    textAlign: 'center',
-    // color: Colors.negative
-    color: 'black'
-  }
+  // closeText: {
+  //   ...Fonts.style.h5,
+  //   textAlign: 'center',
+  //   // color: Colors.negative
+  //   color: 'black'
+  // }
 })

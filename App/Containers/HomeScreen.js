@@ -51,13 +51,13 @@ class HomeScreen extends Component {
 
         <TouchableOpacity 
           onPress={this._onOpen}
-          style={styles.openButton}>
-          <Text style={styles.openText}>ENTER CODE</Text>
+          style={styles.actionButton}>
+          <Text style={styles.actionButtonText}>ENTER CODE</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.openButton}>
-          <Text style={styles.closeText}>SCAN QR CODE</Text>
+          style={styles.actionButton}>
+          <Text style={styles.actionButtonText}>SCAN QR CODE</Text>
         </TouchableOpacity>
 
       </View>
