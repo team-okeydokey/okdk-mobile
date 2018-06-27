@@ -35,10 +35,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center', 
-    padding: Metrics.doubleBaseMargin,
-    marginTop: 30
+    // marginTop: Metrics.baseMargin
     // borderTopWidth: 1,
-    // borderTopColor: Colors.cloud,
+    // backgroundColor: Colors.cloud,
   },
 
   actionButton: {

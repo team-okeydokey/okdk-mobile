@@ -46,10 +46,10 @@ class HomeScreen extends Component {
   _onClose() {
   }
 
-  _renderLoggedOutButtons(bottomButtonStyle) {    
+  _renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle) {    
 
     return (
-      <View style={styles.buttonContainer}>
+      <View style={[styles.buttonContainer, buttonContainerStyle]}>
 
         <TouchableOpacity 
           onPress={this._onOpen}
@@ -66,9 +66,9 @@ class HomeScreen extends Component {
     )
   }
 
-  _renderLoggedInButtons(bottomButtonStyle) {
+  _renderLoggedInButtons(bottomButtonStyle, buttonContainerStyle) {
     return (
-      <View style={styles.buttonContainer}>
+      <View style={[styles.buttonContainer, buttonContainerStyle]}>
 
         <TouchableOpacity 
           onPress={this._onOpen}
@@ -93,13 +93,16 @@ class HomeScreen extends Component {
     }
 
     var bottomButtons, data, active;
+    let buttonContainerStyle = {};
 
     if (isLoggedIn(this.props)) {
-      bottomButtons = this._renderLoggedInButtons(bottomButtonStyle);
+      buttonContainerStyle.padding = 0;
+      bottomButtons = this._renderLoggedInButtons(bottomButtonStyle, buttonContainerStyle);
       data = this.props.user.access;
       active = true;
     } else {
-      bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle);
+      buttonContainerStyle.padding = Metrics.doubleSection;
+      bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
       data = [{"accessName": "Not Available"}];
       active = false;
     }
