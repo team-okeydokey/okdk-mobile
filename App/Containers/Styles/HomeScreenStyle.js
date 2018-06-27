@@ -4,11 +4,12 @@ import { Fonts, Colors, Metrics, ApplicationStyles } from '../../Themes/'
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
+    flex: 1,
     paddingTop: Metrics.baseMargin,
     backgroundColor: Colors.background,
     flexDirection: 'column',
-    // justifyContent: 'flex-start',
-    // alignItems: 'center'
+    justifyContent: 'flex-start',
+    alignItems: 'stretch'
   },
   date: {
     ...Fonts.style.description,
@@ -34,7 +35,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center', 
     padding: Metrics.doubleBaseMargin,
-    backgroundColor: Colors.snow,
+    marginTop: 30
     // borderTopWidth: 1,
     // borderTopColor: Colors.cloud,
   },

@@ -7,6 +7,7 @@ export default StyleSheet.create({
   // },
   slider: {
     // backgroundColor: Colors.white,
+    flexGrow: 0
   },
 
   slide: {
