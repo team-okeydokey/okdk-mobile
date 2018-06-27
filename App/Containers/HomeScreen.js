@@ -46,18 +46,19 @@ class HomeScreen extends Component {
   _onClose() {
   }
 
-  _renderLoggedOutButtons() {
+  _renderLoggedOutButtons(bottomButtonStyle) {    
+
     return (
       <View style={styles.buttonContainer}>
 
         <TouchableOpacity 
           onPress={this._onOpen}
-          style={styles.actionButton}>
+          style={[styles.actionButton, bottomButtonStyle]}>
           <Text style={styles.actionButtonText}>ENTER CODE</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.actionButton}>
+          style={[styles.actionButton, bottomButtonStyle]}>
           <Text style={styles.actionButtonText}>SCAN QR CODE</Text>
         </TouchableOpacity>
 
@@ -65,13 +66,13 @@ class HomeScreen extends Component {
     )
   }
 
-  _renderLoggedInButtons() {
+  _renderLoggedInButtons(bottomButtonStyle) {
     return (
       <View style={styles.buttonContainer}>
 
         <TouchableOpacity 
           onPress={this._onOpen}
-          style={styles.actionButton}>
+          style={[styles.actionButton, bottomButtonStyle]}>
           <Text style={styles.actionButtonText}>OPEN</Text>
         </TouchableOpacity>
 
@@ -81,19 +82,27 @@ class HomeScreen extends Component {
 
   render () {
 
+
+    let keyCardSize = Metrics.screenWidth * 0.6;
+
+    let bottomButtonSize = Metrics.screenWidth * 0.25;
+    let bottomButtonStyle = {
+      "width": bottomButtonSize,
+      "height": bottomButtonSize,
+      "borderRadius": bottomButtonSize / 2.0
+    }
+
     var bottomButtons, data, active;
 
     if (isLoggedIn(this.props)) {
-      bottomButtons = this._renderLoggedInButtons();
+      bottomButtons = this._renderLoggedInButtons(bottomButtonStyle);
       data = this.props.user.access;
       active = true;
     } else {
-      bottomButtons =  this._renderLoggedOutButtons();
+      bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle);
       data = [{"accessName": "Not Available"}];
       active = false;
-    } 
-
-    let size = Metrics.screenWidth * 0.75;
+    }
 
     return (
       <View style={styles.container}>
@@ -105,8 +114,8 @@ class HomeScreen extends Component {
         </View>
         <KeyCarousel
           sliderWidth={Metrics.screenWidth}
-          itemWidth={size}
-          itemHeight={size}
+          itemWidth={keyCardSize}
+          itemHeight={keyCardSize}
           data={data}
           onSnapToItem={(index) => this.props._onSnapToItem(index) }
           active={active}
