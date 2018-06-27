@@ -18,7 +18,7 @@ class HomeScreen extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.user)
+    
     this._launchProfilePage = this._launchProfilePage.bind(this); 
     this._onOpen = this._onOpen.bind(this);    
   }
@@ -29,9 +29,10 @@ class HomeScreen extends Component {
     } else {
       Alert.alert(
         'Already logged in',
+        'Log out to view auth page.',
         [
-          {text: 'Logout', onPress: () => this.props._onLogout(), style: 'cancel'},
-          {text: 'OK'},
+          {text: 'Logout', onPress: () => this.props._onLogout()},
+          {text: 'OK'}
         ],
         { cancelable: false }
       )
@@ -79,8 +80,11 @@ class HomeScreen extends Component {
 
   render () {
 
-    let buttons = isLoggedIn(this.props) ? 
+    let bottomButtons = isLoggedIn(this.props) ? 
       this._renderLoggedInButtons() : this._renderLoggedOutButtons();
+
+    let data = isLoggedIn(this.props) ?
+      this.props.user.access : [{"accessName": "Not Available"}];
 
     return (
       <View style={styles.container}>
@@ -93,11 +97,10 @@ class HomeScreen extends Component {
         <KeyCarousel
           sliderWidth={Metrics.screenWidth}
           itemWidth={300}
-          // data={this.props.user.access}
-          data={[{"name": "hello"}, {"name": "world"}]}
+          data={data}
         />
 
-        { buttons }
+        { bottomButtons }
       </View>
     )
   }
