@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Alert, View, ScrollView, Text, KeyboardAvoidingView, TouchableOpacity } from 'react-native'
+import { Alert, View, ScrollView, Text, 
+  KeyboardAvoidingView, TouchableOpacity, Button } from 'react-native'
 import { connect } from 'react-redux'
 import { put }  from 'redux-saga/effects';
 import { Metrics } from '../Themes/'
@@ -11,6 +12,7 @@ import KeyCardActions from '../Redux/KeyCardRedux'
 // import YourActions from '../Redux/YourRedux'
 
 import KeyCarousel from '../Components/KeyCarousel'
+import SlidingUpPanel from 'rn-sliding-up-panel';
 
 // Styles
 import styles from './Styles/HomeScreenStyle'
@@ -126,6 +128,17 @@ class HomeScreen extends Component {
         />
 
         { bottomButtons }
+        <SlidingUpPanel
+          visible={active}
+          startCollaped={true}
+          showBackdrop={false}
+          onRequestClose={() => {}}>
+          <View style={styles.panelView}>
+            <TouchableOpacity>
+              <Text style={styles.dashboardTitle}>Dashboard</Text>
+            </TouchableOpacity>
+          </View>
+        </SlidingUpPanel>
       </View>
     )
   }

@@ -27,6 +27,7 @@ const colors = {
   sand: '#E3E1DD',
   aliceBlue: '#F3F4F5',
   hotPink: '#FF69B4',
+  shadow: 'rgba(0, 0, 0, 0.2)',
 }
 
 export default colors
