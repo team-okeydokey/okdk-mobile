@@ -9,9 +9,10 @@ export const reducers = combineReducers({
   nav: require('./NavigationRedux').reducer,
   github: require('./GithubRedux').reducer,
   search: require('./SearchRedux').reducer,
-  deviceAction: require('./DeviceActionRedux').reducer,
+  // deviceAction: require('./DeviceActionRedux').reducer,
   auth: require('./AuthRedux').reducer,
-  keyCard: require('./KeyCardRedux').reducer
+  keyCard: require('./KeyCardRedux').reducer,
+  dashboard: require('./DashboardRedux').reducer
 })
 
 export default () => {

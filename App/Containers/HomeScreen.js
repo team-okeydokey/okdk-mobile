@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { NavigationActions } from 'react-navigation';
 import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 import KeyCardActions from '../Redux/KeyCardRedux'
+import DashboardActions from '../Redux/DashboardRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -130,11 +131,16 @@ class HomeScreen extends Component {
         { bottomButtons }
         <SlidingUpPanel
           visible={active}
-          startCollaped={true}
+          startCollaped
           showBackdrop={false}
-          onRequestClose={() => {}}>
+          allowMomentum={false}
+          draggableRange={{
+            "top": Metrics.screenHeight,
+            "bottom": 120
+          }}>
           <View style={styles.panelView}>
-            <TouchableOpacity>
+            <TouchableOpacity 
+              onPress={() => {this.props._toggleDashboard(this.props.dashboardOpen)}}>
               <Text style={styles.dashboardTitle}>Dashboard</Text>
             </TouchableOpacity>
           </View>
@@ -147,7 +153,8 @@ class HomeScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.auth.user,
-    activeSlide: state.keyCard.activeSlide
+    activeSlide: state.keyCard.activeSlide,
+    dashboardOpen: state.dashboard.open
   }
 }
 
@@ -158,6 +165,15 @@ const mapDispatchToProps = (dispatch) => {
     },
     _onSnapToItem: (index) => {
       dispatch(KeyCardActions.slide(index));
+    },
+    _toggleDashboard: (currState) => {
+      console.log(currState);
+      // currState is true when dashboard is open.
+      if (currState) {
+        dispatch(DashboardActions.close());
+      } else {
+        dispatch(DashboardActions.open());
+      }
     }
   }
 }
