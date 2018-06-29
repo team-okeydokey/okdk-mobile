@@ -68,8 +68,12 @@ export default StyleSheet.create({
     padding: Metrics.section,
     borderColor: Colors.shadow,
     borderWidth: 1,
-    marginHorizontal: Metrics.baseMargin,
+    // marginHorizontal: Metrics.baseMargin,
     // alignSelf:'flex-end'
+    // backgroundColor: 'red',
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight,
+    top: '80%'
   },
 
   dashboardTitle: {
