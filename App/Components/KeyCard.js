@@ -28,7 +28,7 @@ export default class KeyCard extends Component {
     let keyCardStyle = {
       "width": this.props.width,
       "height": this.props.height, 
-      "borderRadius": this.props.width/2
+      // "borderRadius": this.props.width/2
     };
 
     return (

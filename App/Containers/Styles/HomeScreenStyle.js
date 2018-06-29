@@ -67,7 +67,9 @@ export default StyleSheet.create({
     backgroundColor: Colors.snow,
     padding: Metrics.section,
     borderColor: Colors.shadow,
-    borderWidth: 1 
+    borderWidth: 1,
+    marginHorizontal: Metrics.baseMargin,
+    // alignSelf:'flex-end'
   },
 
   dashboardTitle: {
