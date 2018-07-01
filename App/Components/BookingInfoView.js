@@ -26,10 +26,33 @@ export default class BookingInfoView extends Component {
     roomNumber: "",
   }
 
+  _infoDisplay(title, value) {
+    return (
+      <View style={styles.infoDisplay}> 
+        <Text style={styles.infoTitle}> 
+          {title}
+        </Text>
+        <Text style={styles.infoValue}> 
+          {value}
+        </Text> 
+      </View>
+    );
+  }
+
   render () {
     return (
       <View style={styles.container}>
-        <Text>BookingInfoView Component</Text>
+
+        { this._infoDisplay("BOOKING NUMBER", this.props.bookingNumber) }
+        <View style={styles.timeInfo}>
+          { this._infoDisplay("CHECK IN", this.props.checkIn) }
+          { this._infoDisplay("CHECK OUT", this.props.checkOut) }
+        </View>
+        { this._infoDisplay("HOTEL NAME", this.props.hotelName) }
+        { this._infoDisplay("ADDRESS", this.props.address) }
+        { this._infoDisplay("ROOM TYPE", this.props.roomType) }
+        { this._infoDisplay("ROOM NUMBER", this.props.roomNumber) }
+        
       </View>
     )
   }
