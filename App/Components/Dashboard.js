@@ -8,6 +8,9 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import DashboardActions, { getTabNameByIndex } from '../Redux/DashboardRedux'
 
 import SlidingUpPanel from 'rn-sliding-up-panel';
+import BookingInfoView from '../Components/BookingInfoView'
+import DoorlockSettingsView from '../Components/DoorlockSettingsView'
+import DoorActivityView from '../Components/DoorActivityView'
 
 // Styles
 import styles from './Styles/DashboardStyle'
@@ -25,6 +28,7 @@ class DashBoard extends Component {
     super(props);
 
     this._setHeader = this._setHeader.bind(this);
+    this._getDashboardContent = this._getDashboardContent.bind(this);
   }
 
   _setHeader() {
@@ -34,6 +38,29 @@ class DashBoard extends Component {
         return { title: newTitle };
       });
     // }
+  }
+
+  _getDashboardContent() {
+
+    var dashboardContentView;
+
+    switch(this.props.currentTab) {
+      case 1: return 
+        (<DoorlockSettingsView/>);      
+      case 2: return
+        (<DoorActivityView/>);
+      case 0:
+      default: return 
+        (<BookingInfoView
+          bookingNumber={"DSKDJNSK"} 
+          checkIn={"2017-07-10"}
+          checkOut={"2017-07-31"}
+          hotelName={"Hello hotel"} 
+          address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
+          roomType={"Sunset Compact"}
+          roomNumber={"201"}
+          />);
+    }
   }
 
   render () {
@@ -56,11 +83,28 @@ class DashBoard extends Component {
         >
         <View style={styles.panelView}>
           <TouchableOpacity
+            style={styles.dashboardHeaderContainer}
             onPress={this.props.onHeaderPress}>
             <Text style={styles.dashboardHeader}>
               {this.props.title}
             </Text>
           </TouchableOpacity>
+
+          <View style={styles.dashboardContent}>
+
+            {/* {this._getDashboardContent()}; */}
+            <BookingInfoView
+              bookingNumber={"DSKDJNSK"} 
+              checkIn={"2017-07-10"}
+              checkOut={"2017-07-31"}
+              hotelName={"Hello hotel"} 
+              address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
+              roomType={"Sunset Compact"}
+              roomNumber={"201"}
+              />
+
+          </View>
+
           <View style={styles.dashboardTabContainer}>
             <TouchableOpacity style={styles.dashboardTabButton} 
               onPress={() => this.props._selectTab(0)}> 
@@ -103,7 +147,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     _selectTab: (index) => {
-      console.log(index)
       dispatch(DashboardActions.selectTab(index));
     },
   }

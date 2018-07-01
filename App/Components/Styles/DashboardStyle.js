@@ -19,12 +19,21 @@ export default StyleSheet.create({
     // top: '80%'
   },
 
+  dashboardHeaderContainer: {
+    // flex: 1,
+  },
+
   dashboardHeader: {
     ...Fonts.style.h2,
     color: 'black',
   },
 
+  dashboardContent: {
+    // flex: 8,
+  },
+
   dashboardTabContainer: {
+    // flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

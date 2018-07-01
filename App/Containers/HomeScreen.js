@@ -160,7 +160,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(KeyCardActions.slide(index));
     },
     _toggleDashboard: (currState) => {
-      console.log(currState);
       // currState is true when dashboard is open.
       if (currState) {
         dispatch(DashboardActions.close());
