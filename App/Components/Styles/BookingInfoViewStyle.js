@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
 
   infoDisplay: {
-    marginTop: Metrics.baseMargin
+    marginTop: Metrics.baseMargin,
   },
   infoTitle: {
     ...Fonts.style.normal,

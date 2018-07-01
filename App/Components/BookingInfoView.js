@@ -46,6 +46,7 @@ export default class BookingInfoView extends Component {
         { this._infoDisplay("BOOKING NUMBER", this.props.bookingNumber) }
         <View style={styles.timeInfo}>
           { this._infoDisplay("CHECK IN", this.props.checkIn) }
+          <View style={{'width': 75}}/>
           { this._infoDisplay("CHECK OUT", this.props.checkOut) }
         </View>
         { this._infoDisplay("HOTEL NAME", this.props.hotelName) }
