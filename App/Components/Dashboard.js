@@ -4,6 +4,7 @@ import { View, ScrollView, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { Metrics } from '../Themes/'
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { Colors } from '../Themes/'
 
 import DashboardActions, { getTabNameByIndex } from '../Redux/DashboardRedux'
 
@@ -29,6 +30,8 @@ class DashBoard extends Component {
 
     this._setHeader = this._setHeader.bind(this);
     this._getDashboardContent = this._getDashboardContent.bind(this);
+    this._tabButtonIconStyle = this._tabButtonIconStyle.bind(this);
+    this._buttonColor = this._buttonColor.bind(this);
   }
 
   _setHeader() {
@@ -61,6 +64,19 @@ class DashBoard extends Component {
           roomNumber={"201"}
           />);
     }
+  }
+
+  _tabButtonIconStyle(index) {
+    
+    return {
+      // If index of tab is the same as currentTab, 
+      // set it to the highlight color.
+      borderColor: (index == this.props.currentTab) ? Colors.facebook : 'black'
+    }
+  }
+
+  _buttonColor(index) {
+    return (index == this.props.currentTab) ? Colors.facebook : 'black'
   }
 
   render () {
@@ -108,24 +124,24 @@ class DashBoard extends Component {
           <View style={styles.dashboardTabContainer}>
             <TouchableOpacity style={styles.dashboardTabButton} 
               onPress={() => this.props._selectTab(0)}> 
-              <View style={styles.dashboardTabButtonIcon}> 
-                <Icon name="list" size={30} color="#2d2d2d"/>
+              <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(0)]}> 
+                <Icon name="list" size={30} color={this._buttonColor(0)}/>
               </View>
               <Text numberOfLines={1}>{getTabNameByIndex(0)}</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.dashboardTabButton}
+            <TouchableOpacity style={styles.dashboardTabButtonIcon}
               onPress={() => this.props._selectTab(1)}>
-              <View style={styles.dashboardTabButtonIcon}> 
-                <Icon name="key" size={30} color="#2d2d2d"/>
+              <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(1)]}> 
+                <Icon name="key" size={30} color={this._buttonColor(1)}/>
               </View>
               <Text numberOfLines={1}>{getTabNameByIndex(1)}</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.dashboardTabButton}
+            <TouchableOpacity style={styles.dashboardTabButtonIcon}
               onPress={() => this.props._selectTab(2)}> 
-              <View style={styles.dashboardTabButtonIcon}> 
-                <Icon name="bell" size={30} color="#2d2d2d"/>
+              <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(2)]}> 
+                <Icon name="bell" size={30} color={this._buttonColor(2)}/>
               </View>
               <Text numberOfLines={1}>{getTabNameByIndex(2)}</Text>
             </TouchableOpacity>
