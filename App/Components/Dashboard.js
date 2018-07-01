@@ -30,6 +30,7 @@ class DashBoard extends Component {
 
     this._setHeader = this._setHeader.bind(this);
     this._getDashboardContent = this._getDashboardContent.bind(this);
+    this._tabBarButton = this._tabBarButton.bind(this);
     this._tabButtonIconStyle = this._tabButtonIconStyle.bind(this);
     this._getTabColor = this._getTabColor.bind(this);
   }
@@ -63,6 +64,30 @@ class DashBoard extends Component {
           roomType={"Sunset Compact"}
           roomNumber={"201"}
           />);
+    }
+  }
+
+
+  _tabBarButton(index) {
+    return (            
+      <TouchableOpacity style={styles.dashboardTabButton} 
+        onPress={() => this.props._selectTab(index)}> 
+        <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(index)]}> 
+          <Icon name={this._tabButtonIconName(index)} size={30} color={this._getTabColor(index)}/>
+        </View>
+        <Text numberOfLines={1}
+          style={{color: this._getTabColor(index)}}>{getTabNameByIndex(index)}</Text>
+      </TouchableOpacity>
+    )
+  }
+
+  _tabButtonIconName(index) {
+    
+    switch(index) {
+      case 0: return "list";
+      case 1: return "key";
+      case 2: return "bell";
+      default: return "list";
     }
   }
 
@@ -122,32 +147,11 @@ class DashBoard extends Component {
           </View>
 
           <View style={styles.dashboardTabContainer}>
-            <TouchableOpacity style={styles.dashboardTabButton} 
-              onPress={() => this.props._selectTab(0)}> 
-              <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(0)]}> 
-                <Icon name="list" size={30} color={this._getTabColor(0)}/>
-              </View>
-              <Text numberOfLines={1}
-                style={{color: this._getTabColor(0)}}>{getTabNameByIndex(0)}</Text>
-            </TouchableOpacity>
+            { this._tabBarButton(0) }
 
-            <TouchableOpacity style={styles.dashboardTabButtonIcon}
-              onPress={() => this.props._selectTab(1)}>
-              <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(1)]}> 
-                <Icon name="key" size={30} color={this._getTabColor(1)}/>
-              </View>
-              <Text numberOfLines={1}
-                style={{color: this._getTabColor(1)}}>{getTabNameByIndex(1)}</Text>
-            </TouchableOpacity>
+            { this._tabBarButton(1) }
 
-            <TouchableOpacity style={styles.dashboardTabButtonIcon}
-              onPress={() => this.props._selectTab(2)}> 
-              <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(2)]}> 
-                <Icon name="bell" size={30} color={this._getTabColor(2)}/>
-              </View>
-              <Text numberOfLines={1}
-                style={{color: this._getTabColor(2)}}>>{getTabNameByIndex(2)}</Text>
-            </TouchableOpacity>
+            { this._tabBarButton(2) }
           </View>
         </View>
       </SlidingUpPanel>
