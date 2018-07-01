@@ -110,6 +110,8 @@ class HomeScreen extends Component {
       active = false;
     }
 
+    let dashboardHeaderHeight = 110;
+
     return (
       <View style={styles.container}>
         <View style={styles.screenHeader}>
@@ -132,7 +134,8 @@ class HomeScreen extends Component {
 
         <Dashboard
           active={active}
-          onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}>
+          onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}
+          headerHeight={dashboardHeaderHeight}>
         </Dashboard>
 
       </View>

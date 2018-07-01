@@ -18,9 +18,15 @@ export default class DashBoardScreen extends Component {
   static propTypes = {
     active: PropTypes.bool.isRequired,
     onHeaderPress: PropTypes.func.isRequired,
+    headerHeight: PropTypes.number.isRequired,
   }
 
   render () {
+
+    // const dashboardHeaderStyle = {
+    //   "height": headerHeight,
+    // }
+
     return (
       <SlidingUpPanel
         visible={this.props.active}
@@ -29,12 +35,14 @@ export default class DashBoardScreen extends Component {
         allowMomentum={false}
         draggableRange={{
           "top": Metrics.screenHeight,
-          "bottom": 120
+          "bottom": this.props.headerHeight
         }}>
         <View style={styles.panelView}>
           <TouchableOpacity 
             onPress={this.props.onHeaderPress}>
-            <Text style={styles.dashboardTitle}>Dashboard</Text>
+            <Text style={styles.dashboardHeader}>
+              Dashboard
+            </Text>
           </TouchableOpacity>
           <View style={styles.dashboardTabContainer}>
             <TouchableOpacity style={styles.dashboardTabButton}> 

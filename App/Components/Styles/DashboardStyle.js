@@ -19,7 +19,7 @@ export default StyleSheet.create({
     // top: '80%'
   },
 
-  dashboardTitle: {
+  dashboardHeader: {
     ...Fonts.style.h2,
     color: 'black',
   },
