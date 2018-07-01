@@ -31,7 +31,7 @@ class DashBoard extends Component {
     this._setHeader = this._setHeader.bind(this);
     this._getDashboardContent = this._getDashboardContent.bind(this);
     this._tabButtonIconStyle = this._tabButtonIconStyle.bind(this);
-    this._buttonColor = this._buttonColor.bind(this);
+    this._getTabColor = this._getTabColor.bind(this);
   }
 
   _setHeader() {
@@ -75,7 +75,7 @@ class DashBoard extends Component {
     }
   }
 
-  _buttonColor(index) {
+  _getTabColor(index) {
     return (index == this.props.currentTab) ? Colors.facebook : 'black'
   }
 
@@ -125,25 +125,28 @@ class DashBoard extends Component {
             <TouchableOpacity style={styles.dashboardTabButton} 
               onPress={() => this.props._selectTab(0)}> 
               <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(0)]}> 
-                <Icon name="list" size={30} color={this._buttonColor(0)}/>
+                <Icon name="list" size={30} color={this._getTabColor(0)}/>
               </View>
-              <Text numberOfLines={1}>{getTabNameByIndex(0)}</Text>
+              <Text numberOfLines={1}
+                style={{color: this._getTabColor(0)}}>{getTabNameByIndex(0)}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.dashboardTabButtonIcon}
               onPress={() => this.props._selectTab(1)}>
               <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(1)]}> 
-                <Icon name="key" size={30} color={this._buttonColor(1)}/>
+                <Icon name="key" size={30} color={this._getTabColor(1)}/>
               </View>
-              <Text numberOfLines={1}>{getTabNameByIndex(1)}</Text>
+              <Text numberOfLines={1}
+                style={{color: this._getTabColor(1)}}>{getTabNameByIndex(1)}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.dashboardTabButtonIcon}
               onPress={() => this.props._selectTab(2)}> 
               <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(2)]}> 
-                <Icon name="bell" size={30} color={this._buttonColor(2)}/>
+                <Icon name="bell" size={30} color={this._getTabColor(2)}/>
               </View>
-              <Text numberOfLines={1}>{getTabNameByIndex(2)}</Text>
+              <Text numberOfLines={1}
+                style={{color: this._getTabColor(2)}}>>{getTabNameByIndex(2)}</Text>
             </TouchableOpacity>
           </View>
         </View>
