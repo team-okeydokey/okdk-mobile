@@ -60,24 +60,4 @@ export default StyleSheet.create({
   //   // color: Colors.negative
   //   color: 'black'
   // }
-  panelView: {
-    // ...ApplicationStyles.shadow,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    backgroundColor: Colors.snow,
-    padding: Metrics.section,
-    borderColor: Colors.shadow,
-    borderWidth: 1,
-    // marginHorizontal: Metrics.baseMargin,
-    // alignSelf:'flex-end'
-    // backgroundColor: 'red',
-    // width: Metrics.screenWidth,
-    // height: Metrics.screenHeight,
-    // top: '80%'
-  },
-
-  dashboardTitle: {
-    ...Fonts.style.h2,
-    color: 'black',
-  }
 })

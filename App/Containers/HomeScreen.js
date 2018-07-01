@@ -13,7 +13,7 @@ import DashboardActions from '../Redux/DashboardRedux'
 // import YourActions from '../Redux/YourRedux'
 
 import KeyCarousel from '../Components/KeyCarousel'
-import SlidingUpPanel from 'rn-sliding-up-panel';
+import Dashboard from '../Components/Dashboard'
 
 // Styles
 import styles from './Styles/HomeScreenStyle'
@@ -129,22 +129,12 @@ class HomeScreen extends Component {
         />
 
         { bottomButtons }
-        <SlidingUpPanel
-          visible={active}
-          startCollaped
-          showBackdrop={false}
-          allowMomentum={false}
-          draggableRange={{
-            "top": Metrics.screenHeight,
-            "bottom": 120
-          }}>
-          <View style={styles.panelView}>
-            <TouchableOpacity 
-              onPress={() => {this.props._toggleDashboard(this.props.dashboardOpen)}}>
-              <Text style={styles.dashboardTitle}>Dashboard</Text>
-            </TouchableOpacity>
-          </View>
-        </SlidingUpPanel>
+
+        <Dashboard
+          active={active}
+          onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}>
+        </Dashboard>
+
       </View>
     )
   }
