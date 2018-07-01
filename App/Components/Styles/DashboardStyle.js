@@ -22,5 +22,35 @@ export default StyleSheet.create({
   dashboardTitle: {
     ...Fonts.style.h2,
     color: 'black',
+  },
+
+  dashboardTabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: Metrics.doubleBaseMargin
+  },
+
+  dashboardTabButton: {
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+
+  dashboardTabButtonIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderWidth: 2,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  dashboardTabButtonImage: {
+
+  },
+
+  dashboardTabButtonLabel: {
+    fontSize: 10
   }
 })

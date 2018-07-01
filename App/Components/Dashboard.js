@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { View, ScrollView, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { Metrics } from '../Themes/'
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -35,6 +36,28 @@ export default class DashBoardScreen extends Component {
             onPress={this.props.onHeaderPress}>
             <Text style={styles.dashboardTitle}>Dashboard</Text>
           </TouchableOpacity>
+          <View style={styles.dashboardTabContainer}>
+            <TouchableOpacity style={styles.dashboardTabButton}> 
+              <View style={styles.dashboardTabButtonIcon}> 
+                <Icon name="list" size={30} color="#2d2d2d"/>
+              </View>
+              <Text numberOfLines={1}>Booking Info</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.dashboardTabButton}>
+              <View style={styles.dashboardTabButtonIcon}> 
+                <Icon name="key" size={30} color="#2d2d2d"/>
+              </View>
+              <Text numberOfLines={1}>Doorlock Settings</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.dashboardTabButton}> 
+              <View style={styles.dashboardTabButtonIcon}> 
+                <Icon name="bell" size={30} color="#2d2d2d"/>
+              </View>
+              <Text numberOfLines={1}>Door Activity</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </SlidingUpPanel>
     )
