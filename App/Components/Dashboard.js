@@ -56,7 +56,6 @@ class DashBoard extends Component {
           roomNumber={"201"}
           />);
     }
-    console.log(dashboardContentView)
     return dashboardContentView;
   }
 
@@ -98,7 +97,10 @@ class DashBoard extends Component {
   }
 
   render () {
-
+    data=[{type: 0, description: 'Housekeeping', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0},
+    {type: 0, description: 'John opened door', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0}, 
+    {type: 1, description: 'Failed attempt', timestamp: 0}, {type: 0, description: 'test1', timestamp: 0},
+    {type: 0, description: 'test1', timestamp: 0}]
     let dashboardContentView;
 
     if (this.props.currentTab == 0) {
@@ -155,7 +157,9 @@ class DashBoard extends Component {
               roomType={"Sunset Compact"}
               roomNumber={"201"}
               /> */}
-            <DoorlockSettingsView/>
+            {/* <DoorlockSettingsView/> */}
+            <DoorActivityView
+            activityData={data}/>
 
           </View>
 

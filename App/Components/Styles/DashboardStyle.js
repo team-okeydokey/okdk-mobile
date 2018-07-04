@@ -5,6 +5,7 @@ export default StyleSheet.create({
   ...ApplicationStyles.screen,
   panelView: {
     // ...ApplicationStyles.shadow,
+    // overflow:'visible',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: Colors.snow,
