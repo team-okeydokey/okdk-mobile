@@ -28,34 +28,25 @@ class DashBoard extends Component {
   constructor(props) {
     super(props);
 
-    this._setHeader = this._setHeader.bind(this);
     this._getDashboardContent = this._getDashboardContent.bind(this);
     this._tabBarButton = this._tabBarButton.bind(this);
     this._tabButtonIconStyle = this._tabButtonIconStyle.bind(this);
     this._getTabColor = this._getTabColor.bind(this);
   }
 
-  _setHeader() {
-    // if (this.props.dashboardOpen) {
-      let newTitle = getTabNameByIndex(this.props.currentTab);
-      this.setState(previousState => {
-        return { title: newTitle };
-      });
-    // }
-  }
-
   _getDashboardContent() {
+
+    console.log("currentTab", this.props.currentTab)
 
     var dashboardContentView;
 
     switch(this.props.currentTab) {
-      case 1: return 
-        (<DoorlockSettingsView/>);      
-      case 2: return
-        (<DoorActivityView/>);
-      case 0:
-      default: return 
-        (<BookingInfoView
+    case 1: dashboardContentView = (<DoorlockSettingsView/>); break;
+    case 2: dashboardContentView = (<DoorActivityView/>); break;
+    case 0:
+    default: dashboardContentView = 
+        (
+        <BookingInfoView
           bookingNumber={"DSKDJNSK"} 
           checkIn={"2017-07-10"}
           checkOut={"2017-07-31"}
@@ -65,6 +56,8 @@ class DashBoard extends Component {
           roomNumber={"201"}
           />);
     }
+    console.log(dashboardContentView)
+    return dashboardContentView;
   }
 
 
@@ -106,11 +99,30 @@ class DashBoard extends Component {
 
   render () {
 
+    let dashboardContentView;
+
+    if (this.props.currentTab == 0) {
+      dashboardContentView = <BookingInfoView
+      bookingNumber={"DSKDJNSK"} 
+      checkIn={"2017-07-10"}
+      checkOut={"2017-07-31"}
+      hotelName={"Hello hotel"} 
+      address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
+      roomType={"Sunset Compact"}
+      roomNumber={"201"}
+      />
+    } else if (this.props.currentTab == 1) {
+      dashboardContentView = <DoorlockSettingsView/>;
+    } else {
+      dashboardContentView = <DoorActivityView/>;
+    }1
+
     // const dashboardHeaderStyle = {
     //   "height": headerHeight,
     // }
 
     return (
+
       <SlidingUpPanel
         visible={this.props.active}
         startCollaped
@@ -133,8 +145,8 @@ class DashBoard extends Component {
 
           <View style={styles.dashboardContent}>
 
-            {/* {this._getDashboardContent()}; */}
-            <BookingInfoView
+            {/* {dashboardContentView}; */}
+            {/* <BookingInfoView
               bookingNumber={"DSKDJNSK"} 
               checkIn={"2017-07-10"}
               checkOut={"2017-07-31"}
@@ -142,7 +154,8 @@ class DashBoard extends Component {
               address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
               roomType={"Sunset Compact"}
               roomNumber={"201"}
-              />
+              /> */}
+            <DoorlockSettingsView/>
 
           </View>
 
