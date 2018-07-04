@@ -15,12 +15,12 @@ export default StyleSheet.create({
     // alignSelf:'flex-end'
     // backgroundColor: 'red',
     // width: Metrics.screenWidth,
-    // height: Metrics.screenHeight,
+    height: Metrics.screenHeight * 0.9,
     // top: '80%'
   },
 
   dashboardHeaderContainer: {
-    // flex: 1,
+    height: Metrics.screenHeight * 0.1,
   },
 
   dashboardHeader: {
@@ -29,15 +29,16 @@ export default StyleSheet.create({
   },
 
   dashboardContent: {
-    // flex: 8,
+    height: Metrics.screenHeight * 0.6 - 2 * Metrics.doubleBaseMargin,
+    // backgroundColor: 'red'
   },
 
   dashboardTabContainer: {
-    // flex: 1,
+    height: Metrics.screenHeight * 0.1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: Metrics.doubleBaseMargin
+    marginVertical: Metrics.doubleBaseMargin
   },
 
   dashboardTabButton: {

@@ -24,7 +24,7 @@ class DoorlockSettingsView extends Component {
           <Text style={styles.sectionTitle}>Change passcode</Text>
           <TextInput
             style={ styles.textInput }
-            placeholder="Enter passcode"
+            placeholder="New passcode"
             placeholderTextColor={ Colors.steel }
             underlineColorAndroid={ Colors.text }
             numberOfLines={1}
@@ -33,7 +33,7 @@ class DoorlockSettingsView extends Component {
           />
           <TextInput
             style={ styles.textInput }
-            placeholder="Confirm passcode"
+            placeholder="Confirm new passcode"
             placeholderTextColor={ Colors.steel }
             underlineColorAndroid={ Colors.text }
             numberOfLines={1}

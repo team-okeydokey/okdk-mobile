@@ -6,11 +6,12 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'flex-start',
-    marginVertical: Metrics.doubleBaseMargin
+    // marginVertical: Metrics.doubleBaseMargin,
+    height: '100%'
   },
 
   infoDisplay: {
-    marginTop: Metrics.baseMargin,
+    // marginTop: Metrics.baseMargin,
   },
   infoTitle: {
     ...Fonts.style.normal,

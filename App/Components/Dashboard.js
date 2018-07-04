@@ -115,7 +115,7 @@ class DashBoard extends Component {
       dashboardContentView = <DoorlockSettingsView/>;
     } else {
       dashboardContentView = <DoorActivityView/>;
-    }1
+    }
 
     // const dashboardHeaderStyle = {
     //   "height": headerHeight,
@@ -129,7 +129,7 @@ class DashBoard extends Component {
         showBackdrop={false}
         allowMomentum={false}
         draggableRange={{
-          "top": Metrics.screenHeight - 80,
+          "top": Metrics.screenHeight - Metrics.screenHeight * 0.1,
           "bottom": this.props.headerHeight
         }}
         // onDrag={this._setHeader}
