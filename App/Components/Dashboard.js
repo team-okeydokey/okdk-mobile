@@ -20,7 +20,6 @@ class DashBoard extends Component {
 
   // Prop type warnings
   static propTypes = {
-    active: PropTypes.bool.isRequired,
     onHeaderPress: PropTypes.func.isRequired,
     headerHeight: PropTypes.number.isRequired,
   }
@@ -126,7 +125,7 @@ class DashBoard extends Component {
     return (
 
       <SlidingUpPanel
-        visible={this.props.active}
+        visible
         startCollaped
         showBackdrop={false}
         allowMomentum={false}

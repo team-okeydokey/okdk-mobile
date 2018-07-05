@@ -110,7 +110,7 @@ class HomeScreen extends Component {
       active = false;
     }
 
-    let dashboardHeaderHeight = 110;
+    let dashboardHeaderHeight = Metrics.screenHeight * 0.2;
 
     return (
       <View style={styles.container}>
@@ -132,11 +132,11 @@ class HomeScreen extends Component {
 
         { bottomButtons }
 
-        <Dashboard
-          active={active}
+        {active && 
+          <Dashboard
           onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}
           headerHeight={dashboardHeaderHeight}>
-        </Dashboard>
+          </Dashboard> }
 
       </View>
     )
@@ -160,6 +160,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(KeyCardActions.slide(index));
     },
     _toggleDashboard: (currState) => {
+      
       // currState is true when dashboard is open.
       if (currState) {
         dispatch(DashboardActions.close());

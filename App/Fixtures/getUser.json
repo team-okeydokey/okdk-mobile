@@ -10,6 +10,7 @@
     "access": [
       {
         "active": true,
+        "accessId": "AAAFDD",
         "accessBegin": 1530029788,
         "accessEnd": 1530288987,
         "accessName": "Bali oceanfront",
@@ -20,6 +21,7 @@
       }, 
       {
         "active": false,
+        "accessId": "AAADDD",
         "accessBegin": 1530029788,
         "accessEnd": 1530288987,
         "accessName": "Hawaii Intercontinental",
