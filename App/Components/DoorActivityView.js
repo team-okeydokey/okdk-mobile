@@ -41,7 +41,7 @@ class DoorActivityView extends Component {
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={this._renderSeparator}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString() }
         />
       </View>
     )
