@@ -1,6 +1,6 @@
 {
   "success": true, 
-  "message": "test message",
+  "message": "Message to show user",
   "user": {
     "token": "Test token",
     "firstName": "Johnson",

@@ -62,7 +62,7 @@ class DashBoard extends Component {
   _tabBarButton(index) {
     return (            
       <TouchableOpacity style={styles.dashboardTabButton} 
-        onPress={() => this.props._selectTab(index)}> 
+        onPressIn={() => this.props._selectTab(index)}> 
         <View style={[styles.dashboardTabButtonIcon, this._tabButtonIconStyle(index)]}> 
           <Icon name={this._tabButtonIconName(index)} size={30} color={this._getTabColor(index)}/>
         </View>
