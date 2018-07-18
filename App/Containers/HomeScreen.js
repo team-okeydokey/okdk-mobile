@@ -94,17 +94,19 @@ class HomeScreen extends Component {
       "height": bottomButtonSize,
       "borderRadius": bottomButtonSize / 2.0
     }
+    let buttonContainerStyle = {
+      "padding": Metrics.doubleSection
+    };
 
     var bottomButtons, data, active;
-    let buttonContainerStyle = {};
 
     if (isLoggedIn(this.props)) {
-      buttonContainerStyle.padding = 0;
       bottomButtons = this._renderLoggedInButtons(bottomButtonStyle, buttonContainerStyle);
-      data = this.props.user.access;
+      data = this.props.user.access.filter(i => {
+        return i.active == true;
+      });
       active = true;
     } else {
-      buttonContainerStyle.padding = Metrics.doubleSection;
       bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
       data = [{"accessName": "Not Available"}];
       active = false;
@@ -132,11 +134,11 @@ class HomeScreen extends Component {
 
         { bottomButtons }
 
-        {/* {active && 
+        {active && 
           <Dashboard
           onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}
           headerHeight={dashboardHeaderHeight}>
-          </Dashboard> } */}
+          </Dashboard> }
 
       </View>
     )
