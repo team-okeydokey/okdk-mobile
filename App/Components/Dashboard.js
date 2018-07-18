@@ -35,27 +35,27 @@ class DashBoard extends Component {
 
   _getDashboardContent() {
 
-    console.log("currentTab", this.props.currentTab)
-
-    var dashboardContentView;
+    data=[{type: 0, description: 'Housekeeping', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0},
+    {type: 0, description: 'John opened door', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0}, 
+    {type: 1, description: 'Failed attempt', timestamp: 0}, {type: 0, description: 'test1', timestamp: 0},
+    {type: 0, description: 'test1', timestamp: 0}]
 
     switch(this.props.currentTab) {
-    case 1: dashboardContentView = (<DoorlockSettingsView/>); break;
-    case 2: dashboardContentView = (<DoorActivityView/>); break;
+    case 1: return (<DoorlockSettingsView/>);
+    case 2: return (<DoorlockSettingsView/>);
     case 0:
-    default: dashboardContentView = 
-        (
-        <BookingInfoView
-          bookingNumber={"DSKDJNSK"} 
-          checkIn={"2017-07-10"}
-          checkOut={"2017-07-31"}
-          hotelName={"Hello hotel"} 
-          address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
-          roomType={"Sunset Compact"}
-          roomNumber={"201"}
-          />);
+    default:
+        // (<BookingInfoView
+        //   bookingNumber={"DSKDJNSK"} 
+        //   checkIn={"2017-07-10"}
+        //   checkOut={"2017-07-31"}
+        //   hotelName={"Hello hotel"} 
+        //   address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
+        //   roomType={"Sunset Compact"}
+        //   roomNumber={"201"}
+        //   />);
+        return (<DoorlockSettingsView/>);
     }
-    return dashboardContentView;
   }
 
 
@@ -96,31 +96,9 @@ class DashBoard extends Component {
   }
 
   render () {
-    data=[{type: 0, description: 'Housekeeping', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0},
-    {type: 0, description: 'John opened door', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0}, 
-    {type: 1, description: 'Failed attempt', timestamp: 0}, {type: 0, description: 'test1', timestamp: 0},
-    {type: 0, description: 'test1', timestamp: 0}]
-    let dashboardContentView;
 
-    if (this.props.currentTab == 0) {
-      dashboardContentView = <BookingInfoView
-      bookingNumber={"DSKDJNSK"} 
-      checkIn={"2017-07-10"}
-      checkOut={"2017-07-31"}
-      hotelName={"Hello hotel"} 
-      address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
-      roomType={"Sunset Compact"}
-      roomNumber={"201"}
-      />
-    } else if (this.props.currentTab == 1) {
-      dashboardContentView = <DoorlockSettingsView/>;
-    } else {
-      dashboardContentView = <DoorActivityView/>;
-    }
-
-    // const dashboardHeaderStyle = {
-    //   "height": headerHeight,
-    // }
+    let dashboardContentView = this._getDashboardContent();
+    console.log(dashboardContentView);
 
     return (
 
@@ -142,23 +120,12 @@ class DashBoard extends Component {
             <Text style={styles.dashboardHeader}>
               {this.props.title}
             </Text>
+            <Text>{dashboardContentView}</Text>
           </TouchableOpacity>
 
           <View style={styles.dashboardContent}>
 
-            {/* {dashboardContentView}; */}
-            {/* <BookingInfoView
-              bookingNumber={"DSKDJNSK"} 
-              checkIn={"2017-07-10"}
-              checkOut={"2017-07-31"}
-              hotelName={"Hello hotel"} 
-              address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
-              roomType={"Sunset Compact"}
-              roomNumber={"201"}
-              /> */}
-            {/* <DoorlockSettingsView/> */}
-            <DoorActivityView
-            activityData={data}/>
+            {dashboardContentView}
 
           </View>
 
