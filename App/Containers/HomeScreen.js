@@ -132,11 +132,11 @@ class HomeScreen extends Component {
 
         { bottomButtons }
 
-        {active && 
+        {/* {active && 
           <Dashboard
           onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}
           headerHeight={dashboardHeaderHeight}>
-          </Dashboard> }
+          </Dashboard> } */}
 
       </View>
     )
