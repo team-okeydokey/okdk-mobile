@@ -1,13 +1,16 @@
 {
-  "success": true, 
-  "message": "Test message",
-  "user": {
-    "token": "Test token",
-    "firstname": "Johnson",
-    "lastname": "Ben",
-    "email": "dd@gmail.com",
-    "code": "ABCDE",
-    "room_name": "Room 101",
-    "reservation_code": "Test code"
+  "ok": true,
+  "data": {
+    "success": true, 
+    "message": "Test message",
+    "user": {
+      "token": "Test token",
+      "firstname": "Johnson",
+      "lastname": "Ben",
+      "email": "dd@gmail.com",
+      "code": "ABCDE",
+      "room_name": "Room 101",
+      "reservation_code": "Test code"
+    }
   }
 }

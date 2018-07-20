@@ -107,7 +107,7 @@ class HomeScreen extends Component {
       // data = this.props.user.access.filter(i => {
       //   return i.active == true;
       // });
-      data = [{"accessName": this.props.user.accessName}];
+      data = [{"accessName": this.props.user.room_name}];
     } else {
       bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
       data = [{"accessName": "Not Available"}];

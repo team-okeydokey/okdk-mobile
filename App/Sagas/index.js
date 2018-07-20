@@ -12,8 +12,8 @@ import { DeviceActionTypes } from '../Redux/DeviceActionRedux';
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
-import { login, signup, getUser } from './AuthSagas'
-import { open, resetPw } from './DeviceActionSagas'
+import { login, signup } from './AuthSagas'
+import { open } from './DeviceActionSagas'
 
 /* ------------- API ------------- */
 
@@ -31,8 +31,6 @@ export default function * root () {
     // some sagas receive extra parameters in addition to an action
     takeLatest(AuthTypes.LOGIN_REQUEST, login, api),
     takeLatest(AuthTypes.SIGNUP_REQUEST, signup, api),
-    takeLatest(AuthTypes.USER_REQUEST, getUser, api),
     takeLatest(DeviceActionTypes.OPEN, open, api),
-    takeLatest(DeviceActionTypes.RESET_PW, resetPw, api)
   ])
 }
