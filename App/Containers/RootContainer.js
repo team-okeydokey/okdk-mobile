@@ -15,6 +15,7 @@ class RootContainer extends Component {
   };
 
   async componentDidMount () {
+
     await Font.loadAsync({
       'Lato-Black': require('../assets/fonts/Lato-Black.ttf'),
       'Lato-Bold': require('../assets/fonts/Lato-Bold.ttf'),

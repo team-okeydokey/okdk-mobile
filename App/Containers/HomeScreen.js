@@ -53,7 +53,7 @@ class HomeScreen extends Component {
     return (
       <View style={[styles.buttonContainer, buttonContainerStyle]}>
 
-        <TouchableOpacity 
+        {/* <TouchableOpacity 
           onPress={this._onOpen}
           style={[styles.actionButton, bottomButtonStyle]}>
           <Text style={styles.actionButtonText}>ENTER CODE</Text>
@@ -62,7 +62,7 @@ class HomeScreen extends Component {
         <TouchableOpacity
           style={[styles.actionButton, bottomButtonStyle]}>
           <Text style={styles.actionButtonText}>SCAN QR CODE</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </View>
     )
@@ -83,9 +83,7 @@ class HomeScreen extends Component {
   }
 
   render () {
-
-
-    let keyCardSize = Metrics.screenWidth * 0.6;
+    let keyCardSize = Metrics.screenWidth * 0.75;
 
     let bottomButtonSize = Metrics.screenWidth * 0.25;
     let bottomButtonStyle = {
