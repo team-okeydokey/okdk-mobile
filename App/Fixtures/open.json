@@ -1,4 +1,7 @@
 {
-  "success": true,
-  "message": null
+  "ok": true,
+  "data": {
+    "success": true, 
+    "message": "Test message"
+  }
 }

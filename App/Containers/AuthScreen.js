@@ -104,7 +104,6 @@ class AuthScreen extends Component {
                   onChangeText={(text) => this.setState({loginEmail: text})}
                 />
                 <TextInput
-                  ref={ref => this.loginPasswordInput = ref}
                   style={ styles.textInput }
                   placeholder="Password"
                   placeholderTextColor={ Colors.steel }
@@ -166,7 +165,6 @@ class AuthScreen extends Component {
                   onChangeText={(text) => this.setState({signupEmail: text})}
                 />
                 <TextInput
-                  ref={ref => this.signupPassword1Input = ref}
                   style={ styles.textInput }
                   placeholder="Password"
                   placeholderTextColor={ Colors.steel }
@@ -177,7 +175,6 @@ class AuthScreen extends Component {
                 />
 
                 <TextInput
-                  ref={ref => this.signupPassword2Input = ref}
                   style={ styles.textInput }
                   placeholder="Password confirm"
                   placeholderTextColor={ Colors.steel }

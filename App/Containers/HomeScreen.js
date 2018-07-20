@@ -8,7 +8,6 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { NavigationActions } from 'react-navigation';
 import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 import KeyCardActions from '../Redux/KeyCardRedux'
-import DashboardActions from '../Redux/DashboardRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -137,7 +136,6 @@ class HomeScreen extends Component {
 
         {loggedIn && 
           <Dashboard
-          onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}
           headerHeight={dashboardHeaderHeight}>
           </Dashboard> }
 
@@ -150,7 +148,6 @@ const mapStateToProps = (state) => {
   return {
     user: state.auth.user,
     activeSlide: state.keyCard.activeSlide,
-    dashboardOpen: state.dashboard.open
   }
 }
 
@@ -162,15 +159,6 @@ const mapDispatchToProps = (dispatch) => {
     _onSnapToItem: (index) => {
       dispatch(KeyCardActions.slide(index));
     },
-    _toggleDashboard: (currState) => {
-      
-      // currState is true when dashboard is open.
-      if (currState) {
-        dispatch(DashboardActions.close());
-      } else {
-        dispatch(DashboardActions.open());
-      }
-    }
   }
 }
 

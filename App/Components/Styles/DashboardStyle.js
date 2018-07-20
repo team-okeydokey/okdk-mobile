@@ -9,7 +9,8 @@ export default StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: Colors.snow,
-    padding: Metrics.section,
+    paddingBottom: Metrics.section,
+    paddingHorizontal: Metrics.section,
     borderColor: Colors.shadow,
     borderWidth: 1,
     marginHorizontal: Metrics.baseMargin,
@@ -21,12 +22,15 @@ export default StyleSheet.create({
   },
 
   dashboardHeaderContainer: {
-    height: Metrics.screenHeight * 0.1,
+    height: Metrics.screenHeight * 0.1 + 30, // Add icon height
+    flexDirection: 'column',
+    alignItems: 'center'
   },
 
   dashboardHeader: {
     ...Fonts.style.h2,
     color: 'black',
+    alignSelf: 'flex-start'
   },
 
   dashboardContent: {

@@ -4,9 +4,9 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  open: null,
-  close: null,
-  resetPw: null,
+  open: ['token'],
+  resetPw: ['token'],
+  close: ['token'],
   success: null,
   failure: null,
 })
@@ -24,8 +24,9 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 // Request open.
-export const open = (state, action) =>
-  state.merge({ fetching: true, error: null })
+export const open = (state, action) => {
+  return state.merge({ fetching: true, error: null })
+}
 
 // Request close.
 export const close = (state, action) => {

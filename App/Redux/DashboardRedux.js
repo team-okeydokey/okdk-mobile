@@ -4,8 +4,8 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  open: null,
-  close: null,
+  openDashboard: null,
+  closeDashboard: null,
   selectTab: ['index']
 })
 
@@ -15,16 +15,16 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  open: false,
+  isOpen: false,
   currentTab: 0,
-  title: "Dashboard",
+  title: "Door Activity",
 })
 
 /* ------------- Reducers ------------- */
 
-export const open = (state) => state.merge({open: true })
+export const openDashboard = (state) => state.merge({isOpen: true })
 
-export const close = (state) => state.merge({open: false })
+export const closeDashboard = (state) => state.merge({isOpen: false })
 
 export const selectTab = (state, {index}) => 
   state.merge({currentTab: index,  title: getTabNameByIndex(index)})
@@ -32,8 +32,8 @@ export const selectTab = (state, {index}) =>
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.OPEN]: open,
-  [Types.CLOSE]: close,
+  [Types.OPEN_DASHBOARD]: openDashboard,
+  [Types.CLOSE_DASHBOARD]: closeDashboard,
   [Types.SELECT_TAB]: selectTab
 })
 
@@ -49,6 +49,6 @@ export const getTabNameByIndex = (index) => {
     case 0: return "Booking Info";
     case 1: return "Doorlock Settings";
     case 2: return "Door Activity";
-    defult: return "";
+    default: return "";
   }
 }

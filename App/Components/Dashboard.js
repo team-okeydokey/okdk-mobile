@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, ScrollView, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { Metrics } from '../Themes/'
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { EvilIcons } from '@expo/vector-icons';
 import { Colors } from '../Themes/'
 
 import DashboardActions, { getTabNameByIndex } from '../Redux/DashboardRedux'
@@ -20,7 +20,6 @@ class DashBoard extends Component {
 
   // Prop type warnings
   static propTypes = {
-    onHeaderPress: PropTypes.func.isRequired,
     headerHeight: PropTypes.number.isRequired,
   }
 
@@ -31,6 +30,16 @@ class DashBoard extends Component {
     this._tabBarButton = this._tabBarButton.bind(this);
     this._tabButtonIconStyle = this._tabButtonIconStyle.bind(this);
     this._getTabColor = this._getTabColor.bind(this);
+    this._toggleDashboard = this._toggleDashboard.bind(this);
+  }
+
+  _toggleDashboard() {
+    if (this.props.dashboardOpen) {
+      this.panel.transitionTo(0);
+    } else {
+      this.panel.transitionTo(Metrics.screenHeight * 0.8);
+    }
+    this.props._setDashboardState(!this.props.dashboardOpen);
   }
 
   _getDashboardContent() {
@@ -104,19 +113,23 @@ class DashBoard extends Component {
     return (
 
       <SlidingUpPanel
-        visible
+        ref={ref => this.panel = ref}
+        visible={true}
         startCollaped
         showBackdrop={false}
-        allowMomentum={false}
+        allowMomentum={true}
+        allowDragging={false}
         draggableRange={{
           "top": Metrics.screenHeight - Metrics.screenHeight * 0.2,
-          "bottom": this.props.headerHeight
+          "bottom": this.props.headerHeight + 10
         }}
         >
         <View style={styles.panelView}>
           <TouchableOpacity
             style={styles.dashboardHeaderContainer}
-            onPress={this.props.onHeaderPress}>
+            onPress={this._toggleDashboard}
+            >
+            <EvilIcons name="chevron-up" size={30} color="gray" />
             <Text style={styles.dashboardHeader}>
               {this.props.title}
             </Text>
@@ -143,7 +156,7 @@ class DashBoard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    dashboardOpen: state.dashboard.open,
+    dashboardOpen: state.dashboard.isOpen,
     title: state.dashboard.title,
     currentTab: state.dashboard.currentTab
   }
@@ -154,6 +167,13 @@ const mapDispatchToProps = (dispatch) => {
     _selectTab: (index) => {
       dispatch(DashboardActions.selectTab(index));
     },
+    _setDashboardState: (isOpen) => {
+      if (isOpen) {
+        dispatch(DashboardActions.openDashboard());
+      } else {
+        dispatch(DashboardActions.closeDashboard());
+      }
+    }
   }
 }
 

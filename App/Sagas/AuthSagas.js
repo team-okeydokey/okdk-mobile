@@ -21,7 +21,7 @@ export function * signup (api, action) {
   const { email, password1, password2 } = action
   // make the call to the api
   const response = yield call(api.signup, email, password1, password2);
-  console.log(response)
+
   if (response.ok && response.data.success) {
     const user = response.data.user;
     // do data conversion here if needed
