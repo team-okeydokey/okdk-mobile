@@ -42,19 +42,19 @@ class DashBoard extends Component {
 
     switch(this.props.currentTab) {
     case 1: return (<DoorlockSettingsView/>);
-    case 2: return (<DoorlockSettingsView/>);
+    case 2: return (<DoorActivityView activityData={data}/>);
     case 0:
     default:
-        // (<BookingInfoView
-        //   bookingNumber={"DSKDJNSK"} 
-        //   checkIn={"2017-07-10"}
-        //   checkOut={"2017-07-31"}
-        //   hotelName={"Hello hotel"} 
-        //   address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
-        //   roomType={"Sunset Compact"}
-        //   roomNumber={"201"}
-        //   />);
-        return (<DoorlockSettingsView/>);
+        return (
+        <BookingInfoView
+          bookingNumber={"DSKDJNSK"} 
+          checkIn={"2017-07-10"}
+          checkOut={"2017-07-31"}
+          hotelName={"Hello hotel"} 
+          address={"5000 Forbes Avenue, Pittsburgh, PA 15213"}
+          roomType={"Sunset Compact"}
+          roomNumber={"201"}
+        />);
     }
   }
 
@@ -98,7 +98,6 @@ class DashBoard extends Component {
   render () {
 
     let dashboardContentView = this._getDashboardContent();
-    console.log(dashboardContentView);
 
     return (
 
@@ -111,7 +110,6 @@ class DashBoard extends Component {
           "top": Metrics.screenHeight - Metrics.screenHeight * 0.1,
           "bottom": this.props.headerHeight
         }}
-        // onDrag={this._setHeader}
         >
         <View style={styles.panelView}>
           <TouchableOpacity
@@ -120,7 +118,6 @@ class DashBoard extends Component {
             <Text style={styles.dashboardHeader}>
               {this.props.title}
             </Text>
-            <Text>{dashboardContentView}</Text>
           </TouchableOpacity>
 
           <View style={styles.dashboardContent}>

@@ -98,18 +98,18 @@ class HomeScreen extends Component {
       "padding": Metrics.doubleSection
     };
 
-    var bottomButtons, data, active;
+    var bottomButtons, data;
 
-    if (isLoggedIn(this.props)) {
+    let loggedIn = isLoggedIn(this.props);
+
+    if (loggedIn) {
       bottomButtons = this._renderLoggedInButtons(bottomButtonStyle, buttonContainerStyle);
       data = this.props.user.access.filter(i => {
         return i.active == true;
       });
-      active = true;
     } else {
       bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
       data = [{"accessName": "Not Available"}];
-      active = false;
     }
 
     let dashboardHeaderHeight = Metrics.screenHeight * 0.2;
@@ -128,13 +128,13 @@ class HomeScreen extends Component {
           itemHeight={keyCardSize}
           data={data}
           onSnapToItem={(index) => this.props._onSnapToItem(index) }
-          active={active}
+          active={loggedIn}
           activeSlide={this.props.activeSlide}
         />
 
         { bottomButtons }
 
-        {active && 
+        {loggedIn && 
           <Dashboard
           onHeaderPress={() => this.props._toggleDashboard(this.props.dashboardOpen)}
           headerHeight={dashboardHeaderHeight}>
