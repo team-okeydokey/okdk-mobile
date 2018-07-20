@@ -109,7 +109,7 @@ class DashBoard extends Component {
         showBackdrop={false}
         allowMomentum={false}
         draggableRange={{
-          "top": Metrics.screenHeight - Metrics.screenHeight * 0.1,
+          "top": Metrics.screenHeight - Metrics.screenHeight * 0.2,
           "bottom": this.props.headerHeight
         }}
         >

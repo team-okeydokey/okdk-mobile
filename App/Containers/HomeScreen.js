@@ -113,7 +113,7 @@ class HomeScreen extends Component {
       data = [{"accessName": "Not Available"}];
     }
 
-    let dashboardHeaderHeight = Metrics.screenHeight * 0.2;
+    let dashboardHeaderHeight = Metrics.screenHeight * 0.05;
 
     return (
       <View style={styles.container}>

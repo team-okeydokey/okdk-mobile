@@ -16,7 +16,7 @@ export default StyleSheet.create({
     // alignSelf:'flex-end'
     // backgroundColor: 'red',
     // width: Metrics.screenWidth,
-    height: Metrics.screenHeight * 0.9,
+    height: Metrics.screenHeight * 0.8,
     // top: '80%'
   },
 
