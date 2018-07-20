@@ -33,6 +33,11 @@ class DashBoard extends Component {
     this._toggleDashboard = this._toggleDashboard.bind(this);
   }
 
+  componentDidMount() {
+    this.panel.transitionTo(0, 1);
+    this.props._setDashboardState(false);
+  }
+
   _toggleDashboard() {
     if (this.props.dashboardOpen) {
       this.panel.transitionTo(0);
