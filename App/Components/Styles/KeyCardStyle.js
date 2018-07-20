@@ -29,7 +29,7 @@ export default StyleSheet.create({
   },
 
   keyCardInfoContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     padding: Metrics.doubleBaseMargin,
@@ -40,4 +40,20 @@ export default StyleSheet.create({
     color: 'black',
     textAlign: 'center',
   },
+
+  passcodeLabel: {
+
+  },
+
+  passcodeValue: {
+
+  },
+
+  shareButton: {
+
+  },
+
+  shareButtonText: {
+
+  }
 })

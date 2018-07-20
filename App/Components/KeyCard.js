@@ -13,14 +13,18 @@ export default class KeyCard extends Component {
 
   // Prop type warnings
   static propTypes = {
+    active: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
+    passcode: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
   }
   
   // Defaults for props
   static defaultProps = {
+    active: false,
     name: "",
+    passcode: ""
   }
 
   render () {
@@ -31,7 +35,16 @@ export default class KeyCard extends Component {
       "borderRadius": this.props.width/2
     };
 
+    let passcodeStyle = {
+      opacity: this.props.active ? 1 : 0
+    }
+
+    let shareButtonTextStyle = {
+      opacity: this.props.active ? 1 : 0,
+    }
+
     return (
+
       <View style={[styles.keyCard, keyCardStyle]}>
 
         <Text style={styles.myKeyTitle}
@@ -40,7 +53,16 @@ export default class KeyCard extends Component {
         <View style={styles.keyCardInfoContainer}>
           <Text style={styles.keyCardName}
               numberOfLines={2}>{this.props.name.toUpperCase()}</Text>
+          <Text style={[styles.passcodeLabel, passcodeStyle]}
+              numberOfLines={1}>PASSCODE</Text>
+          <Text style={styles.passcodeValue}
+              numberOfLines={1}>{this.props.passcode}</Text>
         </View>
+
+        <TouchableOpacity style={styles.shareButton}
+          disabled={!this.props.active}>
+          <Text style={[styles.shareButtonText, shareButtonTextStyle]}>SHARE</Text>
+        </TouchableOpacity>
 
       </View>
     )

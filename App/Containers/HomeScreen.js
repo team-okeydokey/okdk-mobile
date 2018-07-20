@@ -123,6 +123,7 @@ class HomeScreen extends Component {
           </TouchableOpacity>
         </View>
         <KeyCarousel
+          active={loggedIn}
           sliderWidth={Metrics.screenWidth}
           itemWidth={keyCardSize}
           itemHeight={keyCardSize}

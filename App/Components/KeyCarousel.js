@@ -5,17 +5,20 @@ import styles from './Styles/KeyCarouselStyle'
 
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import KeyCard from './KeyCard';
+import InactiveKeyCard from './KeyCard';
 
 export default class KeyCarousel extends Component {
 
   constructor(props) {
     super(props);
     
-    this._renderItem = this._renderItem.bind(this);  
+    this._renderItem = this._renderItem.bind(this); 
+    this._calculatePasscode = this._calculatePasscode.bind(this);  
   }
 
   // Prop type warnings
   static propTypes = {
+    active: PropTypes.bool.isRequired,
     sliderWidth: PropTypes.number.isRequired,
     itemWidth: PropTypes.number.isRequired,
     itemHeight: PropTypes.number.isRequired,
@@ -32,10 +35,20 @@ export default class KeyCarousel extends Component {
     // entries: [],
   }
 
+  _calculatePasscode() {
+    if (this.props.active) {
+      return "123123"
+    } else {
+      return ""
+    }
+  }
+
   _renderItem({item, index}) {
     return (
       <KeyCard
+        active={this.props.active}
         name={item.accessName}
+        passcode={this._calculatePasscode()}
         width={this.props.itemWidth}
         height={this.props.itemHeight}
       />
