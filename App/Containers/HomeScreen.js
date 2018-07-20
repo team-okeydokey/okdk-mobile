@@ -117,7 +117,7 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.screenHeader}>
-          <Text style={styles.date}>FRIDAY, JUNE 13</Text>
+          {/* <Text style={styles.date}>FRIDAY, JUNE 13</Text> */}
           <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
             <Icon name="user" size={40} color="#2d2d2d"/>
           </TouchableOpacity>
