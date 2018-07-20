@@ -16,12 +16,22 @@ export default {
     const loginData = require('../Fixtures/login.json')
     return loginData;
   },
-  signup: (firstName, lastName, email, password, hasCode, code) => {
+  signup: (email, password1, password2) => {
     const signupData = require('../Fixtures/signup.json')
     return signupData;
   }, 
   getUser: (token) => {
     const userData = require('../Fixtures/getUser.json')
     return userData;
+  },
+
+  open: () => {
+    const success = require('../Fixtures/open.json')
+    return success;
+  },
+
+  resetPw: () => {
+    const success = require('../Fixtures/resetPw.json')
+    return success;
   },
 }

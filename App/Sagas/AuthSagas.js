@@ -7,28 +7,26 @@ export function * login (api, action) {
   // make the call to the api
   const response = yield call(api.login, email, password);
   
-  if (response.success) {
-    const user = response.user;
+  if (response.ok && response.data.success) {
+    const user = response.data.user;
     // do data conversion here if needed
     yield put(AuthActions.loginSuccess(user));
   } else {
-    const message = response.message;
+    const message = response.data.message;
     yield put(AuthActions.loginFailure(message));
   }
 }
 
 export function * signup (api, action) {
-  const { firstName, lastName, email, password, hasCode, code } = action
+  const { email, password1, password2 } = action
   // make the call to the api
-  const response = yield call(api.signup, firstName, lastName, 
-    email, password, hasCode, code);
-
-  if (response.success) {
-    const user = response.user;
+  const response = yield call(api.signup, email, password1, password2);
+  if (response.ok && response.data.success) {
+    const user = response.data.user;
     // do data conversion here if needed
     yield put(AuthActions.signupSuccess(user));
   } else {
-    const message = response.message;
+    const message = response.data.message;
     yield put(AuthActions.signupFailure(message));
   }
 }
@@ -38,8 +36,8 @@ export function * getUser (api, action) {
   // make the call to the api
   const response = yield call(api.getUser, token);
 
-  if (response.success) {
-    const user = response.user;
+  if (response.ok && response.data.success) {
+    const user = response.data.user;
     // do data conversion here if needed
     yield put(AuthActions.userSuccess(user))
   } else {

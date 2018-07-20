@@ -15,11 +15,20 @@ class AuthScreen extends Component {
   constructor(props) {
     super(props);
     
-    this.state = {checked: false};
+    this.state = {
+      checked: false,
+      loginEmail: "", 
+      loginPassword: "", 
+      signupEmail: "", 
+      signupPassword1: "", 
+      signupPassword2: ""
+    };
     
     this._showLogin = this._showLogin.bind(this);
     this._showSignup = this._showSignup.bind(this);
     this._onCheck = this._onCheck.bind(this);
+    this._onLoginButtonClick = this._onLoginButtonClick.bind(this);
+    this._onSignupButtonClick = this._onSignupButtonClick.bind(this);
   }
 
   _showLogin() {
@@ -32,6 +41,19 @@ class AuthScreen extends Component {
 
   _onCheck() {
     this.setState({checked: !this.state.checked});
+  }
+
+  _onLoginButtonClick() {
+    let email = this.state.loginEmail;
+    let password = this.state.signupPassword2; 
+    this.props.loginRequest(email, password);
+  }
+
+  _onSignupButtonClick() {
+    let email = this.state.signupEmail;
+    let password1 = this.state.signupPassword1;
+    let password2 = this.state.signupPassword2; 
+    this.props.signupRequest(email, password1, password2);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -79,19 +101,22 @@ class AuthScreen extends Component {
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
+                  onChangeText={(text) => this.setState({loginEmail: text})}
                 />
                 <TextInput
+                  ref={ref => this.loginPasswordInput = ref}
                   style={ styles.textInput }
                   placeholder="Password"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
                   secureTextEntry={true}
+                  onChangeText={(text) => this.setState({loginPassword: text})}
                 />
               </View>
 
               <TouchableOpacity style={ styles.authButton }
-                onPress={ this.props.onLoginButtonClick }>
+                onPress={ this._onLoginButtonClick }>
                 <Text style={ styles.authButtonText }>Log in</Text>
               </TouchableOpacity>
               
@@ -118,7 +143,7 @@ class AuthScreen extends Component {
                   {this.props.signupMessage}
                 </Text>     
 
-                <TextInput
+                {/* <TextInput
                   style={ styles.textInput }
                   placeholder="First name"
                   placeholderTextColor={ Colors.steel }
@@ -131,24 +156,38 @@ class AuthScreen extends Component {
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
-                />
+                /> */}
                 <TextInput
                   style={ styles.textInput }
                   placeholder="Email"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
+                  onChangeText={(text) => this.setState({signupEmail: text})}
                 />
                 <TextInput
+                  ref={ref => this.signupPassword1Input = ref}
                   style={ styles.textInput }
                   placeholder="Password"
                   placeholderTextColor={ Colors.steel }
                   underlineColorAndroid={ Colors.text }
                   numberOfLines={1}
                   secureTextEntry={true}
+                  onChangeText={(text) => this.setState({signupPassword1: text})}
                 />
 
-                <View style={styles.codeGroup}>
+                <TextInput
+                  ref={ref => this.signupPassword2Input = ref}
+                  style={ styles.textInput }
+                  placeholder="Password confirm"
+                  placeholderTextColor={ Colors.steel }
+                  underlineColorAndroid={ Colors.text }
+                  numberOfLines={1}
+                  secureTextEntry={true}
+                  onChangeText={(text) => this.setState({signupPassword2: text})}
+                />
+
+                {/* <View style={styles.codeGroup}>
                   <CheckBox
                     containerStyle={styles.checkboxContainer}
                     textStyle={styles.checkboxText}
@@ -165,12 +204,12 @@ class AuthScreen extends Component {
                     numberOfLines={1}
                     editable={this.state.checked}
                   />
-                </View>
+                </View> */}
 
               </View>
 
               <TouchableOpacity style={ styles.authButton }
-                onPress={ this.props.onSignupButtonClick }>
+                onPress={ this._onSignupButtonClick }>
                 <Text style={ styles.authButtonText }>Sign up</Text>
               </TouchableOpacity>
               
@@ -200,11 +239,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLoginButtonClick: (id) => {
-      dispatch(AuthActions.loginRequest('',''));
+    loginRequest: (email, password) => {
+      dispatch(AuthActions.loginRequest(email, password));
     },
-    onSignupButtonClick: (id) => {
-      dispatch(AuthActions.signupRequest('',''));
+    signupRequest: (email, password1, password2) => {
+      dispatch(AuthActions.signupRequest(email, password1, password2));
     },
     goBack: () => {
       dispatch({ type: 'Navigation/BACK' });

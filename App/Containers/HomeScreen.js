@@ -104,9 +104,10 @@ class HomeScreen extends Component {
 
     if (loggedIn) {
       bottomButtons = this._renderLoggedInButtons(bottomButtonStyle, buttonContainerStyle);
-      data = this.props.user.access.filter(i => {
-        return i.active == true;
-      });
+      // data = this.props.user.access.filter(i => {
+      //   return i.active == true;
+      // });
+      data = [{"accessName": this.props.user.accessName}];
     } else {
       bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
       data = [{"accessName": "Not Available"}];

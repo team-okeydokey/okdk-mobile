@@ -3,7 +3,7 @@ import apisauce from 'apisauce'
 
 // our "constructor"
 
-const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
+const create = (baseURL = 'http://18.220.28.85:5000') => {
   // ------
   // STEP 1
   // ------
@@ -40,16 +40,14 @@ const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
   const getUser = (username) => api.get('search/users', {q: username})
 
   // User authentication api.
-  const login = (email, password) => 
-  api.get('login', {email: email, password: password});
+  const login = (email, password) => api.post('/auth/login', {email: email, password: password});
 
-  const signup = (firstName, lastName, email, password) => 
-    api.get('signup', {firstName: firstName, lastName: lastName, 
-      email: email, password: password});
+  const signup = (email, password1, password2) => api.post('/auth/signup', {email: email, pw1: password1, pw2: password2});
 
   // Device manipulation api.
-  const open = (deviceId) => api.get('open', {deviceId: deviceId});
-  const close = (deviceId) => api.get('close', {deviceId: deviceId});
+  const open = (token) => api.get('/api/v1/open', {headers: {"x-access-token": token}});
+  
+  const resetPw = (token, newPw) => api.post('/api/v1/reset-pw', {newPw: newPw}, {headers: {"x-access-token": token}});
 
   // ------
   // STEP 3
@@ -68,8 +66,10 @@ const create = (baseURL = 'http://18.220.28.85:5000/api/v1/') => {
     getRoot,
     getRate,
     getUser,
+    login,
+    signup,
     open,
-    close
+    resetPw
   }
 }
 

@@ -4,10 +4,11 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  open: ['deviceId'],
-  close: ['deviceId'],
-  success: ['deviceId'],
-  failure: ['deviceId'],
+  open: null,
+  close: null,
+  resetPw: null,
+  success: null,
+  failure: null,
 })
 
 export const DeviceActionTypes = Types
@@ -23,22 +24,26 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 // Request open.
-export const open = (state, { deviceId }) =>
+export const open = (state, action) =>
   state.merge({ fetching: true, error: null })
 
 // Request close.
-export const close = (state, { deviceId }) => {
-  const { avatar } = action
+export const close = (state, action) => {
+  return state.merge({ fetching: true, error: null })
+}
+
+// Request reset password.
+export const resetPw = (state, action) => {
   return state.merge({ fetching: true, error: null })
 }
 
 // Successful device action.
-export const success = (state, { deviceId }) => {
+export const success = (state, action) => {
   return state.merge({ fetching: true, error: null })
 }
 
 // Failed to initiate action.
-export const failure = (state, { deviceId }) => {
+export const failure = (state, action) => {
   return state.merge({ fetching: false, error: true})
 }
 
@@ -47,6 +52,7 @@ export const failure = (state, { deviceId }) => {
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.OPEN]: open,
   [Types.CLOSE]: close,
+  [Types.RESET_PW]: resetPw,
   [Types.SUCCESS]: success,
   [Types.FAILURE]: failure,
 })

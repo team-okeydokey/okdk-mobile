@@ -1,33 +1,13 @@
 {
   "success": true, 
-  "message": "test message",
+  "message": "Test message",
   "user": {
     "token": "Test token",
-    "firstName": "Johnson",
-    "lastName": "Ben",
+    "firstname": "Johnson",
+    "lastname": "Ben",
     "email": "dd@gmail.com",
     "code": "ABCDE",
-    "access": [
-      {
-        "active": true,
-        "accessBegin": 1530029788,
-        "accessEnd": 1530288987,
-        "accessName": "Bali oceanfront",
-        "keys": [{
-          "keyName": "Front door",
-          "keyCommands":["open"]
-        }]
-      }, 
-      {
-        "active": false,
-        "accessBegin": 1530029788,
-        "accessEnd": 1530288987,
-        "accessName": "Hawaii Intercontinental",
-        "keys": [{
-          "keyName": "Porch door",
-          "keyCommands":["open"]
-        }]
-      }
-    ]
+    "room_name": "Room 101",
+    "reservation_code": "Test code"
   }
 }
