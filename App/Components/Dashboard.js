@@ -4,6 +4,7 @@ import { View, ScrollView, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { Metrics } from '../Themes/'
 import { EvilIcons } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Colors } from '../Themes/'
 
 import DashboardActions, { getTabNameByIndex } from '../Redux/DashboardRedux'

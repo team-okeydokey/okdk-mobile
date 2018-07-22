@@ -8,7 +8,7 @@
     "appKey": "Oki",
     "assetBundlePatterns": [
       "App/Images/*",
-      "App/fonts/*"
+      "App/assets/fonts/*"
     ]
   }
 }
