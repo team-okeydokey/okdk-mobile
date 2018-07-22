@@ -11,7 +11,7 @@ export function * getAccessLogs (api, action) {
     // do data conversion here if needed
     yield put(RoomInfoActions.logsSuccess(logs));
   } else {
-    const message = response.data.message;
+    let message = response.data ? response.data.message : "Server error";
     yield put(RoomInfoActions.logsFailure(message));
   }
 }

@@ -46,7 +46,7 @@ class AuthScreen extends Component {
 
   _onLoginButtonClick() {
     let email = this.state.loginEmail;
-    let password = this.state.signupPassword2; 
+    let password = this.state.loginPassword; 
     this.props.loginRequest(email, password);
   }
 

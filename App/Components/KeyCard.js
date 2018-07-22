@@ -11,8 +11,21 @@ import KeyCardActions from '../Redux/KeyCardRedux'
 class KeyCard extends Component {
   state = {
     dialogVisible: false,
-    shareEmail: ""
+    shareEmail: "",
+    passcode: ""
   };
+
+  componentDidMount() {
+    let currSecs = Math.floor(Date.now() / 1000);
+    let thirtyMinutes = Math.floor(currSecs / (60 * 30));
+    let dateString = (thirtyMinutes * 1337).toString();
+    let passCodePrefix = dateString.substr(dateString.length - 4); 
+    this.interval = setInterval(() => this.setState({ passcode: this.props.active ? passCodePrefix + '8647' : "" }), 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   
   // Delete constructor after implementing redux
   constructor(props) {
@@ -79,7 +92,7 @@ class KeyCard extends Component {
           <Text style={[styles.passcodeLabel, passcodeStyle]}
               numberOfLines={1}>PASSCODE</Text>
           <Text style={styles.passcodeValue}
-              numberOfLines={1}>{this.props.passcode}</Text>
+              numberOfLines={1}>{this.state.passcode}</Text>
         </View>
 
         <TouchableOpacity style={styles.shareButton}

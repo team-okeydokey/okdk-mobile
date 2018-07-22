@@ -4,15 +4,16 @@ import AuthActions from '../Redux/AuthRedux'
 
 export function * login (api, action) {
   const { email, password } = action
+
   // make the call to the api
   const response = yield call(api.login, email, password);
-  
+  console.log(response)
   if (response.ok && response.data.success) {
     const user = response.data.user;
     // do data conversion here if needed
     yield put(AuthActions.loginSuccess(user));
   } else {
-    const message = response.data.message;
+    let message = response.data ? response.data.message : "Server error";
     yield put(AuthActions.loginFailure(message));
   }
 }
@@ -27,7 +28,7 @@ export function * signup (api, action) {
     // do data conversion here if needed
     yield put(AuthActions.signupSuccess(user));
   } else {
-    const message = response.data.message;
+    let message = response.data ? response.data.message : "Server error";
     yield put(AuthActions.signupFailure(message));
   }
 }

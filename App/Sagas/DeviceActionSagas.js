@@ -6,10 +6,10 @@ import { getUser } from '../Redux/AuthRedux'
 export function * open (api, action) {
 
   const { token } = action
-
+  
   // make the call to the api
   const response = yield call(api.open, token)
-
+  console.log(response)
   if (response.ok) {
     const opened = response.data.success;
     
