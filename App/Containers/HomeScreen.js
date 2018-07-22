@@ -7,6 +7,7 @@ import { Metrics } from '../Themes/'
 import { EvilIcons } from '@expo/vector-icons';
 import { NavigationActions } from 'react-navigation';
 import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
+import DeviceActions from '../Redux/DeviceActionRedux'
 import KeyCardActions from '../Redux/KeyCardRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -43,6 +44,8 @@ class HomeScreen extends Component {
   }
 
   _onOpen() {
+    let token = this.props.user.token;
+    this.props._open(token);
   }
 
   _onClose() {
@@ -158,6 +161,9 @@ const mapDispatchToProps = (dispatch) => {
     _onSnapToItem: (index) => {
       dispatch(KeyCardActions.slide(index));
     },
+    _open: (token) => {
+      dispatch(DeviceActions.open(token));
+    }
   }
 }
 
