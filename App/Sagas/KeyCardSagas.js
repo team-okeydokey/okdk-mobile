@@ -3,14 +3,12 @@ import { path } from 'ramda'
 import KeyCardActions from '../Redux/KeyCardRedux'
 import { getUser } from '../Redux/AuthRedux'
 
-export const selectUserInStatus = (state) => getUser(state.auth)
-
 export function * shareKey (api, action) {
 
-  const user = yield select(selectUserInStatus);
+  const { token, email } = action
 
   // make the call to the api
-  const response = yield call(api.open, user.token)
+  const response = yield call(api.shareKey, token, email)
 
   if (response.ok) {
     const shared = response.data.success;
@@ -20,5 +18,7 @@ export function * shareKey (api, action) {
       return;
     }  
   }
-  yield put(KeyCardActions.shareFailure());
+
+  let message = response.data ? response.data.message : "Server error";
+  yield put(KeyCardActions.shareFailure(message));
 }

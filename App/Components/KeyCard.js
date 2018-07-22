@@ -6,10 +6,12 @@ import styles from './Styles/KeyCardStyle'
 import ShareDialog from './ShareDialog';
 import Dialog from "react-native-dialog";
 import { connect } from 'react-redux'
+import KeyCardActions from '../Redux/KeyCardRedux'
 
 class KeyCard extends Component {
   state = {
-    dialogVisible: false
+    dialogVisible: false,
+    shareEmail: ""
   };
   
   // Delete constructor after implementing redux
@@ -42,9 +44,9 @@ class KeyCard extends Component {
   };
 
   _handleSend = () => {
-    let email = this.emailField.value;
-    console.log(email);
-    this.props._shareRequest(email);
+    let email = this.state.shareEmail;
+    
+    this.props._shareRequest(this.props.user.token, email);
     this.setState({ dialogVisible: false });
   };
 
@@ -91,7 +93,8 @@ class KeyCard extends Component {
           <Dialog.Description>
             Enter email of user to share this key with.
           </Dialog.Description>
-          <Dialog.Input ref={ref => this.emailField = ref}>
+          <Dialog.Input
+            onChangeText={(text) => this.setState({shareEmail: text})}>
           </Dialog.Input>
           <Dialog.Button label="Cancel" onPress={this._handleCancel} />
           <Dialog.Button label="Send" onPress={this._handleSend} />
@@ -117,7 +120,7 @@ const mapDispatchToProps = (dispatch) => {
     _onSnapToItem: (index) => {
       dispatch(KeyCardActions.slide(index));
     },
-    _shareRequest: (email) => {
+    _shareRequest: (token, email) => {
       dispatch(KeyCardActions.shareRequest(email));
     }
   }

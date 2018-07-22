@@ -5,12 +5,12 @@ import Immutable from 'seamless-immutable'
 
 const { Types, Creators } = createActions({
   slide: ['index'],
-  shareRequest: ['email'],
+  shareRequest: ['token', 'email'],
   shareSuccess: null,
   shareFailure: ['message'],
 })
 
-export const AuthTypes = Types
+export const KeyCardTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
@@ -25,7 +25,7 @@ export const INITIAL_STATE = Immutable({
 
 export const slide = (state, { index }) => state.merge({ activeSlide: index })
 
-export const shareRequest = (state, { email }) => state.merge({ shareFetching: true })
+export const shareRequest = (state, { token, email }) => state.merge({ shareFetching: true })
 
 export const shareSuccess = (state, action) => {
   return state.merge({ shareFetching: false, shareError: null });
@@ -41,7 +41,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.SLIDE]: slide,
   [Types.SHARE_REQUEST]: shareRequest,
   [Types.SHARE_SUCCESS]: shareSuccess,
-  [Types.SHARE_FAILURE]: shareSuccess,
+  [Types.SHARE_FAILURE]: shareFailure,
 })
 
 /* ------------- Selectors ------------- */

@@ -3,14 +3,12 @@ import { path } from 'ramda'
 import DeviceActions from '../Redux/DeviceActionRedux'
 import { getUser } from '../Redux/AuthRedux'
 
-export const selectUserInStatus = (state) => getUser(state.auth)
-
 export function * open (api, action) {
 
-  const user = yield select(selectUserInStatus);
+  const { token } = action
 
   // make the call to the api
-  const response = yield call(api.open, user.token)
+  const response = yield call(api.open, token)
 
   if (response.ok) {
     const opened = response.data.success;
@@ -25,7 +23,7 @@ export function * open (api, action) {
 
 export function * close (api, action) {
 
-  const user = yield select(selectUserInStatus);
+  const { token } = action
 
   // make the call to the api
   const response = yield call(api.close, user.token)
@@ -42,10 +40,8 @@ export function * close (api, action) {
 }
 
 export function * resetPw (api, action) {
-
-  const user = yield select(selectUserInStatus);
-
-  const { newPw } = action;
+  
+  const { token, newPw } = action;
 
   // make the call to the api
   const response = yield call(api.resetPw, user.token, newPw)

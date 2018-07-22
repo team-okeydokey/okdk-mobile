@@ -45,11 +45,11 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
   const signup = (email, password1, password2) => api.post('/auth/signup', {email: email, pw1: password1, pw2: password2});
 
   // Device manipulation api.
-  const open = (token) => api.get('/api/v1/open', {headers: {"x-access-token": token}});
+  const open = (token) => api.get('/api/v1/open', {}, {headers: {"x-access-token": token, "type": "guest"}});
   
   const resetPw = (token, newPw) => api.post('/api/v1/reset-pw', {newPw: newPw}, {headers: {"x-access-token": token}});
 
-  const shareKey = (token, email) => api.post('/api/v1/share-key', {}, {headers: {"x-access-token": token, "email": email}});
+  const shareKey = (token, email) => api.post('/api/v1/share-key', {}, {headers: {"x-access-token": token, "email": email, "type": "guest"}});
 
   // ------
   // STEP 3
