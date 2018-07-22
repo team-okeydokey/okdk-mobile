@@ -54,10 +54,9 @@ export default StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    backgroundColor: 'blue'
   },
 
   shareButtonText: {
-    color: Colors.snow
+    color: Colors.appleBlue
   }
 })
