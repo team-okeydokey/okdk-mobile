@@ -25,4 +25,9 @@ export default {
     const success = require('../Fixtures/open.json')
     return success;
   },
+
+  shareKey: (token, email) => {
+    const success = require('../Fixtures/shareKey.json')
+    return success;
+  }
 }

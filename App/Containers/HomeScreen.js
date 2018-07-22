@@ -4,7 +4,7 @@ import { Alert, View, ScrollView, Text,
 import { connect } from 'react-redux'
 import { put }  from 'redux-saga/effects';
 import { Metrics } from '../Themes/'
-import Icon from 'react-native-vector-icons/EvilIcons';
+import { EvilIcons } from '@expo/vector-icons';
 import { NavigationActions } from 'react-navigation';
 import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 import KeyCardActions from '../Redux/KeyCardRedux'
@@ -117,7 +117,7 @@ class HomeScreen extends Component {
         <View style={styles.screenHeader}>
           {/* <Text style={styles.date}>FRIDAY, JUNE 13</Text> */}
           <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
-            <Icon name="user" size={40} color="#2d2d2d"/>
+            <EvilIcons name="user" size={30} color="black" />
           </TouchableOpacity>
         </View>
         <KeyCarousel

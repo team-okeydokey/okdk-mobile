@@ -184,7 +184,7 @@ class AuthScreen extends Component {
                   onChangeText={(text) => this.setState({signupPassword2: text})}
                 />
 
-                {/* <View style={styles.codeGroup}>
+                <View style={styles.codeGroup}>
                   <CheckBox
                     containerStyle={styles.checkboxContainer}
                     textStyle={styles.checkboxText}
@@ -201,7 +201,7 @@ class AuthScreen extends Component {
                     numberOfLines={1}
                     editable={this.state.checked}
                   />
-                </View> */}
+                </View>
 
               </View>
 

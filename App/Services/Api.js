@@ -49,6 +49,8 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
   
   const resetPw = (token, newPw) => api.post('/api/v1/reset-pw', {newPw: newPw}, {headers: {"x-access-token": token}});
 
+  const shareKey = (token, email) => api.post('/api/v1/share-key', {}, {headers: {"x-access-token": token, "email": email}});
+
   // ------
   // STEP 3
   // ------

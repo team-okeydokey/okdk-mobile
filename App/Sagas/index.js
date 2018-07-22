@@ -8,12 +8,14 @@ import DebugConfig from '../Config/DebugConfig'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { AuthTypes } from '../Redux/AuthRedux'
 import { DeviceActionTypes } from '../Redux/DeviceActionRedux';
+import { KeyCardActionTypes } from '../Redux/KeyCardRedux';
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { login, signup } from './AuthSagas'
 import { open } from './DeviceActionSagas'
+import { shareKey } from './KeyCardSagas'
 
 /* ------------- API ------------- */
 
@@ -32,5 +34,6 @@ export default function * root () {
     takeLatest(AuthTypes.LOGIN_REQUEST, login, api),
     takeLatest(AuthTypes.SIGNUP_REQUEST, signup, api),
     takeLatest(DeviceActionTypes.OPEN, open, api),
+    takeLatest(KeyCardActionTypes.SHARE_REQUEST, shareKey, api),
   ])
 }

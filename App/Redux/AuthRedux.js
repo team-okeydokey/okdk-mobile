@@ -28,8 +28,6 @@ export const INITIAL_STATE = Immutable({
   loginFetching: false,
   signupError: null,
   signupFetching: false,
-  signupError: null,
-  signupFetching: false,
 })
 
 /* ------------- Reducers ------------- */

@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/Foundation';
 import styles from './Styles/KeyCardStyle'
+import ShareDialog from './ShareDialog';
+import Dialog from "react-native-dialog";
+import { connect } from 'react-redux'
 
-export default class KeyCard extends Component {
+class KeyCard extends Component {
+  state = {
+    dialogVisible: false
+  };
   
   // Delete constructor after implementing redux
   constructor(props) {
@@ -26,6 +32,21 @@ export default class KeyCard extends Component {
     name: "",
     passcode: ""
   }
+
+  _showDialog = () => {
+    this.setState({ dialogVisible: true });
+  };
+
+  _handleCancel = () => {
+    this.setState({ dialogVisible: false });
+  };
+
+  _handleSend = () => {
+    let email = this.emailField.value;
+    console.log(email);
+    this.props._shareRequest(email);
+    this.setState({ dialogVisible: false });
+  };
 
   render () {
 
@@ -60,11 +81,46 @@ export default class KeyCard extends Component {
         </View>
 
         <TouchableOpacity style={styles.shareButton}
-          disabled={!this.props.active}>
+          disabled={!this.props.active}
+          onPress={this._showDialog}>
           <Text style={[styles.shareButtonText, shareButtonTextStyle]}>SHARE</Text>
         </TouchableOpacity>
+
+        <Dialog.Container visible={this.state.dialogVisible}>
+          <Dialog.Title>Account delete</Dialog.Title>
+          <Dialog.Description>
+            Enter email of user to share this key with.
+          </Dialog.Description>
+          <Dialog.Input ref={ref => this.emailField = ref}>
+          </Dialog.Input>
+          <Dialog.Button label="Cancel" onPress={this._handleCancel} />
+          <Dialog.Button label="Send" onPress={this._handleSend} />
+        </Dialog.Container>
 
       </View>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.auth.user,
+    activeSlide: state.keyCard.activeSlide,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    _onLogout: () => {
+      dispatch(KeyCardActions.logout());
+    },
+    _onSnapToItem: (index) => {
+      dispatch(KeyCardActions.slide(index));
+    },
+    _shareRequest: (email) => {
+      dispatch(KeyCardActions.shareRequest(email));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(KeyCard)
