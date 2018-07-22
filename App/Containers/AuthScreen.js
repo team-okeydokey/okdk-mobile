@@ -21,7 +21,8 @@ class AuthScreen extends Component {
       loginPassword: "", 
       signupEmail: "", 
       signupPassword1: "", 
-      signupPassword2: ""
+      signupPassword2: "",
+      signupCode: ""
     };
     
     this._showLogin = this._showLogin.bind(this);
@@ -53,7 +54,8 @@ class AuthScreen extends Component {
     let email = this.state.signupEmail;
     let password1 = this.state.signupPassword1;
     let password2 = this.state.signupPassword2; 
-    this.props.signupRequest(email, password1, password2);
+    let signupCode = this.state.sugnupCode;
+    this.props.signupRequest(email, password1, password2, signupCode);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -200,6 +202,7 @@ class AuthScreen extends Component {
                     underlineColorAndroid={ Colors.text }
                     numberOfLines={1}
                     editable={this.state.checked}
+                    onChangeText={(text) => this.setState({signupCode: text})}
                   />
                 </View>
 

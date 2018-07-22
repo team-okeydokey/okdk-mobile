@@ -42,7 +42,7 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
   // User authentication api.
   const login = (email, password) => api.post('/auth/login', {email: email, password: password});
 
-  const signup = (email, password1, password2) => api.post('/auth/signup', {email: email, pw1: password1, pw2: password2});
+  const signup = (email, password1, password2, signupCode) => api.post('/auth/signup', {email: email, pw1: password1, pw2: password2, signup_code: signupCode});
 
   // Device manipulation api.
   const open = (token) => api.get('/api/v1/open', {}, {headers: {"x-access-token": token, "type": "guest"}});

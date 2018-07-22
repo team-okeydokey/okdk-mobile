@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
   loginFailure: ['message'],
   logout: null,
   autoLogin: null,
-  signupRequest: ['email', 'password1', 'password2'],
+  signupRequest: ['email', 'password1', 'password2', 'signupCode'],
   signupSuccess: ['user'],
   signupFailure: ['message'],
   userRequest: ['token'],
@@ -54,7 +54,7 @@ export const logout = (state) => INITIAL_STATE
 export const autoLogin = (state) => state
 
 // Signup actions.
-export const signupRequest = (state, { email, password1, password2 }) => state.merge({ signupFetching: true })
+export const signupRequest = (state, { email, password1, password2, signupCode }) => state.merge({ signupFetching: true })
 
 export const signupSuccess = (state, action) => {
   const { user } = action;
