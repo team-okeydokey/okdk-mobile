@@ -67,5 +67,8 @@ export default StyleSheet.create({
 
   dashboardTabButtonLabel: {
     fontSize: 10
+  },
+  moreButton: {
+    paddingVertical: 10
   }
 })

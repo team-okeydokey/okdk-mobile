@@ -28,6 +28,7 @@ const colors = {
   aliceBlue: '#F3F4F5',
   hotPink: '#FF69B4',
   shadow: 'rgba(0, 0, 0, 0.2)',
+  appleBlue: '#007af4'
 }
 
 export default colors

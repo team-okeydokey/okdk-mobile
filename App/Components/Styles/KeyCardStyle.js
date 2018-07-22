@@ -42,18 +42,22 @@ export default StyleSheet.create({
   },
 
   passcodeLabel: {
-
+    marginTop: 20,
+    marginBottom: 5
   },
 
   passcodeValue: {
-
+  
   },
 
   shareButton: {
-
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: 'blue'
   },
 
   shareButtonText: {
-
+    color: Colors.snow
   }
 })
