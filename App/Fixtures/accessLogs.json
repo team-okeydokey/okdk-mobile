@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "data": {
+    "success" : true,
+    "message" : null,
+    "activity_logs":
+    [
+      {
+        "activity":"open",
+        "time" : "2018-07-20 15:11:09",
+        "guest_id":null,
+        "guest_name":null,
+        "staff_id":2,
+        "staff_name":"Sam",
+        "staff_type_name":"Housekeeper"
+      },
+      {
+        "activity":"open",
+        "time" : "2018-07-20 15:11:09",
+        "guest_id":null,
+        "guest_name":null,
+        "staff_id":2,
+        "staff_name":"Sam",
+        "staff_type_name":"Housekeeper"
+      },
+      {
+        "activity":"open",
+        "time" : "2018-07-20 15:11:09",
+        "guest_id":null,
+        "guest_name":null,
+        "staff_id":2,
+        "staff_name":"Sam",
+        "staff_type_name":"Housekeeper"
+      },
+      {
+        "activity":"open",
+        "time" : "2018-07-20 15:11:09",
+        "guest_id":null,
+        "guest_name":null,
+        "staff_id":2,
+        "staff_name":"Sam",
+        "staff_type_name":"Housekeeper"
+      }
+    ]
+  }
+}
+  

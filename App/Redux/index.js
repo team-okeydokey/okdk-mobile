@@ -12,7 +12,8 @@ export const reducers = combineReducers({
   // deviceAction: require('./DeviceActionRedux').reducer,
   auth: require('./AuthRedux').reducer,
   keyCard: require('./KeyCardRedux').reducer,
-  dashboard: require('./DashboardRedux').reducer
+  dashboard: require('./DashboardRedux').reducer,
+  roomInfo: require('./RoomInfoRedux').reducer
 })
 
 export default () => {

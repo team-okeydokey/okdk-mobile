@@ -122,8 +122,8 @@ class HomeScreen extends Component {
         <View style={styles.screenHeader}>
           {/* <Text style={styles.date}>FRIDAY, JUNE 13</Text> */}
           <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
-          <Ionicons name="ios-settings" size={25} color={"red"} />
-            <EvilIcons name="user" size={30} color="black" />
+            {/* <EvilIcons name="user" size={30} color="black" /> */}
+            <Text>PROFILE</Text>
           </TouchableOpacity>
         </View>
         <KeyCarousel

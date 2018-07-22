@@ -8,16 +8,18 @@ import { Colors } from '../Themes/'
 export default class Activity extends Component {
   // Prop type warnings
   static propTypes = {
-    type: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    timestamp: PropTypes.number.isRequired
+    activity: PropTypes.string.isRequired,
+    staffName: PropTypes.string.isRequired,
+    staffType: PropTypes.string.isRequired,
+    timestamp: PropTypes.string.isRequired
   }
   
   // Defaults for props
   static defaultProps = {
-    type: 0,
-    description: "",
-    timestamp: 0,
+    activity: "",
+    staffName: "",
+    staffType: "",
+    timestamp: ""
   }
 
   getDescriptionColor(type) {
@@ -31,12 +33,15 @@ export default class Activity extends Component {
   render () {
 
     let descriptionStyle = {
-      color: this.getDescriptionColor(this.props.type)
+      // color: this.getDescriptionColor(this.props.type)
     }
 
     return (
       <View style={styles.container}>
-        <Text style={[styles.description, descriptionStyle]}>{this.props.description}</Text>
+        <View style={styles.staffInfoContainer}>
+          <Text style={[styles.staffType, descriptionStyle]}>{this.props.staffType}</Text>
+          <Text style={styles.staffName}>{this.props.staffName}</Text>
+        </View>
         <Text style={styles.timestamp}>{this.props.timestamp}</Text>
       </View>
     )

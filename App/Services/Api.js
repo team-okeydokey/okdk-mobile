@@ -51,6 +51,8 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
 
   const shareKey = (token, email) => api.post('/api/v1/share-key', {}, {headers: {"x-access-token": token, "email": email, "type": "guest"}});
 
+  const getAccessLogs = (roomId) => api.get('/api/v1/get-access-logs', {room_id: roomId})
+
   // ------
   // STEP 3
   // ------
@@ -71,7 +73,9 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
     login,
     signup,
     open,
-    resetPw
+    resetPw,
+    shareKey, 
+    getAccessLogs
   }
 }
 

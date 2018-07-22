@@ -34,7 +34,7 @@ export default StyleSheet.create({
   },
 
   dashboardContent: {
-    height: Metrics.screenHeight * 0.6 - 2 * Metrics.doubleBaseMargin,
+    height: Metrics.screenHeight * 0.65,
     // backgroundColor: 'red'
   },
 

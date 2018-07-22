@@ -29,5 +29,10 @@ export default {
   shareKey: (token, email) => {
     const success = require('../Fixtures/shareKey.json')
     return success;
+  },
+
+  getAccessLogs: (roomId) => {
+    const accessLogs = require('../Fixtures/accessLogs.json')
+    return accessLogs;
   }
 }

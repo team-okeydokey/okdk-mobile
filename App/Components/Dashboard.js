@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Colors } from '../Themes/'
 
 import DashboardActions, { getTabNameByIndex } from '../Redux/DashboardRedux'
+import RoomInfoActions from '../Redux/RoomInfoRedux'
 
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import BookingInfoView from '../Components/BookingInfoView'
@@ -43,6 +44,7 @@ class DashBoard extends Component {
     if (this.props.dashboardOpen) {
       this.panel.transitionTo(0);
     } else {
+      this.props._requestLogs(this.props.user.room_id);
       this.panel.transitionTo(Metrics.screenHeight * 0.8);
     }
     this.props._setDashboardState(!this.props.dashboardOpen);
@@ -50,12 +52,7 @@ class DashBoard extends Component {
 
   _getDashboardContent() {
 
-    data=[{type: 0, description: 'Housekeeping', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0},
-    {type: 0, description: 'John opened door', timestamp: 0}, {type: 1, description: 'Failed attempt', timestamp: 0}, 
-    {type: 1, description: 'Failed attempt', timestamp: 0}, {type: 0, description: 'test1', timestamp: 0},
-    {type: 0, description: 'test1', timestamp: 0}]
-
-    return (<DoorActivityView activityData={data}/>);
+    return (<DoorActivityView activityData={this.props.logs}/>);
 
     // switch(this.props.currentTab) {
     // case 1: return (<DoorlockSettingsView/>);
@@ -135,7 +132,8 @@ class DashBoard extends Component {
             style={styles.dashboardHeaderContainer}
             onPress={this._toggleDashboard}
             >
-            <EvilIcons name="chevron-up" size={30} color="gray" />
+            {/* <EvilIcons name="chevron-up" size={30} color="gray" /> */}
+            <Text>MORE</Text>
             <Text style={styles.dashboardHeader}>
               {this.props.title}
             </Text>
@@ -162,9 +160,11 @@ class DashBoard extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.auth.user,
     dashboardOpen: state.dashboard.isOpen,
     title: state.dashboard.title,
-    currentTab: state.dashboard.currentTab
+    currentTab: state.dashboard.currentTab,
+    logs: state.roomInfo.logs
   }
 }
 
@@ -179,6 +179,9 @@ const mapDispatchToProps = (dispatch) => {
       } else {
         dispatch(DashboardActions.closeDashboard());
       }
+    },
+    _requestLogs: (roomId) => {
+      dispatch(RoomInfoActions.logsRequest(roomId));
     }
   }
 }

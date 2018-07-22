@@ -18,9 +18,10 @@ class DoorActivityView extends Component {
 
   _renderItem = ({item}) => (
     <Activity
-      type={item.type}
-      description={item.description}
-      timestamp={item.timestamp}
+      activity={item.activity}
+      timestamp={item.time}
+      staffName={item.staff_name}
+      staffType={item.staff_type_name}
     />
   );
 
@@ -37,7 +38,7 @@ class DoorActivityView extends Component {
           style={styles.flatlist}
           data={this.props.activityData}
           renderItem={this._renderItem}
-          scrollEnabled={false}
+          scrollEnabled={true}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
           ItemSeparatorComponent={this._renderSeparator}

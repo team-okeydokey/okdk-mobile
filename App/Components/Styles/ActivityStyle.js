@@ -5,21 +5,31 @@ export default StyleSheet.create({
   container: {
     ...ApplicationStyles.shadow,
     overflow:'visible',
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: Metrics.doubleBaseMargin,
     paddingHorizontal: Metrics.doubleBaseMargin,
+    marginVertical: 10,
+    marginHorizontal: 10,
     borderRadius: 10,
   },
 
-  description: {
+  staffInfoContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start'
+  },
+
+  staffType: {
     ...Fonts.style.h5,
-    alignSelf: 'flex-start',
+  },
+
+  staffName: {
+
   },
 
   timestamp: {
     ...Fonts.style.normal,
-    alignSelf: 'flex-end',
   }
 })
