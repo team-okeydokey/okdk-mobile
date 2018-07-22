@@ -101,7 +101,8 @@ class KeyCard extends Component {
           <Text style={[styles.shareButtonText, shareButtonTextStyle]}>SHARE</Text>
         </TouchableOpacity>
 
-        <Dialog.Container visible={this.state.dialogVisible}>
+        <Dialog.Container visible={this.state.dialogVisible}
+        style={{opacity: 1}}>
           <Dialog.Title>Share Key</Dialog.Title>
           <Dialog.Description>
             Enter email of user to share this key with.
