@@ -10,7 +10,8 @@
       "email": "dd@gmail.com",
       "code": "ABCDE",
       "room_name": "Room 101",
-      "reservation_code": "Test code"
+      "reservation_code": "Test code", 
+      "room_id": 1
     }
   }
 }
