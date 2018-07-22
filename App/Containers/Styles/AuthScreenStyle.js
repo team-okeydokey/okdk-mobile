@@ -28,6 +28,7 @@ export default StyleSheet.create({
     ...Fonts.style.h1,
     color: Colors.snow,
     paddingHorizontal: Metrics.section,
+    paddingTop: 50
   },
 
   authCarousel: {
@@ -67,6 +68,8 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
+    borderBottomWidth: 1,
+    marginBottom: 15
   },
 
   loginFiller: {

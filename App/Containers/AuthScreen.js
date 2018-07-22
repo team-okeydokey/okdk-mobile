@@ -72,7 +72,7 @@ class AuthScreen extends Component {
       resizeMode='cover'
       source={require('../Images/login_background.jpg')}>
       
-        <Text style={ styles.slogan }>Okeee</Text>
+        <Text style={ styles.slogan }>Welcome!</Text>
 
         <ScrollView ref={ref => this.scrollView = ref}
           style={styles.authCarousel} 
