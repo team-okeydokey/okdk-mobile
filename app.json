@@ -8,7 +8,8 @@
     "appKey": "Oki",
     "assetBundlePatterns": [
       "App/Images/*",
-      "App/assets/fonts/*"
+      "App/assets/fonts/*",
+      "node_modules/@expo/vector-icons/fonts/**"
     ]
   }
 }

@@ -15,18 +15,21 @@ import KeyCarousel from '../Components/KeyCarousel'
 import Dashboard from '../Components/Dashboard'
 
 import { EvilIcons } from '@expo/vector-icons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 // Styles
 import styles from './Styles/HomeScreenStyle'
 
 class HomeScreen extends Component {
+  state = {
+    doNotDisturb: false
+  };
 
   constructor(props) {
     super(props);
     
     this._launchProfilePage = this._launchProfilePage.bind(this); 
-    this._onOpen = this._onOpen.bind(this);    
+    this._onOpen = this._onOpen.bind(this); 
+    this._doNotDisturb = this._doNotDisturb.bind(this);    
   }
 
   _launchProfilePage() {
@@ -51,6 +54,14 @@ class HomeScreen extends Component {
   }
 
   _onClose() {
+  }
+
+  _doNotDisturb() {
+    this.setState({ doNotDisturb: !this.state.doNotDisturb });
+  }
+
+  _getDoNotDisturbStyle(isDoNotDisturbActive) {
+    return isDoNotDisturbActive ? 'red' : 'gray'
   }
 
   _renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle) {    
@@ -117,13 +128,17 @@ class HomeScreen extends Component {
 
     let dashboardHeaderHeight = Metrics.screenHeight * 0.05;
 
+    let doNotDisturbStyle = {color: this._getDoNotDisturbStyle(this.state.doNotDisturb)};
+
     return (
       <View style={styles.container}>
         <View style={styles.screenHeader}>
           {/* <Text style={styles.date}>FRIDAY, JUNE 13</Text> */}
           <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
-            {/* <EvilIcons name="user" size={30} color="black" /> */}
             <Text>PROFILE</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.profileIcon} onPress={this._doNotDisturb}> 
+            <Text style={doNotDisturbStyle}>DO NOT DISTURB</Text>
           </TouchableOpacity>
         </View>
         <KeyCarousel

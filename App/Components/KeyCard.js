@@ -89,7 +89,7 @@ class KeyCard extends Component {
         </TouchableOpacity>
 
         <Dialog.Container visible={this.state.dialogVisible}>
-          <Dialog.Title>Account delete</Dialog.Title>
+          <Dialog.Title>Share Key</Dialog.Title>
           <Dialog.Description>
             Enter email of user to share this key with.
           </Dialog.Description>
