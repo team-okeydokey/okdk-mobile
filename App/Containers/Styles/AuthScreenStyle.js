@@ -68,8 +68,6 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderBottomWidth: 1,
-    marginBottom: 15
   },
 
   loginFiller: {
@@ -99,6 +97,9 @@ export default StyleSheet.create({
     width: "100%",
     ...Fonts.style.normal,
     color: Colors.charcoal,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderColor: Colors.shadow
   },
 
   codeGroup: {
@@ -121,7 +122,9 @@ export default StyleSheet.create({
     flex: 1,
     ...Fonts.style.normal,
     color: Colors.charcoal,
-    opacity: 1.0
+    opacity: 1.0,
+    borderBottomWidth: 1,
+    borderColor: Colors.shadow
   },
 
   inactiveCodeInput: {

@@ -113,6 +113,10 @@ class DashBoard extends Component {
 
     let dashboardContentView = this._getDashboardContent();
 
+    let moreButtonStyle = {
+      opacity: this.props.dashboardOpen ? 0 : 1 
+    }
+
     return (
 
       <SlidingUpPanel
@@ -133,7 +137,7 @@ class DashBoard extends Component {
             onPress={this._toggleDashboard}
             >
             {/* <EvilIcons name="chevron-up" size={30} color="gray" /> */}
-            <Text style={styles.moreButton}>MORE</Text>
+            <Text style={[styles.moreButton, moreButtonStyle]}>MORE</Text>
             <Text style={styles.dashboardHeader}>
               {this.props.title}
             </Text>
