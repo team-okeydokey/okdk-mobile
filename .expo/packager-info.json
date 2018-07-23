@@ -1,8 +1,8 @@
 {
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 68020,
-  "expoServerNgrokUrl": "https://ra-tav.villim.okdk-mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.ra-tav.villim.okdk-mobile.exp.direct",
-  "ngrokPid": 68039
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

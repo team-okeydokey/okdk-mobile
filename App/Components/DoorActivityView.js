@@ -22,6 +22,7 @@ class DoorActivityView extends Component {
       timestamp={item.time}
       staffName={item.staff_name}
       staffType={item.staff_type_name}
+      guestName={item.guest_name}
     />
   );
 

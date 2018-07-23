@@ -11,7 +11,7 @@ export default StyleSheet.create({
     paddingVertical: Metrics.doubleBaseMargin,
     paddingHorizontal: Metrics.doubleBaseMargin,
     marginVertical: 10,
-    marginHorizontal: 10,
+    // marginHorizontal: 10,
     borderRadius: 10,
     borderColor: Colors.shadow,
     borderWidth: 1, 
@@ -20,19 +20,36 @@ export default StyleSheet.create({
   staffInfoContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    marginHorizontal: 10
+  },
+
+  guestInfoContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end'
+  },
+
+  activity: {
+    width: 90, 
+    fontSize: 15,
+    fontWeight: "bold"
   },
 
   staffType: {
-    ...Fonts.style.h5,
+    fontWeight: "bold"
   },
 
   staffName: {
-
+    color: 'gray'
   },
 
   timestamp: {
     fontFamily: Fonts.type.base,
     fontSize: Fonts.size.small
-  }
+  },
+
+  guestName: {
+    color: 'gray'
+  },
 })

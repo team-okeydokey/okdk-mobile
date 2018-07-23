@@ -128,10 +128,10 @@ class HomeScreen extends Component {
       // data = this.props.user.access.filter(i => {
       //   return i.active == true;
       // });
-      data = this.props.user.room_name == null ? [{"accessName": "Not Available"}] : [{"accessName": this.props.user.room_name}];
+      data = this.props.user.room_name == null ? [{"accessName": "No\rRoom"}] : [{"accessName": this.props.user.room_name}];
     } else {
       bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
-      data = [{"accessName": "Not Available"}];
+      data = [{"accessName": "No\rRoom"}];
     }
 
     let dashboardHeaderHeight = Metrics.screenHeight * 0.05;

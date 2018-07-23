@@ -8,18 +8,20 @@ import { Colors } from '../Themes/'
 export default class Activity extends Component {
   // Prop type warnings
   static propTypes = {
-    activity: PropTypes.string.isRequired,
-    staffName: PropTypes.string.isRequired,
-    staffType: PropTypes.string.isRequired,
-    timestamp: PropTypes.string.isRequired
+    activity: PropTypes.string,
+    staffName: PropTypes.string,
+    staffType: PropTypes.string,
+    timestamp: PropTypes.string,
+    guestName: PropTypes.string
   }
   
   // Defaults for props
   static defaultProps = {
-    activity: "",
-    staffName: "",
-    staffType: "",
-    timestamp: ""
+    activity: "Managerial",
+    staffName: "Hotel",
+    staffType: "Staff",
+    timestamp: "",
+    guestName: "Guest"
   }
 
   getDescriptionColor(type) {
@@ -35,14 +37,18 @@ export default class Activity extends Component {
     let descriptionStyle = {
       // color: this.getDescriptionColor(this.props.type)
     }
-
     return (
       <View style={styles.container}>
+        <Text style={styles.activity} numberOfLines={2}>{this.props.activity == null ? "Managerial" : this.props.activity.toUpperCase()}</Text>
         <View style={styles.staffInfoContainer}>
-          <Text style={[styles.staffType, descriptionStyle]}>{this.props.staffType}</Text>
-          <Text style={styles.staffName}>{this.props.staffName}</Text>
+          <Text style={[styles.staffType, descriptionStyle]}>{this.props.staffType == null ? "Staff" : this.props.staffType}</Text>
+          <Text style={styles.staffName}>{this.props.staffName == null ? "Hotel" : this.props.staffName}</Text>
         </View>
-        <Text style={styles.timestamp}>{this.props.timestamp}</Text>
+        <View style={styles.guestInfoContainer}>
+          <Text style={styles.timestamp}>{this.props.timestamp == null ? " " : this.props.timestamp.substring(0,10)}</Text>
+          <Text style={styles.timestamp}>{this.props.timestamp == null ? " " : this.props.timestamp.substring(12)}</Text>
+          <Text style={styles.guestName}>{this.props.guestName == null ? "Guest" : this.props.guestName}</Text>
+        </View>
       </View>
     )
   }
