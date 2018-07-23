@@ -77,7 +77,7 @@ export default class KeyCarousel extends Component {
     let pagination = this._pagination();
     
     return (
-      <View>
+      <View style={{"marginTop": 20}}>
         <Carousel
           ref={(c) => { this._carousel = c; }}
           // data={this.state.entries}

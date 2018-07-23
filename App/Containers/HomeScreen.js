@@ -8,6 +8,7 @@ import { NavigationActions } from 'react-navigation';
 import AuthActions, { isLoggedIn } from '../Redux/AuthRedux'
 import DeviceActions from '../Redux/DeviceActionRedux'
 import KeyCardActions from '../Redux/KeyCardRedux'
+import Dialog from "react-native-dialog";
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -21,7 +22,8 @@ import styles from './Styles/HomeScreenStyle'
 
 class HomeScreen extends Component {
   state = {
-    doNotDisturb: false
+    dialogVisible: false,
+    shareEmail: "",
   };
 
   constructor(props) {
@@ -29,7 +31,6 @@ class HomeScreen extends Component {
     
     this._launchProfilePage = this._launchProfilePage.bind(this); 
     this._onOpen = this._onOpen.bind(this); 
-    this._doNotDisturb = this._doNotDisturb.bind(this);    
   }
 
   _launchProfilePage() {
@@ -54,14 +55,6 @@ class HomeScreen extends Component {
   }
 
   _onClose() {
-  }
-
-  _doNotDisturb() {
-    this.setState({ doNotDisturb: !this.state.doNotDisturb });
-  }
-
-  _getDoNotDisturbStyle(isDoNotDisturbActive) {
-    return isDoNotDisturbActive ? 'red' : 'gray'
   }
 
   _renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle) {    
@@ -91,12 +84,26 @@ class HomeScreen extends Component {
         <TouchableOpacity 
           onPress={this._onOpen}
           style={[styles.actionButton, bottomButtonStyle]}>
-          <Text style={styles.actionButtonText}>OPEN</Text>
+          {/* <Text style={styles.actionButtonText}></Text> */}
         </TouchableOpacity>
 
       </View>
     )
   }
+
+  _showDialog = () => {
+    this.setState({ dialogVisible: true });
+  };
+
+  _handleCancel = () => {
+    this.setState({ dialogVisible: false });
+  };
+
+  _handleSend = () => {
+    let email = this.state.shareEmail;
+    this.props._shareRequest(this.props.user.token, email);
+    this.setState({ dialogVisible: false });
+  };
 
   render () {
     let keyCardSize = Metrics.screenWidth * 0.75;
@@ -108,7 +115,8 @@ class HomeScreen extends Component {
       "borderRadius": bottomButtonSize / 2.0
     }
     let buttonContainerStyle = {
-      "padding": Metrics.doubleSection
+      "padding": Metrics.doubleSection,
+      "marginTop" : Metrics.section - 10
     };
 
     var bottomButtons, data;
@@ -120,7 +128,7 @@ class HomeScreen extends Component {
       // data = this.props.user.access.filter(i => {
       //   return i.active == true;
       // });
-      data = [{"accessName": this.props.user.room_name}];
+      data = this.props.user.room_name == null ? [{"accessName": "Not Available"}] : [{"accessName": this.props.user.room_name}];
     } else {
       bottomButtons =  this._renderLoggedOutButtons(bottomButtonStyle, buttonContainerStyle);
       data = [{"accessName": "Not Available"}];
@@ -128,17 +136,21 @@ class HomeScreen extends Component {
 
     let dashboardHeaderHeight = Metrics.screenHeight * 0.05;
 
-    let doNotDisturbStyle = {color: this._getDoNotDisturbStyle(this.state.doNotDisturb)};
+    let shareButtonTextStyle = {
+      opacity: loggedIn ? 1 : 0,
+    }
 
     return (
       <View style={styles.container}>
         <View style={styles.screenHeader}>
           {/* <Text style={styles.date}>FRIDAY, JUNE 13</Text> */}
           <TouchableOpacity style={styles.profileIcon} onPress={this._launchProfilePage}> 
-            <Text>PROFILE</Text>
+            <Text style={styles.profileText}>PROFILE</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.profileIcon} onPress={this._doNotDisturb}> 
-            <Text style={doNotDisturbStyle}>DO NOT DISTURB</Text>
+          <TouchableOpacity style={styles.shareButton}
+            disabled={!loggedIn || this.props.user.room_name == null}
+            onPress={this._showDialog}>
+            <Text style={[styles.shareButtonText, shareButtonTextStyle]}>SHARE</Text>
           </TouchableOpacity>
         </View>
         <KeyCarousel
@@ -158,6 +170,19 @@ class HomeScreen extends Component {
           <Dashboard
           headerHeight={dashboardHeaderHeight}>
           </Dashboard> }
+
+      <Dialog.Container visible={this.state.dialogVisible}
+        style={{opacity: 1}}>
+        <Dialog.Title>Share Key</Dialog.Title>
+        <Dialog.Description>
+          Enter email of user to share this key with.
+        </Dialog.Description>
+        <Dialog.Input
+          onChangeText={(text) => this.setState({shareEmail: text})}>
+        </Dialog.Input>
+        <Dialog.Button label="Cancel" onPress={this._handleCancel} />
+        <Dialog.Button label="Send" onPress={this._handleSend} />
+      </Dialog.Container>
 
       </View>
     )
@@ -181,6 +206,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     _open: (token) => {
       dispatch(DeviceActions.open(token));
+    },
+    _shareRequest: (token, email) => {
+      dispatch(KeyCardActions.shareRequest(token, email));
     }
   }
 }

@@ -3,15 +3,12 @@ import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/Foundation';
 import styles from './Styles/KeyCardStyle'
-import ShareDialog from './ShareDialog';
-import Dialog from "react-native-dialog";
 import { connect } from 'react-redux'
 import KeyCardActions from '../Redux/KeyCardRedux'
+import RoomInfoActions from '../Redux/RoomInfoRedux'
 
 class KeyCard extends Component {
   state = {
-    dialogVisible: false,
-    shareEmail: "",
     passcode: ""
   };
 
@@ -20,7 +17,7 @@ class KeyCard extends Component {
     let thirtyMinutes = Math.floor(currSecs / (60 * 30));
     let dateString = (thirtyMinutes * 1337).toString();
     let passCodePrefix = dateString.substr(dateString.length - 4); 
-    this.interval = setInterval(() => this.setState({ passcode: this.props.active ? passCodePrefix + '8647' : "" }), 10000);
+    this.interval = setInterval(() => this.setState({ passcode: this.props.active ? passCodePrefix + '8647' : "" }), 1000); 
   }
 
   componentWillUnmount() {
@@ -30,6 +27,7 @@ class KeyCard extends Component {
   // Delete constructor after implementing redux
   constructor(props) {
     super(props);
+    this._doNotDisturb = this._doNotDisturb.bind(this);   
   }
 
   // Prop type warnings
@@ -48,20 +46,20 @@ class KeyCard extends Component {
     passcode: ""
   }
 
-  _showDialog = () => {
-    this.setState({ dialogVisible: true });
-  };
+  _doNotDisturb() {
+    if (this.props.doNotDisturb) {
+      this.props._requestDoNotDisturb(this.props.user.token, false);
+    } else {
+      this.props._requestDoNotDisturb(this.props.user.token, true);
+    }
+  }
 
-  _handleCancel = () => {
-    this.setState({ dialogVisible: false });
-  };
-
-  _handleSend = () => {
-    let email = this.state.shareEmail;
-    
-    this.props._shareRequest(this.props.user.token, email);
-    this.setState({ dialogVisible: false });
-  };
+  _getDoNotDisturbStyle(isDoNotDisturbActive) {
+    return {
+      opacity: this.props.active && (this.props.user.room_name != null) ? 1 : 0,
+      color: isDoNotDisturbActive ? 'red' : 'gray',
+    }
+  }
 
   render () {
 
@@ -70,49 +68,28 @@ class KeyCard extends Component {
       "height": this.props.height, 
       "borderRadius": this.props.width/2
     };
-
     let passcodeStyle = {
-      opacity: this.props.active ? 1 : 0
+      opacity: this.props.active && (this.props.user.room_name != null) ? 1 : 0
     }
 
-    let shareButtonTextStyle = {
-      opacity: this.props.active ? 1 : 0,
-    }
+    let doNotDisturbStyle = this._getDoNotDisturbStyle(this.props.doNotDisturb);
 
     return (
 
       <View style={[styles.keyCard, keyCardStyle]}>
 
-        <Text style={styles.myKeyTitle}
-              numberOfLines={1}>MY KEY</Text>
+        <TouchableOpacity style={styles.doNotDisturbButton} onPress={this._doNotDisturb} disabled={!this.props.active}> 
+            <Text style={[styles.doNotDisturbButtonText, doNotDisturbStyle]}>DO NOT DISTURB</Text>
+        </TouchableOpacity>
 
         <View style={styles.keyCardInfoContainer}>
           <Text style={styles.keyCardName}
               numberOfLines={2}>{this.props.name.toUpperCase()}</Text>
           <Text style={[styles.passcodeLabel, passcodeStyle]}
               numberOfLines={1}>PASSCODE</Text>
-          <Text style={styles.passcodeValue}
+          <Text style={[styles.passcodeValue, passcodeStyle]}
               numberOfLines={1}>{this.state.passcode}</Text>
         </View>
-
-        <TouchableOpacity style={styles.shareButton}
-          disabled={!this.props.active}
-          onPress={this._showDialog}>
-          <Text style={[styles.shareButtonText, shareButtonTextStyle]}>SHARE</Text>
-        </TouchableOpacity>
-
-        <Dialog.Container visible={this.state.dialogVisible}
-        style={{opacity: 1}}>
-          <Dialog.Title>Share Key</Dialog.Title>
-          <Dialog.Description>
-            Enter email of user to share this key with.
-          </Dialog.Description>
-          <Dialog.Input
-            onChangeText={(text) => this.setState({shareEmail: text})}>
-          </Dialog.Input>
-          <Dialog.Button label="Cancel" onPress={this._handleCancel} />
-          <Dialog.Button label="Send" onPress={this._handleSend} />
-        </Dialog.Container>
 
       </View>
     )
@@ -123,6 +100,7 @@ const mapStateToProps = (state) => {
   return {
     user: state.auth.user,
     activeSlide: state.keyCard.activeSlide,
+    doNotDisturb: state.roomInfo.doNotDisturb
   }
 }
 
@@ -134,8 +112,8 @@ const mapDispatchToProps = (dispatch) => {
     _onSnapToItem: (index) => {
       dispatch(KeyCardActions.slide(index));
     },
-    _shareRequest: (token, email) => {
-      dispatch(KeyCardActions.shareRequest(email));
+    _requestDoNotDisturb: (token, isOn) => {
+      dispatch(RoomInfoActions.doNotDisturbRequest(token, isOn));
     }
   }
 }

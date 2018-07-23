@@ -34,5 +34,10 @@ export default {
   getAccessLogs: (roomId) => {
     const accessLogs = require('../Fixtures/accessLogs.json')
     return accessLogs;
+  },
+
+  setDoNotDisturb: (token, turnOn) => {
+    const accessLogs = require('../Fixtures/doNotDisturb.json')
+    return accessLogs;
   }
 }

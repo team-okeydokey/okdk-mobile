@@ -17,7 +17,7 @@ import { startup } from './StartupSagas'
 import { login, signup } from './AuthSagas'
 import { open } from './DeviceActionSagas'
 import { shareKey } from './KeyCardSagas'
-import { getAccessLogs } from './RoomInfoSagas'
+import { getAccessLogs, setDoNotDisturb } from './RoomInfoSagas'
 
 /* ------------- API ------------- */
 
@@ -37,6 +37,7 @@ export default function * root () {
     takeLatest(AuthTypes.SIGNUP_REQUEST, signup, api),
     takeLatest(DeviceActionTypes.OPEN, open, api),
     takeLatest(KeyCardTypes.SHARE_REQUEST, shareKey, api),
-    takeLatest(RoomInfoTypes.LOGS_REQUEST, getAccessLogs, api)
+    takeLatest(RoomInfoTypes.LOGS_REQUEST, getAccessLogs, api),
+    takeLatest(RoomInfoTypes.DO_NOT_DISTURB_REQUEST, setDoNotDisturb, api)
   ])
 }

@@ -8,7 +8,7 @@ export default StyleSheet.create({
 
   keyCard: {
     backgroundColor: Colors.snow,
-    borderWidth: 6,
+    borderWidth: 8,
     overflow: 'hidden',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -25,7 +25,8 @@ export default StyleSheet.create({
     ...Fonts.style.description,
     color: Colors.text,
     marginBottom: Metrics.doubleBaseMargin,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: 30
   },
 
   keyCardInfoContainer: {
@@ -36,27 +37,27 @@ export default StyleSheet.create({
   },
 
   keyCardName: {
-    ...Fonts.style.h5,
+    fontWeight: 'bold',
+    fontSize: 50,
     color: 'black',
     textAlign: 'center',
   },
 
   passcodeLabel: {
-    marginTop: 20,
-    marginBottom: 5
+    marginTop: 30,
+    marginBottom: 5,
+    fontWeight: "bold"
   },
 
   passcodeValue: {
-  
+    fontWeight: "bold"
   },
 
-  shareButton: {
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+  doNotDisturbButton: {
+    marginTop: 30,  
   },
 
-  shareButtonText: {
-    color: Colors.appleBlue
+  doNotDisturbButtonText: {
+    fontWeight: "bold"
   }
 })

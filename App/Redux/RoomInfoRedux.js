@@ -6,7 +6,10 @@ import Immutable from 'seamless-immutable'
 const { Types, Creators } = createActions({
   logsRequest: ['roomId'],
   logsSuccess: ['logs'],
-  logsFailure: ['message']
+  logsFailure: ['message'],
+  doNotDisturbRequest: ['token', 'turnOn'],
+  doNotDisturbSuccess: null,
+  doNotDisturbFailure: ['message']
 })
 
 export const RoomInfoTypes = Types
@@ -17,7 +20,10 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   logs: [],
   logsFetching: false, 
-  logsError: null
+  logsError: null,
+  doNotDisturb: false,
+  doNotDisturbFetching: false,
+  doNotDisturbError: null
 })
 
 /* ------------- Reducers ------------- */
@@ -34,12 +40,26 @@ export const logsFailure = (state, action) => {
   return state.merge({ logsFetching: false, logsError: message });
 }
 
+export const doNotDisturbRequest = (state, action) => state.merge({ doNotDisturb: !state.doNotDisturb, doNotDisturbFetching: true })
+
+export const doNotDisturbSuccess = (state, action) => {
+  return state.merge({ doNotDisturbFetching: false, doNotDisturbError: null});
+}
+
+export const doNotDisturbFailure = (state, action) => {
+  const { message } = action;
+  return state.merge({ doNotDisturb: !state.doNotDisturb, doNotDisturbFetching: false, doNotDisturbError: message });
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGS_REQUEST]: logsRequest,
   [Types.LOGS_SUCCESS]: logsSuccess,
-  [Types.LOGS_FAILURE]: logsFailure
+  [Types.LOGS_FAILURE]: logsFailure,
+  [Types.DO_NOT_DISTURB_REQUEST]: doNotDisturbRequest,
+  [Types.DO_NOT_DISTURB_SUCCESS]: doNotDisturbSuccess,
+  [Types.DO_NOT_DISTURB_FAILURE]: doNotDisturbFailure
 })
 
 /* ------------- Selectors ------------- */

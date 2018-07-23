@@ -53,6 +53,8 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
 
   const getAccessLogs = (roomId) => api.get('/api/v1/get-access-logs', {room_id: roomId})
 
+  const setDoNotDisturb = (token, turnOn) => api.post('/api/v1/set-do-not-disturb', {}, {headers: {"x-access-token": token, "do_not_disturb": turnOn, "type": "guest"}})
+
   // ------
   // STEP 3
   // ------
@@ -75,7 +77,8 @@ const create = (baseURL = 'http://18.220.28.85:5000') => {
     open,
     resetPw,
     shareKey, 
-    getAccessLogs
+    getAccessLogs,
+    setDoNotDisturb
   }
 }
 

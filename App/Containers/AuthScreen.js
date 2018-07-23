@@ -54,7 +54,7 @@ class AuthScreen extends Component {
     let email = this.state.signupEmail;
     let password1 = this.state.signupPassword1;
     let password2 = this.state.signupPassword2; 
-    let signupCode = this.state.sugnupCode;
+    let signupCode = this.state.signupCode;
     this.props.signupRequest(email, password1, password2, signupCode);
   }
 

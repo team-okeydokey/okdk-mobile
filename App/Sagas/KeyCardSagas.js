@@ -9,7 +9,7 @@ export function * shareKey (api, action) {
 
   // make the call to the api
   const response = yield call(api.shareKey, token, email)
-
+  console.log(response)
   if (response.ok) {
     const shared = response.data.success;
     

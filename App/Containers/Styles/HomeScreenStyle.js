@@ -44,7 +44,7 @@ export default StyleSheet.create({
     padding: Metrics.baseMargin,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 6,
+    borderWidth: 8,
   }, 
   
   actionButtonText: {
@@ -53,6 +53,21 @@ export default StyleSheet.create({
     // color: Colors.affirmative
     color: 'black'
   },
+
+  shareButton: {
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+
+  shareButtonText: {
+    color: Colors.appleBlue,
+    fontWeight: 'bold',
+  },
+
+  profileText: {
+    fontWeight: 'bold',
+  }
 
   // closeText: {
   //   ...Fonts.style.h5,

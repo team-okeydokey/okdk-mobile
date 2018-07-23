@@ -69,6 +69,7 @@ export default StyleSheet.create({
     fontSize: 10
   },
   moreButton: {
-    paddingVertical: 10
+    paddingVertical: 10,
+    fontWeight: "bold"
   }
 })
