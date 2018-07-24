@@ -115,7 +115,10 @@ export default StyleSheet.create({
   },
 
   checkboxText: {
-    ...Fonts.style.description
+    ...Fonts.style.description,
+    fontWeight: 'bold',
+    alignSelf: 'flex-start'
+    
   },
 
   codeInput: {
@@ -124,7 +127,8 @@ export default StyleSheet.create({
     color: Colors.charcoal,
     opacity: 1.0,
     borderBottomWidth: 1,
-    borderColor: Colors.shadow
+    borderColor: Colors.shadow,
+    marginLeft: 30,
   },
 
   inactiveCodeInput: {

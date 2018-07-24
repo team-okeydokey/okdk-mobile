@@ -187,21 +187,23 @@ class AuthScreen extends Component {
                 />
 
                 <View style={styles.codeGroup}>
-                  <CheckBox
+                  {/* <CheckBox
                     containerStyle={styles.checkboxContainer}
                     textStyle={styles.checkboxText}
                     title='I have a code'
                     onPress={this._onCheck}
                     checked={this.state.checked}
-                  />
+                  /> */}
+
+                  <Text style={styles.checkBoxText}>I have a code</Text>
 
                   <TextInput
-                    style={ this.state.checked ? styles.codeInput : styles.inactiveCodeInput }
+                    style={ this.state.checked ? styles.codeInput : styles.codeInput }
                     placeholder="Code"
                     placeholderTextColor={ Colors.steel }
                     underlineColorAndroid={ Colors.text }
                     numberOfLines={1}
-                    editable={this.state.checked}
+                    // editable={this.state.checked}
                     onChangeText={(text) => this.setState({signupCode: text})}
                   />
                 </View>

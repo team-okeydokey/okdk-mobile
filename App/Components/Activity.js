@@ -39,15 +39,15 @@ export default class Activity extends Component {
     }
     return (
       <View style={styles.container}>
-        <Text style={styles.activity} numberOfLines={2}>{this.props.activity == null ? "Managerial" : this.props.activity.toUpperCase()}</Text>
+        <Text style={styles.activity} numberOfLines={2}>{this.props.activity == "" ? "     " : this.props.activity.toUpperCase()}</Text>
         <View style={styles.staffInfoContainer}>
-          <Text style={[styles.staffType, descriptionStyle]}>{this.props.staffType == null ? "Staff" : this.props.staffType}</Text>
-          <Text style={styles.staffName}>{this.props.staffName == null ? "Hotel" : this.props.staffName}</Text>
+          <Text style={[styles.staffType, descriptionStyle]}>{this.props.staffType == "" ? "     " : this.props.staffType}</Text>
+          <Text style={styles.staffName}>{this.props.staffName == "" ? "     " : this.props.staffName}</Text>
         </View>
         <View style={styles.guestInfoContainer}>
-          <Text style={styles.timestamp}>{this.props.timestamp == null ? " " : this.props.timestamp.substring(0,10)}</Text>
-          <Text style={styles.timestamp}>{this.props.timestamp == null ? " " : this.props.timestamp.substring(12)}</Text>
-          <Text style={styles.guestName}>{this.props.guestName == null ? "Guest" : this.props.guestName}</Text>
+          <Text style={styles.timestamp}>{this.props.timestamp == "" ? "     " : this.props.timestamp.substring(0,10)}</Text>
+          <Text style={styles.timestamp}>{this.props.timestamp == "" ? "     " : this.props.timestamp.substring(11)}</Text>
+          <Text style={styles.guestName}>{this.props.guestName == "" ? "     " : this.props.guestName}</Text>
         </View>
       </View>
     )
